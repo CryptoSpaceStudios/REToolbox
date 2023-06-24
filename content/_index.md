@@ -1,34 +1,41 @@
 ---
 banner:
-  title: Let us solve your critical website development challenges
-  content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nihil enim maxime corporis cumque <br/> totam aliquid nam sint inventore optio modi neque laborum officiis necessitatibus
-  image: /images/banner-art.svg
+  title: Welcome to the Real Estate Investors Toolbox
+  content: Experience the future of real estate investing with the Real Estate Investors Toolbox. Designed to make deal writing a breeze, this toolbox offers an array of useful tools, including the seller net calculator and MAO calculator. Say goodbye to manual calculations and hello to streamlined efficiency. Invest with confidence and unlock your full potential with this must-have resource.
+  image: /images/banner-top.svg
   button:
     label: "Contact Us"
     link: "/contact"
 
 # feature
 feature: 
-  title: Something You Need To Know
+  title: Featured Tools
   features:
-  - name: "Clean Code"
-    icon: "/images/code.svg"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit quam nihil"
-  - name: "Object Oriented"
-    icon: "/images/oop.svg"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit quam nihil"
+  - name: "Seller Net Calculator"
+    icon: "/images/calculator.svg"
+    content: "Instantly calculate how much more a seller can benefit from selling to you"
+    link: "/sellernetcalc"
+  - name: "Maximum Allowable Offer Calculator"
+    icon: "/images/calculator1.svg"
+    link: "/mao"
+    content: "Quickly and Accurately analyze properties to help you make MAO decisions faster"
   - name: "24h Service"
     icon: "/images/user-clock.svg"
+    link: "#"
     content: "Lorem ipsum dolor sit amet consectetur adipisicing elit quam nihil"
   - name: "Value for Money"
     icon: "/images/love.svg"
+    link: "#"
     content: "Lorem ipsum dolor sit amet consectetur adipisicing elit quam nihil"
   - name: "Faster Response"
     icon: "/images/speedometer.svg"
+    link: "#"
     content: "Lorem ipsum dolor sit amet consectetur adipisicing elit quam nihil"
-  - name: "Cloud Support"
-    icon: "/images/cloud.svg"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit quam nihil"
+  - name: "Zillow FSBO"
+    icon: "/images/zillow.svg"
+    link: "#"
+    content: "Get the latest Zillow FSBO listings"
+ 
 
 # services
 services:
@@ -83,7 +90,7 @@ workflow:
 # call_to_action
 call_to_action:
   title: Ready to get started?
-  content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur.
+  content: CTA TEXT.
   image: '/images/cta.svg'
   button:
     enable: true

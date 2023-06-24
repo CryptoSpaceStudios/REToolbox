@@ -32,12 +32,12 @@ const Footer = () => {
           })}
           {/* social icons */}
           <div className="md-12 sm:col-6 lg:col-3">
-            <Link href="/" aria-label="Bigspring">
+            <Link href="/" aria-label="REToolbox">
               <Image
                 src={config.site.logo}
                 width={config.site.logo_width}
                 height={config.site.logo_height}
-                alt=""
+                alt="REToolbox"
               />
             </Link>
             {markdownify(footer_content, "p", "mt-3 mb-6")}

@@ -14,19 +14,7 @@ const Document = () => {
           sizes="32x32"
           href={favicon}
         />
-        {/* theme meta */}
-        <meta name="theme-name" content="next-boilerplate" />
-        <meta name="msapplication-TileColor" content="#000000" />
-        <meta
-          name="theme-color"
-          media="(prefers-color-scheme: light)"
-          content="#fff"
-        />
-        <meta
-          name="theme-color"
-          media="(prefers-color-scheme: dark)"
-          content="#000"
-        />
+        
       </Head>
       <body>
         <Main />

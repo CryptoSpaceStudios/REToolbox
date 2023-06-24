@@ -8,6 +8,7 @@ import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import { getListPage } from "../lib/contentParser";
+import Tooltip from '@mui/material/Tooltip'
 
 const Home = ({ frontmatter }) => {
   const { banner, feature, services, workflow, call_to_action } = frontmatter;
@@ -53,21 +54,30 @@ const Home = ({ frontmatter }) => {
           <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {feature.features.map((item, i) => (
               <div
+                onClick={() => { location.href = item.link; }}
                 className="feature-card rounded-xl bg-white p-5 pb-8 text-center"
                 key={`feature-${i}`}
+                alt={item.name}
+                aria-label={item.name}
+                data-tooltip={item.name}
+                
               >
                 {item.icon && (
                   <Image
                     className="mx-auto"
+                    href={item.link}
                     src={item.icon}
                     width={30}
                     height={30}
-                    alt=""
+                    alt={item.name}
+                    title={item.name}
+                    aria-label={item.name}
                   />
                 )}
-                <div className="mt-4">
+                <div className="mt-4" alt={item.name} title={item.name} aria-label={item.name}>
                   {markdownify(item.name, "h3", "h5")}
                   <p className="mt-3">{item.content}</p>
+
                 </div>
               </div>
             ))}

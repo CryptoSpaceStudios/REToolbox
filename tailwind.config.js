@@ -8,7 +8,7 @@ let h4 = h5 * font_scale;
 let h3 = h4 * font_scale;
 let h2 = h3 * font_scale;
 let h1 = h2 * font_scale;
-let fontPrimary, fontPrimaryType, fontSecondary, fontSecondaryType;
+let fontPrimary, fontPrimaryType, fontSecondary, fontSecondaryType, fontThird, fontThirdType;
 if (theme.fonts.font_family.primary) {
   fontPrimary = theme.fonts.font_family.primary
     .replace(/\+/g, " ")
@@ -20,6 +20,12 @@ if (theme.fonts.font_family.secondary) {
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
   fontSecondaryType = theme.fonts.font_family.secondary_type;
+}
+if (theme.fonts.font_family.third) {
+  fontThird = theme.fonts.font_family.third
+    .replace(/\+/g, " ")
+    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
+    fontThirdType = theme.fonts.font_family.third_type;
 }
 
 /** @type {import('tailwindcss').Config} */
@@ -48,9 +54,11 @@ module.exports = {
         dark: theme.colors.default.text_color.dark,
         primary: theme.colors.default.theme_color.primary,
         secondary: theme.colors.default.theme_color.secondary,
+        third: theme.colors.default.theme_color.third,
         body: theme.colors.default.theme_color.body,
         border: theme.colors.default.theme_color.border,
         "theme-light": theme.colors.default.theme_color.theme_light,
+        "theme-dark": theme.colors.default.theme_color.theme_dark,
       },
       fontSize: {
         base: font_base + "px",

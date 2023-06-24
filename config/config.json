@@ -1,12 +1,12 @@
 {
   "site": {
-    "title": "Bigspring Light Nextjs",
+    "title": "RE Investors ToolBox",
     "base_url": "/",
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_width": "200",
-    "logo_height": "48",
-    "logo_text": "Bigspring Light"
+    "favicon": "/icons/96.webp",
+    "logo": "/images/navlogo.png",
+    "logo_width": "139",
+    "logo_height": "84",
+    "logo_text": "RE Investors ToolBox"
   },
 
   "settings": {
@@ -24,13 +24,33 @@
   "params": {
     "contact_form_action": "",
     "tag_manager_id": "",
-    "footer_content": "Lorem ipsum dolor sit amet, consectetur elit. Consjat tristique eget amet, tempus eu at cttur.",
+    "footer_content": "stuff in config.json",
     "copyright": "Designed and Developed By [Themefisher](https://themefisher.com/)"
   },
 
   "metadata": {
-    "meta_author": "Themefisher",
-    "meta_image": "",
-    "meta_description": "A SAAS template for nextjs"
+    "meta_apple_webapp_capable": "yes",
+    "meta_apple_webapp_barstyle": "default",
+    "meta_apple_webapp_title": "",
+    "meta_author": "kFuQ",
+    "meta_author_url": "https://www.kfuq.net",
+    "meta_color_scheme": "dark light",    
+    "meta_description": "The Real Estate Investors Toolbox - A Collection of Tools to help work those deals faster",
+    "meta_format_detection": "telephone=no",
+    "meta_image": "navlogo.png",
+    "meta_appleBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_baiduBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_bingBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_ccBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_duckDuckBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_faceBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_googleBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_googleOther_Bot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_googleInspectionTool_Bot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_ninjaBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_slurpBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_twitterBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "meta_yandexBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+
   }
 }

@@ -1,0 +1,214 @@
+{
+
+  "name": "REToolbox",
+  "applicationName": "REToolbox",
+  "appWebApp": true,
+  "background_color": "#000",
+  "categories": [
+    "cars",
+    "design",
+    "developer",
+    "finance",
+    "multimedia",
+    "network",
+    "networking",
+    "photo &amp; video",
+    "photo",
+    "social"
+  ],
+  "description": "The Real Estate Investors Toolbox - A Collection of Tools to help work those deals faster",
+  "dir": "auto",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay"],
+  "edge_side_panel": { "preferred_width": 400 },
+  "handle_links": "preferred",
+  "language": "en",
+
+  "icons": [
+	{
+		"src": "/icons/36.webp",
+		"sizes": "36x36",
+		"type": "image/webp",
+		"purpose": "any",
+		"density": "0.75"
+	},
+	{
+		"src": "/icons/48.webp",
+		"sizes": "48x48",
+		"type": "image/webp",
+		"purpose": "any",
+		"density": "1.0"
+	},
+	{
+		"src": "/icons/72.webp",
+		"sizes": "72x72",
+		"type": "image/webp",
+		"purpose": "any",
+		"density": "1.5"
+	},
+	{
+		"src": "/icons/96.webp",
+		"sizes": "96x96",
+		"type": "image/webp",
+		"purpose": "any",
+		"density": "2.0"
+	},
+	{
+		"src": "/icons/144.webp",
+		"sizes": "144x144",
+		"type": "image/webp",
+		"purpose": "any",
+		"density": "3.0"
+	},
+	{
+		"src": "/icons/192.webp",
+		"sizes": "192x192",
+		"type": "image/webp",
+		"purpose": "any",
+		"density": "4.0"
+	},
+    {
+      "src": "/icons/192.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/192.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/510.webp",
+      "sizes": "510x510",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/512.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+
+  ],
+  "id": "/?source=pwa",
+  "launch_handler": {
+    "client_mode": "auto"
+  },
+  "msapplication_config": "/browserconfig.xml",
+  "msapplication_TileColor": "#FF000",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "protocol_handlers": [
+    {
+      "protocol": "mailto",
+      "url": "/mail?type=%s"
+    },
+    {
+      "protocol": "tel",
+      "url": "/tele?type=%s"
+    },
+    {
+      "protocol": "ipfs",
+      "url": "/ipfs?type=%s"
+    },
+    {
+      "protocol": "sms",
+      "url": "/sms?type=%s"
+    },
+    {
+      "protocol": "smsto",
+      "url": "/smsto?type=%s"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/screen-1.png",
+      "sizes": "1434x949",
+      "type": "image/png",
+      "description": "Home Screen"
+    },
+    {
+      "src": "/screenshots/screen-2.png",
+      "sizes": "658x947",
+      "type": "image/png",
+      "description": "Home Screen Small"
+    }
+  ], 
+  "scope": "/",
+  "scope_extensions": [
+    {"origin": "*.vercel.app"}
+  ],
+
+  "short_name": "REToolbox",
+  "start_url": "/?source=pwa",
+  "shortcuts": [
+    {
+      "name": "About REToolbox",
+      "short_name": "About",
+      "description": "About Page",
+      "url": "/about?source=pwa",
+      "icons": [
+        {
+          "src": "/icons/96.webp",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Crypto",
+      "short_name": "Trade Crypto",
+      "description": "Trade Crypto with REToolbox",
+      "url": "/tradecrypto?source=pwa",
+      "icons": [
+        {
+          "src": "/icons/96.webp",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Muh Fedbook",
+      "short_name": "Fedbook",
+      "description": "Follow me on Fedbook",
+      "url": "/facebook?source=pwa",
+      "icons": [
+        {
+          "src": "/icons/96.webp",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Muh Fedbook",
+      "short_name": "Fedbook",
+      "description": "Follow me on Fedbook",
+      "url": "/facebook?source=pwa",
+      "icons": [
+        {
+          "src": "/icons/96.webp",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "theme_color": "#ff0000",
+  "theme_colors": [
+    {
+      "color": "#FFF00",
+      "media": "(prefers-color-scheme: dark)"
+    },
+    {
+      "color": "#FFF",
+      "media": "(prefers-color-scheme: light)"
+    }
+  ]
+}

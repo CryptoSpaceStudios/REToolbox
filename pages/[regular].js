@@ -3,7 +3,10 @@ import Base from "@layouts/Baseof";
 import Contact from "@layouts/Contact";
 import Default from "@layouts/Default";
 import Faq from "@layouts/Faq";
+import Mao from "@layouts/Mao";
 import Pricing from "@layouts/Pricing";
+import SellerNetCalc from "@layouts/SellerNetCalc"
+import Zillowfsbo from "@layouts/ZillowFsbo";
 import { getRegularPage, getSinglePage } from "@lib/contentParser";
 
 // for all regular pages
@@ -29,6 +32,12 @@ const RegularPages = ({ data }) => {
         <Pricing data={data} />
       ) : layout === "faq" ? (
         <Faq data={data} />
+      ) : layout === "sellernetcalc" ? (
+        <SellerNetCalc data={data} />
+      ) : layout === "mao" ? (
+        <Mao data={data} />
+      ) : layout === "zillowfsbo" ? (
+        <Zillowfsbo data={data} />
       ) : (
         <Default data={data} />
       )}

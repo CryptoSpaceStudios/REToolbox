@@ -19,39 +19,15 @@
     {
       "name": "FAQ",
       "url": "/faq"
+    },
+    {
+      "name": "Seller Net Calc",
+      "url": "/sellernetcalc",
+      "desc": "NAME"
     }
   ],
   "footer": [
-    {
-      "name": "Company",
-      "menu": [
-        {
-          "text": "Pricing",
-          "url": "/pricing"
-        },
-        {
-          "text": "Quick Start",
-          "url": "#"
-        }
-      ]
-    },
-    {
-      "name": "Product",
-      "menu": [
-        {
-          "text": "Features",
-          "url": "#"
-        },
-        {
-          "text": "Platform",
-          "url": "#"
-        },
-        {
-          "text": "Pricing",
-          "url": "/pricing"
-        }
-      ]
-    },
+    
     {
       "name": "Support",
       "menu": [
