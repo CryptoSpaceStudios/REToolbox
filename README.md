@@ -56,3 +56,4 @@ If your problem or idea has not been addressed yet, feel free to [open a new iss
 ##  Config
 - theme
 -- main theme css settings are in theme.json
+-- `[regular].js`  is where the app routing is
