@@ -4,6 +4,7 @@ import {
   IoLocation,
   IoLogoBehance,
   IoLogoBitbucket,
+  IoLogoBitcoin,
   IoLogoCodepen,
   IoLogoDiscord,
   IoLogoDribbble,
@@ -24,52 +25,72 @@ import {
   IoLogoTiktok,
   IoLogoTumblr,
   IoLogoTwitter,
+  IoLogoVenmo,
+  IoLogoVercel,
   IoLogoVimeo,
   IoLogoVk,
   IoLogoWhatsapp,
+  IoLogoWordpress,
   IoLogoYoutube,
   IoMail,
 } from "react-icons/io5";
 
+import {
+  FaEthereum
+} from "react-icons/fa6";
+
+import {
+  SiLitecoin 
+} from "react-icons/si";
+
 const Social = ({ source, className }) => {
   const {
+    address,
+    behance,
+    bitbucket,
+    bitcoin,
+    codepen,
+    discord,
+    dribbble,
+    email,
+    ethereum,
     facebook,
-    twitter,
-    instagram,
-    youtube,
-    linkedin,
+    foursquare,
     github,
     gitlab,
-    discord,
-    slack,
+    instagram,
+    linkedin,
+    litecoin,
     medium,
-    codepen,
-    bitbucket,
-    dribbble,
-    behance,
-    pinterest,
-    soundcloud,
-    tumblr,
-    reddit,
-    vk,
-    whatsapp,
-    snapchat,
-    vimeo,
-    tiktok,
-    foursquare,
-    rss,
-    email,
     phone,
-    address,
+    pinterest,
+    reddit,
+    rss,
     skype,
+    slack,
+    snapchat,
+    soundcloud,
+    tiktok,
+    tumblr,
+    twitter,
+    venmo,
+    vercel,
+    vimeo,
+    vk,
     website,
+    whatsapp,
+    wordpress,
+    youtube,
+    
   } = source;
   return (
     <ul className={className}>
       {facebook && (
         <li className="inline-block">
           <a
-            aria-label="facebook"
+            alt="Follow Me on Facebook"
+            title="Follow Me on Facebook"
+            aria-label="Follow Me on Facebook"
             href={facebook}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -81,7 +102,9 @@ const Social = ({ source, className }) => {
       {twitter && (
         <li className="inline-block">
           <a
-            aria-label="twitter"
+            alt="Follow Me on Twitter"
+            title="Follow Me on Twitter"
+            aria-label="Follow Me on Twitter"
             href={twitter}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -93,7 +116,9 @@ const Social = ({ source, className }) => {
       {instagram && (
         <li className="inline-block">
           <a
-            aria-label="instagram"
+            alt="Follow Me on Instagram"
+            title="Follow Me on Instagram"
+            aria-label="Follow Me on Instagram"
             href={instagram}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -105,7 +130,9 @@ const Social = ({ source, className }) => {
       {youtube && (
         <li className="inline-block">
           <a
-            aria-label="youtube"
+            alt="Follow Me on Youtube"
+            title="Follow Me on Youtube"
+            aria-label="Follow Me on Youtube"
             href={youtube}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -117,7 +144,9 @@ const Social = ({ source, className }) => {
       {linkedin && (
         <li className="inline-block">
           <a
-            aria-label="linkedin"
+            alt="Follow Me on Linkedin"
+            title="Follow Me on Linkedin"
+            aria-label="Follow Me on Linkedin"
             href={linkedin}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -129,7 +158,9 @@ const Social = ({ source, className }) => {
       {github && (
         <li className="inline-block">
           <a
-            aria-label="github"
+            alt="Follow Me on Github"
+            title="Follow Me on Github"
+            aria-label="Follow Me on Github"
             href={github}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -141,7 +172,9 @@ const Social = ({ source, className }) => {
       {gitlab && (
         <li className="inline-block">
           <a
-            aria-label="gitlab"
+            alt="Follow Me on Gitlab"
+            title="Follow Me on Gitlab"
+            aria-label="Follow Me on Gitlab"
             href={gitlab}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -153,7 +186,9 @@ const Social = ({ source, className }) => {
       {discord && (
         <li className="inline-block">
           <a
-            aria-label="discord"
+            alt="Follow Me on Discord"
+            title="Follow Me on Discord"
+            aria-label="Follow Me on Discord"
             href={discord}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -165,7 +200,9 @@ const Social = ({ source, className }) => {
       {slack && (
         <li className="inline-block">
           <a
-            aria-label="slack"
+            alt="Follow Me on Slack"
+            title="Follow Me on Slack"
+            aria-label="Follow Me on Slack"
             href={slack}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -177,7 +214,9 @@ const Social = ({ source, className }) => {
       {medium && (
         <li className="inline-block">
           <a
-            aria-label="medium"
+            alt="Follow Me on Medium"
+            title="Follow Me on Medium"
+            aria-label="Follow Me on Medium"
             href={medium}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -189,7 +228,9 @@ const Social = ({ source, className }) => {
       {codepen && (
         <li className="inline-block">
           <a
-            aria-label="codepen"
+            alt="Follow Me on Codepen"
+            title="Follow Me on Codepen"
+            aria-label="Follow Me on Codepen"
             href={codepen}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -201,7 +242,9 @@ const Social = ({ source, className }) => {
       {bitbucket && (
         <li className="inline-block">
           <a
-            aria-label="bitbucket"
+            alt="Follow Me on Bitbucket"
+            title="Follow Me on Bitbucket"
+            aria-label="Follow Me on Bitbucket"
             href={bitbucket}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -213,7 +256,9 @@ const Social = ({ source, className }) => {
       {dribbble && (
         <li className="inline-block">
           <a
-            aria-label="dribbble"
+            alt="Follow Me on Driibbble"
+            title="Follow Me on Dribbble"
+            aria-label="Follow Me on Dribbble"
             href={dribbble}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -225,7 +270,9 @@ const Social = ({ source, className }) => {
       {behance && (
         <li className="inline-block">
           <a
-            aria-label="behance"
+            alt="Follow Me on Behance"
+            title="Follow Me on Behance"
+            aria-label="Follow Me on Behance"
             href={behance}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -237,7 +284,9 @@ const Social = ({ source, className }) => {
       {pinterest && (
         <li className="inline-block">
           <a
-            aria-label="pinterest"
+            alt="Follow Me on Pinterest"
+            title="Follow Me on Pinterest"
+            aria-label="Follow Me on Pinterest"
             href={pinterest}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -249,7 +298,9 @@ const Social = ({ source, className }) => {
       {soundcloud && (
         <li className="inline-block">
           <a
-            aria-label="soundcloud"
+            alt="Follow Me on Soundcloud"
+            title="Follow Me on Soundcloud"
+            aria-label="Follow Me on Soundcloud"
             href={soundcloud}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -261,7 +312,9 @@ const Social = ({ source, className }) => {
       {tumblr && (
         <li className="inline-block">
           <a
-            aria-label="tumblr"
+            alt="Follow Me on Tumblr"
+            title="Follow Me on Tumblr"
+            aria-label="Follow Me on Tumblr"
             href={tumblr}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -273,7 +326,9 @@ const Social = ({ source, className }) => {
       {reddit && (
         <li className="inline-block">
           <a
-            aria-label="reddit"
+            alt="Follow Me on Reddit"
+            title="Follow Me on Reddit"
+            aria-label="Follow Me on Reddit"
             href={reddit}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -285,7 +340,9 @@ const Social = ({ source, className }) => {
       {vk && (
         <li className="inline-block">
           <a
-            aria-label="vk"
+            alt="Follow Me on VK"
+            title="Follow Me on VK"
+            aria-label="Follow Me on VK"
             href={vk}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -297,7 +354,9 @@ const Social = ({ source, className }) => {
       {whatsapp && (
         <li className="inline-block">
           <a
-            aria-label="whatsapp"
+            alt="Follow Me on Whatsapp"
+            title="Follow Me on Whatsapp"
+            aria-label="Follow Me on Whatsapp"
             href={whatsapp}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -309,7 +368,9 @@ const Social = ({ source, className }) => {
       {snapchat && (
         <li className="inline-block">
           <a
-            aria-label="snapchat"
+            alt="Follow Me on Snapchat"
+            title="Follow Me on Snapchat"
+            aria-label="Follow Me on Snapchat"
             href={snapchat}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -318,11 +379,60 @@ const Social = ({ source, className }) => {
           </a>
         </li>
       )}
+
+      {bitcoin && (
+        <li className="inline-block">
+          <a
+            alt="Send Bitcoin"
+            title="Send Bitcoin"
+            aria-label="Send Bitcoin"
+            href={bitcoin}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <IoLogoBitcoin />
+          </a>
+        </li>
+      )}
+
+      {venmo && (
+        <li className="inline-block">
+          <a
+            alt="Send Money with Venmo"
+            title="Send Money with Venmo"
+            aria-label="Send Money with Venmo"
+            href={venmo}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <IoLogoVenmo />
+          </a>
+        </li>
+      )}
+
+      {vercel && (
+        <li className="inline-block">
+          <a
+            alt="Install this code on Vercel"
+            title="Install this code on Vercel"
+            aria-label="Install this code on Vercel"
+            href={vercel}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <IoLogoVercel />
+          </a>
+        </li>
+      )}
+
+
       {vimeo && (
         <li className="inline-block">
           <a
-            aria-label="vimeo"
-            href={vimeo}
+            alt="Follow Me on Wordpress"
+            title="Follow Me on Wordpress"
+            aria-label="Follow Me on Wordpress"
+            href={wordpress}
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
@@ -330,10 +440,58 @@ const Social = ({ source, className }) => {
           </a>
         </li>
       )}
+
+      {wordpress && (
+        <li className="inline-block">
+          <a
+            alt="Follow Me on Vimeo"
+            title="Follow Me on Vimeo"
+            aria-label="Follow Me on Vimeo"
+            href={vimeo}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <IoLogoWordpress />
+          </a>
+        </li>
+      )}
+
+      {ethereum && (
+        <li className="inline-block">
+          <a
+            alt="Send Ethereum"
+            title="Send Ethereum"
+            aria-label="Send Ethereum"
+            href={ethereum}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <FaEthereum />
+          </a>
+        </li>
+      )}
+
+      {litecoin && (
+        <li className="inline-block">
+          <a
+            alt="Send Litecoin"
+            title="Send Litecoin"
+            aria-label="Send Litecoin"
+            href={litecoin}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <SiLitecoin />
+          </a>
+        </li>
+      )}
+
       {tiktok && (
         <li className="inline-block">
           <a
-            aria-label="tiktok"
+            alt="Follow Me on Tiktok"
+            title="Follow Me on Tiktok"
+            aria-label="Follow Me on Tiktok"
             href={tiktok}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -345,7 +503,9 @@ const Social = ({ source, className }) => {
       {foursquare && (
         <li className="inline-block">
           <a
-            aria-label="foursquare"
+            alt="Follow Me on Foursquare"
+            title="Follow Me on Foursquare"
+            aria-label="Follow Me on Foursquare"
             href={foursquare}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -357,7 +517,9 @@ const Social = ({ source, className }) => {
       {skype && (
         <li className="inline-block">
           <a
-            aria-label="skype"
+            alt="Follow Me on Skype"
+            title="Follow Me on Skype"
+            aria-label="Follow Me on Skype"
             href={skype}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -369,7 +531,9 @@ const Social = ({ source, className }) => {
       {website && (
         <li className="inline-block">
           <a
-            aria-label="website"
+            alt="Check out my Website"
+            title="Check out my Website"
+            aria-label="Check out my Website"
             href={website}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -381,7 +545,9 @@ const Social = ({ source, className }) => {
       {rss && (
         <li className="inline-block">
           <a
-            aria-label="rss feed"
+            alt="Subscribe to my RSS Feed"
+            title="Subscribe to my RSS Feed"
+            aria-label="Subscribe to my RSS Feed"
             href={rss}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -392,14 +558,20 @@ const Social = ({ source, className }) => {
       )}
       {email && (
         <li className="inline-block">
-          <a aria-label="email" href={`mailto:${email}`}>
+          <a alt="Send me an Email"
+            title="Send me an Email"
+            aria-label="Send me an Email" 
+            href={`mailto:${email}`}>
             <IoMail />
           </a>
         </li>
       )}
       {phone && (
         <li className="inline-block">
-          <a aria-label="telephone" href={`tel:${phone}`}>
+          <a alt="Call Us"
+            title="Call Us"
+            aria-label="Call Us" 
+            href={`tel:${phone}`}>
             <IoCall />
           </a>
         </li>
@@ -407,7 +579,9 @@ const Social = ({ source, className }) => {
       {address && (
         <li className="inline-block">
           <a
-            aria-label="location"
+            alt="Our Location"
+            title="Our Location"
+            aria-label="Our Location"
             href={address}
             target="_blank"
             rel="noopener noreferrer nofollow"
