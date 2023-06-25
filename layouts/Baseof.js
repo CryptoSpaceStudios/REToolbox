@@ -29,6 +29,7 @@ const Base = ({
     meta_description,
     meta_duckDuckBot_options,
     meta_faceBot_options,
+    meta_favicons,
     meta_format_detection,
     meta_googleBot_options,
     meta_googleOther_Bot_options,
@@ -65,14 +66,14 @@ const Base = ({
 
         {/* Apple PWA */}
         <meta name="apple-touch-fullscreen" content="YES" />
-        <meta name="apple-touch-icon" href="/icons/apple-icon-36x36.png" />
-        <meta name="apple-touch-icon" sizes="48x48" href="/icons/apple-icon-48x48.png" />
-        <meta name="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png" />
-        <meta name="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png" />
-        <meta name="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x1120.png" />
-        <meta name="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png" />
-        <meta name="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png" />
-        <meta name="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png" />
+        <meta name="apple-touch-icon" href="/icons/36.webp" />
+        <meta name="apple-touch-icon" sizes="48x48" href="/icons/48.webp" />
+        <meta name="apple-touch-icon" sizes="72x72" href="/icons/72.webp" />
+        <meta name="apple-touch-icon" sizes="114x114" href="/icons/114.webp" />
+        <meta name="apple-touch-icon" sizes="120x120" href="/icons/120.webp" />
+        <meta name="apple-touch-icon" sizes="144x144" href="/icons/144.webp" />
+        <meta name="apple-touch-icon" sizes="152x152" href="/icons/152.webp" />
+        <meta name="apple-touch-icon" sizes="180x180" href="/icons/180.webp" />
         <meta name="apple-mobile-web-app-capable" content={meta_apple_webapp_capable} />
         <meta name="apple-mobile-web-app-status-bar-style" content={meta_apple_webapp_barstyle} />
         <meta name="apple-mobile-web-app-title" content={plainify( meta_title ? meta_title : title ? title : config.site.title )} />
@@ -113,6 +114,9 @@ const Base = ({
         {/* DuckDuckGo webcrawler */}
         <meta name="DuckDuckbot" content={plainify(meta_duckDuckBot_options)} />
 
+        {/* Favicon */}
+        <meta name="favicon" content={meta_favicons} />
+
         {/* Facebook webcrawler */}
         <meta name="facebot" content={plainify(meta_faceBot_options)} />
 
@@ -141,10 +145,10 @@ const Base = ({
 
         {/* PWA M$ Browserconfig */}
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="msapplication--starturl" content={base_url} />
+        <meta name="msapplication-starturl" content={base_url} />
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="msapplication-TileColor" content="#FFFFFF" />
-        <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png" />
+        <meta name="msapplication-TileImage" content="/icons/144.webp" />
         <meta name="msapplication-tooltip" content={plainify(description ? description : meta_description)} />
 
         {/* NinjaBot webcrawler */}
@@ -188,7 +192,7 @@ const Base = ({
         <meta name="twitter:image:alt" content={plainify( meta_title ? meta_title : title ? title : config.site.title )} />
         <meta name="twitter:image:width" content="500" />
         <meta name="twitter:image:height" content="500" />
-        <meta name="twitter:image:type" content="image/png" />
+        <meta name="twitter:image:type" content="image/webp" />
         <meta name="twitter:title" content={plainify( meta_title ? meta_title : title ? title : config.site.title )} />
 
         {/* YandexBot webcrawler */}
