@@ -103,7 +103,7 @@ import Head from 'next/head';
     }, [sellingPrice, mortgage]);  
 
     return (
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1 } } mb={8} >
 
         <Grid container direction="row" justifyContent="center" alignItems="center">
           <Grid item xs={10} sm={7} md={5} lg={9}>

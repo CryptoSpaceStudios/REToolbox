@@ -34,6 +34,7 @@ const Base = ({
     meta_googleOther_Bot_options,
     meta_googleInspectionTool_Bot_options,
     meta_image, 
+    meta_keywords,
     meta_ninjaBot_options,
     meta_slurpBot_options,
     meta_twitterBot_options,
@@ -127,6 +128,10 @@ const Base = ({
         <meta httpEquiv="Expires" content="0" />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Cache-Control" content="no-cache" />
+
+        {/* Meta Keywords*/}
+        <meta name="Keywords" content={plainify(meta_keywords)} />
+
 
         {/* PWA Manifest */}
         <link rel="manifest" href="manifest.json" />
