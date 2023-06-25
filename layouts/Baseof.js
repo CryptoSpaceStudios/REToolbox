@@ -66,7 +66,7 @@ const Base = ({
 
         {/* Apple PWA */}
         <meta name="apple-touch-fullscreen" content="YES" />
-        <meta name="apple-touch-icon" href="/icons/36.webp" />
+        <meta name="apple-touch-icon" sizes="36x36" href="/icons/36.webp" />
         <meta name="apple-touch-icon" sizes="48x48" href="/icons/48.webp" />
         <meta name="apple-touch-icon" sizes="72x72" href="/icons/72.webp" />
         <meta name="apple-touch-icon" sizes="114x114" href="/icons/114.webp" />
