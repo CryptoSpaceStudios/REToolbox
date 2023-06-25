@@ -48,7 +48,11 @@ If your problem or idea has not been addressed yet, feel free to [open a new iss
 
  `socials.json` is where you can add/delete social icons. Just add or delete the URL in the file to turn them off or on
 
-`next-sitemap.config.js` is where the sitemap and robots.txt settings are.  Built with [Next-Sitemap](https:/www.npmjs.com/package/next-sitemap)  `note:  edit .env.local and add your site url (https://my.cooldomain.io)` `note2: On Vercel, you have to modify your build settings so this works right.  "next build && next-sitemap"  is the right build command`
+`next-sitemap.config.js` is where the sitemap and robots.txt settings are.  Built with [Next-Sitemap](https:/www.npmjs.com/package/next-sitemap)  
+
+`note:  edit .env.local and add your site url (https://my.cooldomain.io) to VERCEL_URL=    If you are using vercel, this variable autopopulates so sitemap gen works` 
+
+`note2: On Vercel, you have to modify your build settings so this works right.  "next build && next-sitemap"  is the right build command`
 
   
   
