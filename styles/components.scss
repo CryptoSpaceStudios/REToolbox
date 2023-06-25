@@ -22,7 +22,7 @@
       @apply block h-9 w-9 rounded-full border border-dark text-center text-white transition hover:bg-third;
 
       svg {
-        @apply m-auto h-9 fill-primary;
+        @apply m-auto h-9 fill-dark;
       }
 
       &:hover svg {
