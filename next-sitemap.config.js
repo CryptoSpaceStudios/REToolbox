@@ -13,16 +13,15 @@ module.exports = {
             priority: config.priority,
             lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
             alternateRefs: config.alternateRefs ?? [],
-        }
+        };
     },
     robotsTxtOptions: {
         additionalSitemaps: [
-            'https://SITEGOESHERE/sitemap.xml',
+            `${process.env.SITE_URL}/sitemap.xml`,
         ],
         policies: [{
             userAgent: '*',
             disallow: '/api/*',
-            }
-        ],
+        }],
     }
-}
+};
