@@ -54,7 +54,9 @@ the app routing is in`[regular].js`
 
 [`next-sitemap.config.js` is where the sitemap and robots.txt settings are](https:/www.npmjs.com/package/next-sitemap)
 
-**`If you are using vercel, this variable autopopulates so sitemap gen works automatically on deployment`**
+**`If you are using vercel, this variable autopopulates so sitemap gen works automatically on deployment`** 
+
+**If you are not using vercel, `copy .env.sample to .env and then set VERCEL_URL (VERCEL_URL=https://my.cool.ass.domain)`**
 
 **`On Vercel, you have to modify your build settings so this works right. "next build && next-sitemap" is the right build command`**
 
