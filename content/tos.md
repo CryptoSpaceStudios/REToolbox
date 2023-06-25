@@ -1,5 +1,6 @@
 ---
 title: Terms & Conditions
+heading: These are the Terms and Conditions for our website.
 layout: tos 
 draft: false
 conditions:

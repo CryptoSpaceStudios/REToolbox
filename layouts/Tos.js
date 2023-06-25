@@ -2,11 +2,20 @@ import { markdownify } from "@lib/utils/textConverter";
 
 function Tos({ data }) {
   const { frontmatter } = data;
-  const { title, conditions } = frontmatter;
+  const { title, heading, conditions } = frontmatter;
   return (
     <section className="section">
       <div className="container">
-        {markdownify(title, "h1", "text-center font-normal")}
+      <div>
+        <div className="mb-6">
+          {markdownify(title, "h1", "text-center font-normal")}
+        </div>
+        <div className="mt-6">
+          {markdownify(heading, "h2", "text-center font-normal")}
+        </div>
+      </div>
+        
+        
         <div className="section row  -mt-6">
           {conditions.map((tos, index) => (
             <div key={index} className="col-12 mt-6 md:col-6">
