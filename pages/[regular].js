@@ -8,6 +8,7 @@ import Pricing from "@layouts/Pricing";
 import SellerNetCalc from "@layouts/SellerNetCalc"
 import Zillowfsbo from "@layouts/ZillowFsbo";
 import Tos from "@layouts/Tos";
+import Privacy from "@layouts/PrivacyPolicy";
 import { getRegularPage, getSinglePage } from "@lib/contentParser";
 
 // for all regular pages
@@ -37,6 +38,8 @@ const RegularPages = ({ data }) => {
         <SellerNetCalc data={data} />
       ) : layout === "mao" ? (
         <Mao data={data} />
+      ) : layout === "privacypolicy" ? (
+        <Privacy data={data} />
       ) : layout === "tos" ? (
         <Tos data={data} />
       ) : layout === "zillowfsbo" ? (
