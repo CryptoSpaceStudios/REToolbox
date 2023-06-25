@@ -25,7 +25,7 @@
     "contact_form_action": "",
     "tag_manager_id": "",
     "footer_content": "stuff in config.json",
-    "copyright": "Designed and Developed By [Themefisher](https://themefisher.com/)"
+    "copyright": "The Real Estate Investors Toolbox "
   },
 
   "metadata": {
@@ -38,7 +38,7 @@
     "meta_description": "The Real Estate Investors Toolbox - A Collection of Tools to help work those deals faster such as the MAO and Seller Net Calculator, and much more",
     "meta_favicons": "/icons/36.webp",
     "meta_format_detection": "telephone=no",
-    "meta_image": "navlogo.webp",
+    "meta_image": "images/navlogo.webp",
     "meta_appleBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
     "meta_baiduBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
     "meta_bingBot_options": "index, follow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
