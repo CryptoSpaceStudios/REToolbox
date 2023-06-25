@@ -15,7 +15,6 @@ const Document = () => {
           href={favicon}
           alt='Favicon'
         />
-        
       </Head>
       <body>
         <Main />
@@ -25,6 +24,8 @@ const Document = () => {
       </body>
     </Html>
   );
-};
 
+
+// EOF
+};
 export default Document;

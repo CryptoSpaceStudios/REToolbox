@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/material';
-import { markdownify } from "@lib/utils/textConverter";
-import Head from 'next/head';
 
   function MyComponent() {
     const [isMounted, setIsMounted] = useState(false);
     useEffect(() => { setIsMounted(true); }, []);
     return ( <>{isMounted && ( console.log("WTF") )} </> );
   }
-
-  
 
   function SellerNetCalc({ data }) {
     const { frontmatter } = data;
@@ -24,28 +20,26 @@ import Head from 'next/head';
       }
       return (
         <Box 
-            sx={{ 
-              mt: 2, 
-              mb: 6, 
-              width: '100%', 
-              display: 'flex', 
-              flexDirection: { xs: 'column', md: 'row' }, 
-              alignItems: 'center', 
-              justifyContent: 'center' 
-            }}
-          >
-            <Typography variant="h4">
-              You save roughly 
-            </Typography>
-            <Typography variant="h4" color="error" sx={{ fontWeight: 'bold', ml: 1, mr: 1 }}>
-              ${difference}
-            </Typography>
-            <Typography variant="h4">
-              by selling to us directly
-            </Typography>
-          </Box>
-
-
+          sx={{ 
+            mt: 2, 
+            mb: 6, 
+            width: '100%', 
+            display: 'flex', 
+            flexDirection: { xs: 'column', md: 'row' }, 
+            alignItems: 'center', 
+            justifyContent: 'center' 
+          }}
+        >
+          <Typography variant="h4">
+            You save roughly 
+          </Typography>
+          <Typography variant="h4" color="error" sx={{ fontWeight: 'bold', ml: 1, mr: 1 }}>
+            ${difference}
+          </Typography>
+          <Typography variant="h4">
+            by selling to us directly
+          </Typography>
+        </Box>
       );
   }
 
@@ -104,7 +98,6 @@ import Head from 'next/head';
 
     return (
       <Box sx={{ flexGrow: 1 } } mb={8} >
-
         <Grid container direction="row" justifyContent="center" alignItems="center">
           <Grid item xs={10} sm={7} md={5} lg={9}>
             <Box 
@@ -228,6 +221,7 @@ import Head from 'next/head';
 
     );
 
-  };
 
+// EOF
+};
 export default SellerNetCalc;

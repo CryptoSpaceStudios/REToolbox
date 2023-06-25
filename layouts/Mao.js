@@ -14,7 +14,6 @@ function MaoCalculator() {
   const [sqft, setSqft] = useState(0);
   const [arv, setArv] = useState(0);
   const [rehabLevel, setRehabLevel] = useState(0);
-
   const [realtorCommissions, setRealtorCommissions] = useState(0);
   const [titleCost, setTitleCost] = useState(0);
   const [closingCosts, setClosingCosts] = useState(0);
@@ -22,7 +21,6 @@ function MaoCalculator() {
   const [rehabCost, setRehabCost] = useState(0);
   const [wholesaleFee, setWholesaleFee] = useState(10000);
   const [mao, setMao] = useState(0);
-
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -64,29 +62,24 @@ function MaoCalculator() {
     }
 
     setErrors(newErrors);
-
-    // If there are no errors, the form is valid
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (validateForm()) {
-      // If the form is valid, you can submit the form or perform other actions here
     }
   };
 
-  
-
   return (
-    
     <Container 
       maxWidth="md" 
       aria-label='MAO'
       aria-description='MAO'
       alt='MAO'
       title='MAO'>
+      
+      {/* Header */}
       <Typography variant="h4" component="h1" gutterBottom style={{ textAlign: 'center' }}
           aria-label='MAO'
           alt='MAO'
@@ -95,6 +88,7 @@ function MaoCalculator() {
         Maximum Allowable Offer
       </Typography>
 
+      {/* DISPLAYS MAO RESULTS */}
       <Box>
         {mao > 0 ? (
           <Typography variant="h5" component="h1" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}
@@ -114,10 +108,7 @@ function MaoCalculator() {
           </Typography>
         )}
       </Box>
-
-
-
-
+      {/* END OF MAO RESULTS */}
 
       <Box mt={5} mb={8} boxShadow={8} sx={{ display: 'flex', justifyContent: 'center' }} 
             aria-label='MAO'
@@ -148,10 +139,7 @@ function MaoCalculator() {
                 title='MAO'
                 aria-description='MAO'
                 >
-                
               {/* Top of MAO Form grid */}
-
-                
                 <Grid item
                     aria-label='Square Footage'
                     aria-description='Square Footage'
@@ -181,7 +169,6 @@ function MaoCalculator() {
                     aria-label='After Repair Value (ARV)'
                     aria-description='After Repair Value (ARV)'
                     alt='After Repair Value (ARV)'
-
                   >
                 <InputLabel 
                     id="arv-label" 
@@ -337,22 +324,15 @@ function MaoCalculator() {
                     title='Maximum Allowable Offer'
                   />
                 </Grid>
-
               {/* Bottom of MAO Form grid */}
-
-  
               </Grid>
             </form>
           </CardContent>
         </Card>
       </Box>
     </Container>
-    
   );
-  
+
+// EOF
 }
-
-
-
-
 export default MaoCalculator;
