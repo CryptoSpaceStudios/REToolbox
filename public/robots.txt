@@ -1,4 +1,10 @@
+# *
 User-agent: *
-Allow: /
-
 Disallow: /api/*
+
+# Host
+Host: https://retoolbox-git-dev-cssweb.vercel.app/
+
+# Sitemaps
+Sitemap: https://retoolbox-git-dev-cssweb.vercel.app/sitemap.xml
+Sitemap: https://SITEGOESHERE/sitemap.xml
