@@ -1,12 +1,12 @@
 {
   "site": {
-    "title": "RE Investors ToolBox",
+    "title": "The Real Estate Investors Toolbox ",
     "base_url": "/",
     "favicon": "/icons/48.webp",
     "logo": "/images/navlogo.webp",
     "logo_width": "139",
     "logo_height": "84",
-    "logo_text": "RE Investors ToolBox"
+    "logo_text": "The Real Estate Investors Toolbox "
   },
 
   "settings": {
@@ -35,7 +35,7 @@
     "meta_author": "RE Toolbox",
     "meta_author_url": "https://www.retoolbox.io",
     "meta_color_scheme": "dark light",    
-    "meta_description": "The Real Estate Investors Toolbox - A Collection of Tools to help work those deals faster",
+    "meta_description": "The Real Estate Investors Toolbox - A Collection of Tools to help work those deals faster such as the MAO and Seller Net Calculator, and much more",
     "meta_favicons": "/icons/36.webp",
     "meta_format_detection": "telephone=no",
     "meta_image": "navlogo.webp",
