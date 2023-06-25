@@ -11,24 +11,24 @@ const Footer = () => {
   const { copyright, footer_content } = config.params;
   const { footer } = menu;
   return (
-    <footer className="section bg-theme-light pb-0">
-      <div className="container" style={{ display: 'flex', flexDirection: 'column' }}>
+    <footer className="section bg-theme-light pb-0" alt="Footer" aria-label="Footer" aria-description="Footer">
+      <div className="container" style={{ display: 'flex', flexDirection: 'column' }} alt="Footer" aria-label="Footer" aria-description="Footer">
 
         {/* footer menu */}
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Grid container direction="row" style={{ width: '100%' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }} alt="Footer" aria-label="Footer" aria-description="Footer">
+          <Grid container direction="row" style={{ width: '100%' }} alt="Footer Grid" aria-label="Footer Grid" aria-description="Footer Grid">
 
             {/* support section */}
-            <Grid item xs={12} sm={12} md={4} style={{ display: 'flex', justifyContent: 'flex-start' }}>
+            <Grid item xs={12} sm={12} md={4} style={{ display: 'flex', justifyContent: 'flex-start' }} alt="Footer Link" aria-label="Footer Link" aria-description="Footer Link">
               {footer.map((col) => {
                 return (
 
-                  <div key={col.name}>
+                  <div key={col.name}  alt="Footer Link" aria-label="Footer Link" aria-description="Footer Link">
 
                     <ul>
                       {col?.menu.map((item) => (
                         <li key={item.text}>
-                          <Link href={item.url} rel="" alt={item.text} aria-label={item.text} title={item.text}>
+                          <Link href={item.url} rel="" alt={item.text} aria-label={item.text} aria-description={item.text} title={item.text}>
                             {item.text}
                           </Link>
                         </li>
@@ -41,8 +41,10 @@ const Footer = () => {
 
 
             {/* social icons */}
-            <Grid item xs={12} sm={12} md={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Social source={social} alt={social} aria-label={social} title={social} className="social-icons" />
+            <Grid item xs={12} sm={12} md={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} 
+              alt="social-icons" aria-label="social-icons" aria-description="social-icons" title="social-icons"
+              >
+              <Social source={social} className="social-icons" alt="social-icons" aria-label="social-icons" aria-description="social-icons" title="social-icons" />
             </Grid>
 
 
@@ -52,6 +54,7 @@ const Footer = () => {
               <Link href="/"
                     alt={config.site.logo_text}
                     aria-label={config.site.logo_text}
+                    aria-description={config.site.logo_text}
                     title={config.site.logo_text}
               >
                 <Image
@@ -60,6 +63,7 @@ const Footer = () => {
                   height={config.site.logo_height}
                   alt={config.site.logo_text}
                   aria-label={config.site.logo_text}
+                  aria-description={config.site.logo_text}
                   title={config.site.logo_text}
                 />
               </Link>
@@ -71,9 +75,8 @@ const Footer = () => {
 
 
         {/* copyright */}
-        <div className="border-t border-border py-6 text-sm text-center">
-          ©{new Date().getFullYear()}{" "}
-          {markdownify(config.site.logo_text)}
+        <div className="border-t border-border py-6 text-sm text-center" alt="CopyRight" aria-label="CopyRight" aria-description="CopyRight">
+          ©{new Date().getFullYear()}{" "} {markdownify(config.site.logo_text)}
         </div>
 
 

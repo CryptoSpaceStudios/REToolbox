@@ -20,16 +20,19 @@ const Header = () => {
   const { enable, label, link } = config.nav_button;
 
   return (
-    <header className="header">
-      <nav className="navbar container">
+    <header className="header" alt='Navigation Menu' aria-label='Navigation Menu' aria-description='Navigation Menu'>
+      <nav className="navbar container"  alt='Navigation Menu' aria-label='Navigation Menu'>
         {/* logo */}
-        <div className="order-0">
+        <div className="order-0" alt='Logo Image' aria-label='Logo Image' aria-description='Logo Image'>
           <Logo src={logo} />
         </div>
 
         {/* navbar toggler */}
         <button
           id="show-button"
+          alt="Mobile Navigation Menu"
+          aria-label="Mobile Navigation Menu"
+          title="Mobile Navigation Menu"
           className="order-2 flex cursor-pointer items-center md:hidden md:order-1"
           onClick={() => setNavOpen(!navOpen)}
         >
@@ -52,11 +55,14 @@ const Header = () => {
         {/* Menu */}
         <div
           id="nav-menu"
+          alt="Navigation Menu" 
+          aria-label="Navigation Menu"
+          aria-description="Navigation Menu"
           className={`order-3 md:order-1 ${
             navOpen ? "max-h-[1000px]" : "max-h-0"
           }`}
         >
-          <ul className="navbar-nav block w-full md:flex md:w-auto lg:space-x-2">
+          <ul className="navbar-nav block w-full md:flex md:w-auto lg:space-x-2" alt="Navigation Menu" aria-label="Navigation Menu">
             {main.map((menu, i) => (
               <React.Fragment key={`menu-${i}`}>
                 {menu.hasChildren ? (
@@ -72,6 +78,8 @@ const Header = () => {
                         <li className="nav-dropdown-item" key={`children-${i}`}>
                           <Link
                             href={child.url}
+                            alt={child.name}
+                            aria-label={child.name}
                             className="nav-dropdown-link block"
                             
                           >
@@ -85,6 +93,10 @@ const Header = () => {
                   <li className="nav-item">
                     <Link
                       href={menu.url}
+                      alt={menu.name}
+                      aria-label={menu.name}
+                      aria-description={menu.name}
+                      title={menu.name}
                       onClick={() => setNavOpen(false)}
                       className={`nav-link block ${
                         router.asPath === menu.url ? "nav-link-active" : ""
@@ -102,6 +114,10 @@ const Header = () => {
                   className="btn btn-primary z-0 py-[14px]"
                   href={link}
                   rel=""
+                  alt={menu.name}
+                  aria-label={menu.name}
+                  aria-description={menu.name}
+                  title={menu.name}
                 >
                   {label}
                 </Link>
@@ -111,7 +127,13 @@ const Header = () => {
         </div>
         {enable && (
           <div className="d-flex order-1 ml-auto hidden min-w-[200px] items-center justify-end md:ml-0 md:flex md:order-2">
-            <Link className="btn btn-primary z-0 py-[14px]" href={link} rel="">
+            <Link className="btn btn-primary z-0 py-[14px]" 
+              href={link} 
+              rel="" 
+              alt={menu.name}
+              aria-label={menu.name}
+              aria-description={menu.name}
+              title={menu.name}>
               {label}
             </Link>
           </div>

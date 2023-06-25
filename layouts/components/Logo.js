@@ -10,6 +10,8 @@ const Logo = ({ src }) => {
   return (
     <Link
       href={base_url}
+      alt={logo_text}
+      aria-label={logo_text}
       className="navbar-brand block py-1"
       style={{
         height: logo_height.replace("px", "") + "px",
@@ -22,6 +24,8 @@ const Logo = ({ src }) => {
           height={logo_height.replace("px", "") * 2}
           src={src ? src : logo}
           alt={title}
+          aria-label={logo_text}
+          aria-description={logo_text}
           priority
         />
       ) : logo_text ? (

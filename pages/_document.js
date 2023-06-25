@@ -13,6 +13,7 @@ const Document = () => {
           type="image/png"
           sizes="32x32"
           href={favicon}
+          alt='Favicon'
         />
         
       </Head>
