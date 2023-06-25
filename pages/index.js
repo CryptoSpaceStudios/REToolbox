@@ -21,8 +21,9 @@ const Home = ({ frontmatter }) => {
         <div className="container" alt="Main Page" aria-label="Main Page">
           <div className="row text-center"  alt="Main Page" aria-label="Main Page" aria-description="Main Page">
             <div className="mx-auto lg:col-10" alt="Main Page" aria-label="Main Page" aria-description="Main Page">
-              <h1 className="font-primary font-bold" alt="Heading" aria-label="Heading">{banner.title}</h1>
-              <p className="mt-4" alt="SubHeading" aria-label="SubHeading" aria-description="SubHeading" >{markdownify(banner.content)}</p>
+              <h1 className="font-primary font-bold pb-[30px]" alt={banner.title} aria-label={banner.title}>{banner.title}</h1>
+              <h2 className="font-primary font-bold pb-[30px]" alt={banner.heading} aria-label={banner.heading} >{markdownify(banner.heading)}</h2>
+              <p className="mt-4 pb-[30px]" alt="SubHeading" aria-label="SubHeading" aria-description="SubHeading" >{markdownify(banner.content)}</p>
               {banner.button.enable && (
                 <Link
                   className="btn btn-primary mt-4"
@@ -52,6 +53,7 @@ const Home = ({ frontmatter }) => {
         <div className="container" alt='Featured Tools' aria-label='Featured Tools' aria-description='Featured Tools' >
           <div className="text-center">
             <h2 alt={feature.title} aria-label={feature.title} >{markdownify(feature.title)}</h2>
+            
           </div>
           <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {feature.features.map((item, i) => (
