@@ -1,6 +1,6 @@
 ---
 banner:
-  title: Welcome to the Real Estate Investors Toolbox
+  title: The Real Estate Investors Toolbox
   content: Experience the future of real estate investing with the Real Estate Investors Toolbox. Designed to make deal writing a breeze, this toolbox offers an array of useful tools, including the seller net calculator and MAO calculator. Say goodbye to manual calculations and hello to streamlined efficiency. Invest with confidence and unlock your full potential with this must-have resource.
   image: /images/banner-top.svg
   button:
