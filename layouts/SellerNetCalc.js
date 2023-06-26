@@ -144,6 +144,7 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                     <TextField type="number" value={sellingPrice} alt="Selling Price" aria-label='Selling Price' aria-description='Selling Price' onChange={(e) => setSellingPrice(e.target.value)} onBlur={(e) => setSellingPrice(parseFloat(e.target.value).toFixed(2))} placeholder="Enter Selling Price" fullWidth />
                   </div>
                   <div className="grid-item" alt="Realtor Commissions" aria-label='Realtor Commissions' aria-description='Realtor Commissions'>
+                    <label alt="Realtor Commissions" aria-label='Realtor Commissions' aria-description='Realtor Commissions'>Realtor Commissions (3%)</label>
                     <TextField type="number" value={costs.realtorCommissions} alt="Realtor Commissions" aria-label='Realtor Commissions' aria-description='Realtor Commissions' placeholder="Enter Selling Price" readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs'>
