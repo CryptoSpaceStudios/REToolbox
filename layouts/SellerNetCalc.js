@@ -110,6 +110,7 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
               }}
             >
               <Typography variant="h1" gutterBottom>{frontmatter.title}</Typography>
+              <h2></h2><h3></h3><h4></h4>
             </Box>
           </Grid>
 
