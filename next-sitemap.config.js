@@ -8,7 +8,7 @@ module.exports = {
     exclude: ['/sitemap.xml', '/api'],
     transform: async (config, path) => {
         return {
-            loc: `https://${process.env.VERCEL_URL}`,
+            loc: `https://${process.env.VERCEL_URL}/${path}`,
             changefreq: config.changefreq,
             priority: config.priority,
             lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
