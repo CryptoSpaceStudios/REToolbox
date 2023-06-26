@@ -148,12 +148,12 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                     <TextField type="number" value={costs.realtorCommissions} alt="Realtor Commissions" aria-label='Realtor Commissions' aria-description='Realtor Commissions' placeholder="Enter Selling Price" readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Title Costs" aria-description='Title Costs'>
-                    <label alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs'>Title Costs (0.55%)</label>
-                    <TextField type="number" value={costs.titleCosts} alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs'readOnly fullWidth />
+                    <label for="dtstitlecost" alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs'>Title Costs (0.55%)</label>
+                    <TextField id='dtstitlecost' type="number" value={costs.titleCosts} alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs'readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Closing Costs" aria-description='Closing Costs'>
-                    <label alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs'>Closing Costs (8%)</label>
-                    <TextField type="number" value={costs.closingCosts} alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs' readOnly fullWidth />
+                    <label for='dtsclosingcosts' alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs'>Closing Costs (8%)</label>
+                    <TextField id='dtsclosingcosts' type="number" value={costs.closingCosts} alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Inspection Costs" aria-description='Inspection Costs'>
                     <label alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs'>Inspection (2%)</label>
