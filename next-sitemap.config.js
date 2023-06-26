@@ -17,7 +17,7 @@ module.exports = {
     },
     robotsTxtOptions: {
         additionalSitemaps: [
-            `${process.env.VERCEL_URL}/sitemap.xml`,
+            `https://${process.env.VERCEL_URL}/sitemap.xml`,
         ],
         policies: [{
             userAgent: '*',
