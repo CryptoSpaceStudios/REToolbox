@@ -3,7 +3,7 @@ const { userAgent } = require('next/server');
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: process.env.VERCEL_URL || 'https://SITEGOESHERE',
+    siteUrl: `https://${process.env.VERCEL_URL}` || 'https://SITEGOESHERE',
     generateRobotsTxt: true,
     exclude: ['/sitemap.xml', '/api'],
     transform: async (config, path) => {
