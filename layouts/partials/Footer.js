@@ -19,66 +19,65 @@ const Footer = () => {
           <Grid container direction="row" style={{ width: '100%' }} alt="Footer Grid" aria-label="Footer Grid" aria-description="Footer Grid">
 
             {/* support section */}
-            <Grid item xs={12} sm={12} md={4} style={{ display: 'flex', justifyContent: 'flex-start' }} alt="Footer Link" aria-label="Footer Link" aria-description="Footer Link">
-              {footer.map((col) => {
-                return (
-
-                  <div key={col.name}  alt="Footer Link" aria-label="Footer Link" aria-description="Footer Link">
-
-                    <ul>
-                      {col?.menu.map((item) => (
-                        <li key={item.text}>
-                          <Link href={item.url} rel="" alt={item.text} aria-label={item.text} aria-description={item.text} title={item.text}>
-                            {item.text}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
+            <Grid item xs={12} sm={4} md={4}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} alt="Footer Link" aria-label="Footer Link" aria-description="Footer Link">
+                {footer.map((col) => {
+                  return (
+                    <div key={col.name}  alt="Footer Link" aria-label="Footer Link" aria-description="Footer Link">
+                      <ul>
+                        {col?.menu.map((item) => (
+                          <li key={item.text}>
+                            <Link href={item.url} rel="" alt={item.text} aria-label={item.text} aria-description={item.text} title={item.text}>
+                              {item.text}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })}
+              </div>
             </Grid>
-
-
             {/* social icons */}
-            <Grid item xs={12} sm={12} md={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} 
-              alt="social-icons" aria-label="social-icons" aria-description="social-icons" title="social-icons"
-              >
-              <Social source={social} className="social-icons" alt="social-icons" aria-label="social-icons" aria-description="social-icons" title="social-icons" />
+            <Grid item xs={12} sm={4} md={4}  style={{marginTop: '1em'}}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} alt="social-icons" aria-label="social-icons" aria-description="social-icons" title="social-icons">
+                <Social source={social} className="social-icons" alt="social-icons" aria-label="social-icons" aria-description="social-icons" title="social-icons" />
+              </div>
             </Grid>
-
-
 
             {/* logo section */}
-            <Grid item xs={12} sm={12} md={4} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Link href="/"
+            <Grid item xs={12} sm={4} md={4}  style={{marginTop: '1em'}}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Link href="/"
+                      alt={config.site.logo_text}
+                      aria-label={config.site.logo_text}
+                      aria-description={config.site.logo_text}
+                      title={config.site.logo_text}
+                >
+                  <Image
+                    src={config.site.logo}
+                    width={config.site.logo_width}
+                    height={config.site.logo_height}
                     alt={config.site.logo_text}
                     aria-label={config.site.logo_text}
                     aria-description={config.site.logo_text}
                     title={config.site.logo_text}
-              >
-                <Image
-                  src={config.site.logo}
-                  width={config.site.logo_width}
-                  height={config.site.logo_height}
-                  alt={config.site.logo_text}
-                  aria-label={config.site.logo_text}
-                  aria-description={config.site.logo_text}
-                  title={config.site.logo_text}
-                />
-              </Link>
-              
+                  />
+                </Link>
+              </div>
             </Grid>
             
           </Grid>
         </div>
 
-
         {/* copyright */}
-        <div className="border-t border-border py-6 text-sm text-center" alt="CopyRight" aria-label="CopyRight" aria-description="CopyRight">
-          ©{new Date().getFullYear()}{" "} {markdownify(config.site.logo_text)}
-        </div>
-
+        <Grid container justifyContent="center" alignItems="center" style={{marginTop: '1em'}}>
+            <Grid item xs={12}>
+                <div className="border-t border-border py-6 text-sm text-center" alt="CopyRight" aria-label="CopyRight" aria-description="CopyRight">
+                  ©{new Date().getFullYear()}{" "} {markdownify(config.site.logo_text)}
+                </div>
+            </Grid>
+        </Grid>
 
       </div>
     </footer>
