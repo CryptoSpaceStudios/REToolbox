@@ -202,11 +202,11 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                     <TextField type="number" value={mlsCosts.inspection} alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Sale on MLS" aria-description='Net Sale on MLS'>
-                    <label alt="Net Sale on MLS" aria-label='Net Sale on MLS' aria-description='Net Sale on MLS'>Net Sale</label>
+                    <label alt="Net Sale on MLS" aria-description='Net Sale on MLS'>Net Sale</label>
                     <TextField type="number" value={sellingPrice} alt="Net Sale on MLS" aria-label='Net Sale on MLS' aria-description='Net Sale on MLS' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Mortgage"  aria-description='Mortgage'>
-                    <label alt="Mortgage" aria-label='Mortgage' aria-description='Mortgage'>Mortgage</label>
+                    <label alt="Mortgage" aria-description='Mortgage'>Mortgage</label>
                     <TextField type="number" value={mortgage} alt="Mortgage" aria-label='Mortgage' aria-description='Mortgage' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Equity" aria-description='Net Equity'>
