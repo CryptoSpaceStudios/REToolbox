@@ -80,7 +80,7 @@ function MaoCalculator() {
       title='MAO'>
       
       {/* Header */}
-      <Typography variant="h4" component="h1" gutterBottom style={{ textAlign: 'center' }}
+      <Typography variant="h2" component="h1" gutterBottom style={{ textAlign: 'center' }}
           aria-label='MAO'
           alt='MAO'
           title='MAO'
@@ -180,7 +180,7 @@ function MaoCalculator() {
                     alt='After Repair Value (ARV)'
                     >After Repair Value</InputLabel>
                   <TextField
-                    id='arrrvv'
+                    id='arrrvvv'
                     fullWidth
                     required
                     error={!!errors.arv}
@@ -268,7 +268,7 @@ function MaoCalculator() {
                   >
                 <InputLabel for='closingcosts' id="ccost-label">Closing Costs</InputLabel>
                   <TextField
-                    id='closingclosts'
+                    id='closingcosts'
                     fullWidth
                     required
                     disabled
