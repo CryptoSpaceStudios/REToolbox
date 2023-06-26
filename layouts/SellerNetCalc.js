@@ -157,7 +157,7 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                   </div>
                   <div className="grid-item" alt="Inspection Costs" aria-description='Inspection Costs'>
                     <label alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs'>Inspection (2%)</label>
-                    <TextField type="number" value={costs.inspection} alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs' readOnly fullWidth />
+                    <TextField type="number" value={costs.inspection} alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs' placeholder="Inspection Costs" readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Sale" aria-description='Net Sale'>
                     <label alt="Net Sale" aria-description='Net Sale'>Net Sale</label>
