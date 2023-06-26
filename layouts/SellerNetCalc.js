@@ -156,20 +156,20 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                     <TextField id='dtsclosingcosts' type="number" value={costs.closingCosts} alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Inspection Costs" aria-description='Inspection Costs'>
-                    <label alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs'>Inspection (2%)</label>
-                    <TextField type="number" value={costs.inspection} alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs' placeholder="Inspection Costs" readOnly fullWidth />
+                    <label for='dtscInspectionCosts' alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs'>Inspection (2%)</label>
+                    <TextField id='dtscInspectionCosts' type="number" value={costs.inspection} alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Sale" aria-description='Net Sale'>
-                    <label alt="Net Sale" aria-description='Net Sale'>Net Sale</label>
-                    <TextField type="number" value={sellingPrice} alt="Net Sale" readOnly fullWidth />
+                    <label for='dtscNetSale' alt="Net Sale" aria-description='Net Sale'>Net Sale</label>
+                    <TextField id='dtscNetSale' type="number" value={sellingPrice} alt="Net Sale" readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Mortgage" aria-description='Mortgage'>
-                    <label alt="Mortgage" aria-description='Mortgage'>Mortgage</label>
-                    <TextField type="number" value={mortgage} alt="Mortgage" aria-label='Mortgage' aria-description='Mortgage' onChange={(e) => setMortgage(e.target.value)} onBlur={(e) => setMortgage(parseFloat(e.target.value).toFixed(2))} placeholder="Enter Mortgage Amount" fullWidth />
+                    <label for='dtsMortgage' alt="Mortgage" aria-description='Mortgage'>Mortgage</label>
+                    <TextField id='dtsMortgage' type="number" value={mortgage} alt="Mortgage" aria-label='Mortgage' aria-description='Mortgage' onChange={(e) => setMortgage(e.target.value)} onBlur={(e) => setMortgage(parseFloat(e.target.value).toFixed(2))} placeholder="Enter Mortgage Amount" fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Equity" aria-description='Net Equity'>
-                    <label alt="Net Equity" aria-label='Net Equity' aria-description='Net Equity'>Net Equity</label>
-                    <TextField type="number" value={calculateNetEquity()} alt="Net Equity" aria-label='Net Equity' aria-description='Net Equity' onBlur={(e) => setNetEquity(parseFloat(e.target.value).toFixed(2))} readOnly fullWidth />
+                    <label for='dtsnetEquity' alt="Net Equity" aria-label='Net Equity' aria-description='Net Equity'>Net Equity</label>
+                    <TextField id='dtsnetEquity' type="number" value={calculateNetEquity()} alt="Net Equity" aria-label='Net Equity' aria-description='Net Equity' onBlur={(e) => setNetEquity(parseFloat(e.target.value).toFixed(2))} readOnly fullWidth />
                   </div>
                 </div>
               </CardContent>
