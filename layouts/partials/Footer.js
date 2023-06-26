@@ -5,9 +5,11 @@ import social from "@config/social.json";
 import { markdownify } from "@lib/utils/textConverter";
 import Image from "next/image";
 import Link from "next/link";
-import Grid from "@mui/material/Grid"; // Importing Grid
+import Grid from "@mui/material/Grid";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+  const router = useRouter();
   const { copyright, footer_content } = config.params;
   const { footer } = menu;
   return (
@@ -27,9 +29,18 @@ const Footer = () => {
                       <ul>
                         {col?.menu.map((item) => (
                           <li key={item.text}>
-                            <Link href={item.url} rel="" alt={item.text} aria-label={item.text} aria-description={item.text} title={item.text}>
-                              {item.text}
-                            </Link>
+                          <Link 
+                            className={`support-links ${ router.asPath === item.url ? "nav-link-active" : "" }`}
+                            href={item.url} 
+                            rel="" 
+                            alt={item.text} 
+                            aria-label={item.text} 
+                            aria-description={item.text} 
+                            title={item.text}>
+                            {item.text}
+                           
+                          </Link>
+
                           </li>
                         ))}
                       </ul>
