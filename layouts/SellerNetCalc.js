@@ -160,8 +160,8 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                     <TextField type="number" value={costs.inspection} alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Sale" aria-description='Net Sale'>
-                    <label alt="Net Sale" aria-label='Net Sale' aria-description='Net Sale'>Net Sale</label>
-                    <TextField type="number" value={sellingPrice} alt="Net Sale" aria-label='Net Sale' readOnly fullWidth />
+                    <label alt="Net Sale" aria-description='Net Sale'>Net Sale</label>
+                    <TextField type="number" value={sellingPrice} alt="Net Sale" readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Mortgage" aria-description='Mortgage'>
                     <label alt="Mortgage" aria-label='Mortgage' aria-description='Mortgage'>Mortgage</label>
@@ -181,7 +181,7 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                 <div className="grid-container" alt="Listing on MLS" aria-description='Listing on MLS'>
                   <h4 className='text-center' alt="Listing on MLS" aria-label='Listing on MLS'>Listing on MLS</h4>
                   <h5 className='text-center' alt="Listing on MLS" aria-label='Listing on MLS'>(Estimated)</h5>
-                  <div className="grid-item" alt="Listing on MLS" aria-label='Listing on MLS' aria-description='Listing on MLS'>
+                  <div className="grid-item" alt="Listing on MLS" aria-description='Listing on MLS'>
                     <label alt="Selling Price" aria-label='Selling Price' aria-description='Selling Price'>Selling Price</label>
                     <TextField type="number" value={sellingPrice}  alt="Selling Price on MLS" aria-label='Selling Price on MLS' aria-description='Selling Price on MLS' readOnly fullWidth />
                   </div>
