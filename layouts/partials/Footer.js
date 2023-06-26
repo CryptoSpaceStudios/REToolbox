@@ -50,7 +50,7 @@ const Footer = () => {
               </div>
             </Grid>
             {/* social icons */}
-            <Grid item xs={12} sm={4} md={4}  style={{marginTop: '2em'}}>
+            <Grid item xs={12} sm={4} md={4}  style={{marginTop: '2em', marginBottom: '2em'}}>
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} alt="social-icons" aria-label="social-icons" aria-description="social-icons" title="social-icons">
                 <Social source={social} className="social-icons" alt="social-icons" aria-label="social-icons" aria-description="social-icons" title="social-icons" />
               </div>
