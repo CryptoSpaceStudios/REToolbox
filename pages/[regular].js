@@ -9,6 +9,7 @@ import SellerNetCalc from "@layouts/SellerNetCalc"
 import Zillowfsbo from "@layouts/ZillowFsbo";
 import Tos from "@layouts/Tos";
 import Privacy from "@layouts/PrivacyPolicy";
+import Roi from "@layouts/Roi";
 import { getRegularPage, getSinglePage } from "@lib/contentParser";
 
 // for all regular pages
@@ -44,6 +45,8 @@ const RegularPages = ({ data }) => {
         <Tos data={data} />
       ) : layout === "zillowfsbo" ? (
         <Zillowfsbo data={data} />
+      ) : layout === "roi" ? (
+        <Roi data={data} />
       ) : (
         <Default data={data} />
       )}
