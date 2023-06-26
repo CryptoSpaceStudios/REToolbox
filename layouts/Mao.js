@@ -145,6 +145,7 @@ function MaoCalculator() {
                     aria-description='Square Footage'
                     alt='Square Footage'>
                 <InputLabel 
+                    for='sqftage'
                     id="sqft-label"
                     aria-label='Square Footage'
                     aria-description='Square Footage'
@@ -152,6 +153,7 @@ function MaoCalculator() {
                     title='Square Footage'
                     >Square Footage</InputLabel>
                   <TextField
+                    id='sqftage'
                     fullWidth
                     required
                     error={!!errors.sqft}
@@ -171,12 +173,14 @@ function MaoCalculator() {
                     alt='After Repair Value (ARV)'
                   >
                 <InputLabel 
+                    for='arrrvvv'
                     id="arv-label" 
                     aria-label='After Repair Value (ARV)'
                     aria-description='After Repair Value (ARV)'
                     alt='After Repair Value (ARV)'
                     >After Repair Value</InputLabel>
                   <TextField
+                    id='arrrvv'
                     fullWidth
                     required
                     error={!!errors.arv}
@@ -196,12 +200,14 @@ function MaoCalculator() {
                   alt='Rehab Level'
                   >
                 <InputLabel 
+                      for='rehabamount'
                       id="rehab-label" 
                       aria-label='Rehab Level'
                       aria-description='Rehab Level'
                       alt='Rehab Level'>Rehab Level</InputLabel>
                   <FormControl fullWidth error={!!errors.rehabLevel}>
                     <Select
+                      id='rehabamount'
                       labelId="rehab-level-label"
                       value={rehabLevel}
                       aria-label='Rehab Level'
@@ -224,8 +230,9 @@ function MaoCalculator() {
                   aria-description='Realtor Commission'
                   alt='Realtor Commission'
                   >
-                <InputLabel id="rcomm-label">Realtor Commission</InputLabel>
+                <InputLabel for='realtorcommissions' id="rcomm-label">Realtor Commission</InputLabel>
                   <TextField
+                    id='realtorcommissions'
                     fullWidth
                     required
                     disabled
@@ -241,8 +248,9 @@ function MaoCalculator() {
                     aria-description='Title Costs'
                     alt='Title Costs'
                     >
-                <InputLabel id="tcost-label">Title Costs</InputLabel>
+                <InputLabel for='titlecosts' id="tcost-label">Title Costs</InputLabel>
                   <TextField
+                    id='titlecosts'
                     fullWidth
                     required
                     disabled
@@ -258,8 +266,9 @@ function MaoCalculator() {
                   aria-description='Closing Costs'
                   alt='Closing Costs'
                   >
-                <InputLabel id="ccost-label">Closing Costs</InputLabel>
+                <InputLabel for='closingcosts' id="ccost-label">Closing Costs</InputLabel>
                   <TextField
+                    id='closingclosts'
                     fullWidth
                     required
                     disabled
@@ -275,8 +284,9 @@ function MaoCalculator() {
                   aria-description='Rehab Cost'
                   alt='Rehab Cost'
                   >
-                <InputLabel id="rehabcost-label">Rehab Cost</InputLabel>
+                <InputLabel for='rehabcost' id="rehabcost-label">Rehab Cost</InputLabel>
                   <TextField
+                    id='rehabcost'
                     fullWidth
                     required
                     disabled
@@ -292,8 +302,9 @@ function MaoCalculator() {
                   aria-description='Wholesale Fee'
                   alt='Wholesale Fee'
                   >
-                <InputLabel id="wholesale-label">Wholesale Fee</InputLabel>
+                <InputLabel for='wholesale' id="wholesale-label">Wholesale Fee</InputLabel>
                   <TextField
+                    id='wholesale'
                     fullWidth
                     required
                     error={!!errors.wholesaleFee}
@@ -301,7 +312,6 @@ function MaoCalculator() {
                     value={wholesaleFee.toFixed(2)}
                     type="number"
                     onChange={(e) => setWholesaleFee(e.target.value)}
-                    aria-label='Wholesale Fee'
                     aria-description='Wholesale Fee'
                     alt='Wholesale Fee'
                     title='Wholesale Fee'
@@ -312,8 +322,9 @@ function MaoCalculator() {
                   aria-description='Maximum Allowable Offer'
                   alt='Maximum Allowable Offer'
                   >
-                <InputLabel id="mao-label">Maximum Allowable Offer</InputLabel>
+                <InputLabel for='maototal' id="mao-label">Maximum Allowable Offer</InputLabel>
                   <TextField
+                    id='maototal'
                     fullWidth
                     required
                     disabled
