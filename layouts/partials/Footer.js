@@ -14,7 +14,7 @@ const Footer = () => {
   const { footer } = menu;
   return (
     <footer className="section bg-theme-light pb-0" alt="Footer" aria-label="Footer" aria-description="Footer">
-      <div className="container" style={{ display: 'flex', flexDirection: 'column' }} alt="Footer" aria-label="Footer" aria-description="Footer">
+      <div className="container" style={{ display: 'flex', flexDirection: 'column', border: '2px', borderColor: '' }} alt="Footer" aria-label="Footer" aria-description="Footer">
 
         {/* footer menu */}
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }} alt="Footer" aria-label="Footer" aria-description="Footer">
@@ -30,7 +30,7 @@ const Footer = () => {
                         {col?.menu.map((item) => (
                           <li key={item.text}>
                           <Link 
-                            className={`support-links ${ router.asPath === item.url ? "nav-link-active" : "" }`}
+                            className={`support-links ${ router.asPath === item.url ? "support-links-active" : "" }`}
                             href={item.url} 
                             rel="" 
                             alt={item.text} 
