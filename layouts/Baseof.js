@@ -203,7 +203,6 @@ const Base = ({
       <Header />
       {/* main site */}
       <main>{children}</main>
-      <ResponsiveAdUnit publisherId="ca-pub-8822117230676209" slotId="9499077617" type="end-of-homepage"/>
       <Footer />
     </>
   );
