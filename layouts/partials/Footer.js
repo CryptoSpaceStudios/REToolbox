@@ -21,14 +21,14 @@ const Footer = () => {
           <Grid container direction="row" style={{ width: '100%' }} alt="Footer Grid" aria-label="Footer Grid" aria-description="Footer Grid">
 
             {/* support section */}
-            <Grid item xs={12} sm={4} md={4}>
+            <Grid item xs={12} sm={4} md={4} >
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} alt="Footer Link" aria-label="Footer Link" aria-description="Footer Link">
                 {footer.map((col) => {
                   return (
                     <div key={col.name}  alt="Footer Link" aria-label="Footer Link" aria-description="Footer Link">
-                      <ul>
+                      <ul className="">
                         {col?.menu.map((item) => (
-                          <li key={item.text}>
+                          <li key={item.text} className="mb-2">
                           <Link 
                             className={`support-links ${ router.asPath === item.url ? "support-links-active" : "" }`}
                             href={item.url} 
@@ -57,7 +57,7 @@ const Footer = () => {
             </Grid>
 
             {/* logo section */}
-            <Grid item xs={12} sm={4} md={4}  style={{marginTop: '1em'}}>
+            <Grid item xs={12} sm={4} md={4}>
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Link href="/"
                       alt={config.site.logo_text}
