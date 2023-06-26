@@ -8,7 +8,7 @@ module.exports = {
     exclude: ['/sitemap.xml', '/api'],
     transform: async (config, path) => {
         return {
-            loc: `https://${path}`,
+            loc: `https://`path,
             changefreq: config.changefreq,
             priority: config.priority,
             lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
