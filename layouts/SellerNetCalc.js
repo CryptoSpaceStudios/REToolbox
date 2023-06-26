@@ -140,7 +140,7 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                   <h4 className='text-center' alt="Direct Sale to Us" aria-label='Direct Sale to Us'>Direct Sale to Us</h4>
                   <h5 className='text-center' alt="Estimated" aria-label='Estimated'>(Estimated)</h5>
                   <div className="grid-item" alt="Selling Price" aria-description='Selling Price'>
-                    <label alt="Selling Price" aria-label='Selling Price' aria-description='Selling Price'>Selling Price</label>
+                    <label alt="Selling Price" aria-description='Selling Price'>Selling Price</label>
                     <TextField type="number" value={sellingPrice} alt="Selling Price" aria-label='Selling Price' aria-description='Selling Price' onChange={(e) => setSellingPrice(e.target.value)} onBlur={(e) => setSellingPrice(parseFloat(e.target.value).toFixed(2))} placeholder="Enter Selling Price" fullWidth />
                   </div>
                   <div className="grid-item" alt="Realtor Commissions" aria-description='Realtor Commissions'>
