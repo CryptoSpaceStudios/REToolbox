@@ -16,14 +16,14 @@ feature:
     icon: "/images/calculator.svg"
     content: "Instantly calculate how much more a seller can benefit from selling to you"
     link: "/sellernetcalc"
-  - name: "Maximum Allowable Offer Calculator"
+  - name: "MOA Calculator"
     icon: "/images/calculator1.svg"
     link: "/mao"
-    content: "Quickly and Accurately analyze properties to help you make MAO decisions faster"
+    content: "Quickly and Accurately analyze properties to help you find your Maximum Allowable faster"
   - name: "ROI Calculator"
     icon: "/images/user-clock.svg"
-    link: "#"
-    content: "Quickly and accurately determine the ROI on your exit strategy"
+    link: "/roi"
+    content: "Quickly and accurately determine the ROI on your exit strategy, whether it be Buy & Hold, F&F, or Wholesale!"
   - name: "Value for Money"
     icon: "/images/love.svg"
     link: "#"
@@ -40,37 +40,6 @@ feature:
 
 # services
 services:
-  - title: "It is the most advanced digital marketing and it company."
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur. Leo facilisi nunc viverra tellus. Ac laoreet sit vel consquat. consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur. Leo facilisi nunc viverra tellus. Ac laoreet sit vel consquat."
-    images:
-      - "/images/service-slide-1.png"
-      - "/images/service-slide-2.png"
-      - "/images/service-slide-3.png"
-    button:
-      enable: true
-      label: Check it out
-      link: /contact
-
-  - title: "It is a privately owned Information and cyber security company"
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur. Leo facilisi nunc viverra tellus. Ac laoreet sit vel consquat. consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur. Leo facilisi nunc viverra tellus. Ac laoreet sit vel consquat."
-    images: 
-      - "/images/service-slide-1.png"
-    button:
-      enable: true
-      label: Check it out
-      link: /contact
-  
-  - title: "It’s a team of experienced and skilled people with distributions"
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur. Leo facilisi nunc viverra tellus. Ac laoreet sit vel consquat. consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur. Leo facilisi nunc viverra tellus. Ac laoreet sit vel consquat."
-    images:
-      - "/images/service-slide-1.png"
-      - "/images/service-slide-2.png"
-      - "/images/service-slide-3.png"
-    button:
-      enable: true
-      label: Check it out
-      link: /contact
-
   - title: "A company standing different from others"
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur. Leo facilisi nunc viverra tellus. Ac laoreet sit vel consquat. consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur. Leo facilisi nunc viverra tellus. Ac laoreet sit vel consquat."
     images:

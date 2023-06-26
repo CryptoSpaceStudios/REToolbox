@@ -50,3 +50,15 @@
   
 }
 
+.roitab-links {
+  @apply space-x-4;
+  
+    @apply py-3 px-2 font-primary text-base font-bold text-dark transition hover:text-third md:py-4 lg:px-3;
+
+    &-active {
+      @apply py-9 px-6 text-primary;
+    }
+  
+}
+
+
