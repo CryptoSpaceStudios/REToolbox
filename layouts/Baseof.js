@@ -5,6 +5,7 @@ import Header from "@partials/Header";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect } from 'react';
+import { ResponsiveAdUnit } from 'nextjs-google-adsense';
 
 const Base = ({
   title,
@@ -202,6 +203,7 @@ const Base = ({
       <Header />
       {/* main site */}
       <main>{children}</main>
+      <ResponsiveAdUnit publisherId="ca-pub-8822117230676209" slotId="9499077617" type="end-of-homepage"/>
       <Footer />
     </>
   );
