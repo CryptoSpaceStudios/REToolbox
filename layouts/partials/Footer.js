@@ -28,7 +28,7 @@ const Footer = () => {
                     <div key={col.name}  alt="Footer Link" aria-label="Footer Link" aria-description="Footer Link">
                       <ul className="">
                         {col?.menu.map((item) => (
-                          <li key={item.text} className="mb-3">
+                          <li key={item.text} className="mb-4">
                           <Link 
                             className={`support-links ${ router.asPath === item.url ? "support-links-active" : "" }`}
                             href={item.url} 
