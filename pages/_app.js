@@ -22,7 +22,7 @@ const App = ({ Component, pageProps }) => {
   }, [pf, sf]);
 
   // google tag manager (gtm)
-  const tagManagerArgs = {
+  const tagManagerArgs = { 
     gtmId: config.params.tag_manager_id,
   };
   useEffect(() => {
