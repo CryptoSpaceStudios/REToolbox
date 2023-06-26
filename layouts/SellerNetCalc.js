@@ -164,7 +164,7 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                     <TextField type="number" value={sellingPrice} alt="Net Sale" readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Mortgage" aria-description='Mortgage'>
-                    <label alt="Mortgage" aria-label='Mortgage' aria-description='Mortgage'>Mortgage</label>
+                    <label alt="Mortgage" aria-description='Mortgage'>Mortgage</label>
                     <TextField type="number" value={mortgage} alt="Mortgage" aria-label='Mortgage' aria-description='Mortgage' onChange={(e) => setMortgage(e.target.value)} onBlur={(e) => setMortgage(parseFloat(e.target.value).toFixed(2))} placeholder="Enter Mortgage Amount" fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Equity" aria-description='Net Equity'>
@@ -182,7 +182,7 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                   <h4 className='text-center' alt="Listing on MLS" aria-label='Listing on MLS'>Listing on MLS</h4>
                   <h5 className='text-center' alt="Listing on MLS" aria-label='Listing on MLS'>(Estimated)</h5>
                   <div className="grid-item" alt="Listing on MLS" aria-description='Listing on MLS'>
-                    <label alt="Selling Price" aria-label='Selling Price' aria-description='Selling Price'>Selling Price</label>
+                    <label alt="Selling Price"  aria-description='Selling Price'>Selling Price</label>
                     <TextField type="number" value={sellingPrice}  alt="Selling Price on MLS" aria-label='Selling Price on MLS' aria-description='Selling Price on MLS' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Realtor Commissions" aria-description='Realtor Commissions'>
