@@ -20,8 +20,8 @@ function Roi({ data }) {
   return (
     <section className="section">
       <div className="container">
-        {markdownify(title, "h1", "text-center font-normal")}
-        {markdownify(heading, "h2", "text-center font-normal")}
+        {markdownify(title, "h1", "text-center font-normal")}<br />
+        {markdownify(heading, "h3", "text-center font-normal")}
         <Grid container justifyContent="center" className='mt-6'>
           <Grid item xs={12} md={9} >
             <Card>

@@ -74,36 +74,22 @@ function MaoCalculator() {
   return (
     <Container 
       maxWidth="md" 
-      aria-label='MAO'
-      aria-description='MAO'
-      alt='MAO'
-      title='MAO'>
+      role='region'
+      aria-label='MAO'>
       
       {/* Header */}
-      <Typography variant="h2" component="h1" gutterBottom style={{ textAlign: 'center' }}
-          aria-label='MAO'
-          alt='MAO'
-          title='MAO'
-          aria-description='MAO'>
+      <Typography variant="h2" component="h2" gutterBottom style={{ textAlign: 'center' }}>
         Maximum Allowable Offer
       </Typography>
 
       {/* DISPLAYS MAO RESULTS */}
       <Box>
         {mao > 0 ? (
-          <Typography variant="h5" component="h1" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}
-              aria-label='MAO Result'
-              aria-description='MAO Result'
-              alt='MAO Result'
-              title='MAO Result'>
+          <Typography variant="h5" component="h2" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}>
             MAO for this property is ${mao.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </Typography>
         ) : (
-          <Typography variant="h5" component="h1" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}
-              aria-label='MAO Result'
-              aria-description='MAO Result'
-              alt='MAO Result'
-              title='MAO Result'>
+          <Typography variant="h5" component="h2" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}>
             It will cost you ${Math.abs(mao).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} out of pocket to do this deal
           </Typography>
         )}
@@ -111,47 +97,27 @@ function MaoCalculator() {
       {/* END OF MAO RESULTS */}
 
       <Box mt={5} mb={8} boxShadow={8} sx={{ display: 'flex', justifyContent: 'center' }} 
-            aria-label='MAO'
-            alt='MAO'
-            title='MAO'
-            aria-description='MAO'
-            >
+            role='region'
+            aria-label='MAO'>
         <Card sx={{ width: '85%' }}  
-            aria-label='MAO'
-            alt='MAO'
-            title='MAO'
-            aria-description='MAO'
-            >
+            role='region'
+            aria-label='MAO'>
           <CardContent 
-            aria-label='MAO'
-            alt='MAO'
-            title='MAO'
-            aria-description='MAO'
-            >
+            role='region'
+            aria-label='MAO'>
             <form onSubmit={handleSubmit}
-              aria-label='MAO'
-              alt='MAO'
-              title='MAO'
-              >
+              role='form'
+              aria-label='MAO'>
               <Grid container spacing={3} mt={5} mb={5}  direction="column"
-                aria-label='MAO'
-                alt='MAO'
-                title='MAO'
-                aria-description='MAO'
-                >
+                role='grid'
+                aria-label='MAO'>
               {/* Top of MAO Form grid */}
                 <Grid item
-                    aria-label='Square Footage'
-                    aria-description='Square Footage'
-                    alt='Square Footage'>
+                    role='gridcell'
+                    aria-label='Square Footage'>
                 <InputLabel 
-                    for='sqftage'
-                    id="sqft-label"
-                    aria-label='Square Footage'
-                    aria-description='Square Footage'
-                    alt='Square Footage'
-                    title='Square Footage'
-                    >Square Footage</InputLabel>
+                    htmlFor='sqftage'
+                    id="sqft-label">Square Footage</InputLabel>
                   <TextField
                     id='sqftage'
                     fullWidth
@@ -162,23 +128,14 @@ function MaoCalculator() {
                     type="number"
                     onChange={(e) => setSqft(e.target.value)}
                     aria-label='Square Footage'
-                    aria-description='Square Footage'
-                    alt='Square Footage'
-                    title='Square Footage'
                   />
                 </Grid>
                 <Grid item
-                    aria-label='After Repair Value (ARV)'
-                    aria-description='After Repair Value (ARV)'
-                    alt='After Repair Value (ARV)'
-                  >
+                    role='gridcell'
+                    aria-label='After Repair Value (ARV)'>
                 <InputLabel 
-                    for='arrrvvv'
-                    id="arv-label" 
-                    aria-label='After Repair Value (ARV)'
-                    aria-description='After Repair Value (ARV)'
-                    alt='After Repair Value (ARV)'
-                    >After Repair Value</InputLabel>
+                    htmlFor='arrrvvv'
+                    id="arv-label">After Repair Value (ARV)</InputLabel>
                   <TextField
                     id='arrrvvv'
                     fullWidth
@@ -189,31 +146,20 @@ function MaoCalculator() {
                     type="number"
                     onChange={(e) => setArv(e.target.value)}
                     aria-label='After Repair Value (ARV)'
-                    aria-description='After Repair Value (ARV)'
-                    alt='After Repair Value (ARV)'
-                    title='After Repair Value (ARV)'
                   />
                 </Grid>
                 <Grid item
-                  aria-label='Rehab Level'
-                  aria-description='Rehab Level'
-                  alt='Rehab Level'
-                  >
+                  role='gridcell'
+                  aria-label='Rehab Level'>
                 <InputLabel 
-                      for='rehabamount'
-                      id="rehab-label" 
-                      aria-label='Rehab Level'
-                      aria-description='Rehab Level'
-                      alt='Rehab Level'>Rehab Level</InputLabel>
+                      htmlFor='rehabamount'
+                      id="rehab-label">Rehab Level</InputLabel>
                   <FormControl fullWidth error={!!errors.rehabLevel}>
                     <Select
                       id='rehabamount'
                       labelId="rehab-level-label"
                       value={rehabLevel}
                       aria-label='Rehab Level'
-                      aria-description='Rehab Level'
-                      alt='Rehab Level'
-                      title='Rehab Level'
                       onChange={(e) => setRehabLevel(e.target.value)}
                     >
                       {rehabLevels.map((level, index) => (
@@ -226,11 +172,9 @@ function MaoCalculator() {
                   </FormControl>
                 </Grid>
                 <Grid item
-                  aria-label='Realtor Commission'
-                  aria-description='Realtor Commission'
-                  alt='Realtor Commission'
-                  >
-                <InputLabel for='realtorcommissions' id="rcomm-label">Realtor Commission</InputLabel>
+                  role='gridcell'
+                  aria-label='Realtor Commission'>
+                <InputLabel htmlFor='realtorcommissions' id="rcomm-label">Realtor Commission (3%)</InputLabel>
                   <TextField
                     id='realtorcommissions'
                     fullWidth
@@ -238,17 +182,12 @@ function MaoCalculator() {
                     disabled
                     value={realtorCommissions.toFixed(2)}
                     aria-label='Realtor Commission'
-                    aria-description='Realtor Commission'
-                    alt='Realtor Commission'
-                    title='Realtor Commission'
                   />
                 </Grid>
                 <Grid item
-                    aria-label='Title Costs'
-                    aria-description='Title Costs'
-                    alt='Title Costs'
-                    >
-                <InputLabel for='titlecosts' id="tcost-label">Title Costs</InputLabel>
+                    role='gridcell'
+                    aria-label='Title Costs'>
+                <InputLabel htmlFor='titlecosts' id="tcost-label">Title Costs (0.55%)</InputLabel>
                   <TextField
                     id='titlecosts'
                     fullWidth
@@ -256,17 +195,12 @@ function MaoCalculator() {
                     disabled
                     value={titleCost.toFixed(2)}
                     aria-label='Title Costs'
-                    aria-description='Title Costs'
-                    alt='Title Costs'
-                    title='Title Costs'
                   />
                 </Grid>
                 <Grid item
-                  aria-label='Closing Costs'
-                  aria-description='Closing Costs'
-                  alt='Closing Costs'
-                  >
-                <InputLabel for='closingcosts' id="ccost-label">Closing Costs</InputLabel>
+                  role='gridcell'
+                  aria-label='Closing Costs'>
+                <InputLabel htmlFor='closingcosts' id="ccost-label">Closing Costs (8%)</InputLabel>
                   <TextField
                     id='closingcosts'
                     fullWidth
@@ -274,17 +208,12 @@ function MaoCalculator() {
                     disabled
                     value={closingCosts.toFixed(2)}
                     aria-label='Closing Costs'
-                    aria-description='Closing Costs'
-                    alt='Closing Costs'
-                    title='Closing Costs'
                   />
                 </Grid>
                 <Grid item
-                  aria-label='Rehab Cost'
-                  aria-description='Rehab Cost'
-                  alt='Rehab Cost'
-                  >
-                <InputLabel for='rehabcost' id="rehabcost-label">Rehab Cost</InputLabel>
+                  role='gridcell'
+                  aria-label='Rehab Cost'>
+                <InputLabel htmlFor='rehabcost' id="rehabcost-label">Rehab Cost</InputLabel>
                   <TextField
                     id='rehabcost'
                     fullWidth
@@ -292,17 +221,12 @@ function MaoCalculator() {
                     disabled
                     value={rehabCost.toFixed(2)}
                     aria-label='Rehab Cost'
-                    aria-description='Rehab Cost'
-                    alt='Rehab Cost'
-                    title='Rehab Cost'
                   />
                 </Grid>
                 <Grid item
-                  aria-label='Wholesale Fee'
-                  aria-description='Wholesale Fee'
-                  alt='Wholesale Fee'
-                  >
-                <InputLabel for='wholesale' id="wholesale-label">Wholesale Fee</InputLabel>
+                  role='gridcell'
+                  aria-label='Wholesale Fee'>
+                <InputLabel htmlFor='wholesale' id="wholesale-label">Wholesale Fee (Change if Needed)</InputLabel>
                   <TextField
                     id='wholesale'
                     fullWidth
@@ -312,17 +236,13 @@ function MaoCalculator() {
                     value={wholesaleFee.toFixed(2)}
                     type="number"
                     onChange={(e) => setWholesaleFee(e.target.value)}
-                    aria-description='Wholesale Fee'
-                    alt='Wholesale Fee'
-                    title='Wholesale Fee'
+                    aria-label='Wholesale Fee'
                   />
                 </Grid>
                 <Grid item
-                  aria-label='Maximum Allowable Offer'
-                  aria-description='Maximum Allowable Offer'
-                  alt='Maximum Allowable Offer'
-                  >
-                <InputLabel for='maototal' id="mao-label">Maximum Allowable Offer</InputLabel>
+                  role='gridcell'
+                  aria-label='Maximum Allowable Offer'>
+                <InputLabel htmlFor='maototal' id="mao-label">Maximum Allowable Offer</InputLabel>
                   <TextField
                     id='maototal'
                     fullWidth
@@ -330,12 +250,8 @@ function MaoCalculator() {
                     disabled
                     value={mao === 0 ? '' : mao.toFixed(2)}
                     aria-label='Maximum Allowable Offer'
-                    aria-description='Maximum Allowable Offer'
-                    alt='Maximum Allowable Offer'
-                    title='Maximum Allowable Offer'
                   />
                 </Grid>
-              {/* Bottom of MAO Form grid */}
               </Grid>
             </form>
           </CardContent>
@@ -343,7 +259,7 @@ function MaoCalculator() {
       </Box>
     </Container>
   );
-
-// EOF
 }
+
 export default MaoCalculator;
+

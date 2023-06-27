@@ -7,21 +7,38 @@ import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
 
 function WholesaleForm() {
-  const [purchasePrice, setPurchasePrice] = useState(0);
-  const [otherFees, setOtherFees] = useState(0);
+  const [purchasePrice, setPurchasePrice] = useState('');
+  const [wholesaleFee, setWholesaleFee] = useState('');
+  const [otherFees, setOtherFees] = useState('');
 
-  const closingCosts = parseFloat(purchasePrice) * 0.08;
-  const titleCosts = parseFloat(purchasePrice) * 0.55;
-  const inspectionFees = parseFloat(purchasePrice) * 0.02;
-  const wholesaleFee = 10000;
-  const sellingPrice = parseFloat(purchasePrice) + closingCosts + titleCosts + inspectionFees + wholesaleFee + parseFloat(otherFees);
+  const closingCosts = purchasePrice ? parseFloat(purchasePrice) * 0.08 : 0;
+  const titleCosts = purchasePrice ? parseFloat(purchasePrice) * 0.0055 : 0;
+  const inspectionFees = purchasePrice ? parseFloat(purchasePrice) * 0.02 : 0;
+  const realtorCommissions = purchasePrice ? parseFloat(purchasePrice) * 0.03 : 0; // added
+  const totalWholesaleFee = wholesaleFee ? parseFloat(wholesaleFee) : 0;
+  const totalOtherFees = otherFees ? parseFloat(otherFees) : 0;
+
+  const sellingPrice = purchasePrice ? parseFloat(purchasePrice) + closingCosts + titleCosts + inspectionFees + realtorCommissions + totalWholesaleFee + totalOtherFees : 0;
 
   const handlePurchasePriceChange = (event) => {
-    setPurchasePrice(event.target.value);
+    const value = event.target.value;
+    if (!isNaN(value)) {
+      setPurchasePrice(value);
+    }
+  };
+
+  const handleWholesaleFeeChange = (event) => {
+    const value = event.target.value;
+    if (!isNaN(value)) {
+      setWholesaleFee(value);
+    }
   };
 
   const handleOtherFeesChange = (event) => {
-    setOtherFees(event.target.value);
+    const value = event.target.value;
+    if (!isNaN(value)) {
+      setOtherFees(value);
+    }
   };
 
   return (
@@ -33,80 +50,101 @@ function WholesaleForm() {
               <InputLabel id="purchase-price-label" htmlFor="purchase-price">Purchase Price</InputLabel>
               <TextField
                 id="purchase-price"
-                type="number"
+                type="text"
                 onChange={handlePurchasePriceChange}
-                value={parseFloat(purchasePrice).toFixed(2)}
+                value={purchasePrice}
+                placeholder="0.00"
                 aria-labelledby="purchase-price-label"
+                fullWidth
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel id="closing-costs-label" htmlFor="closing-costs">Closing Costs</InputLabel>
+              <InputLabel id="realtor-commissions-label" htmlFor="realtor-commissions">Realtor Commissions (3%)</InputLabel>
+              <TextField
+                id="realtor-commissions"
+                type="text"
+                InputProps={{
+                  readOnly: true,
+                }}
+                value={realtorCommissions.toFixed(2)}
+                aria-labelledby="realtor-commissions-label"
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <InputLabel id="closing-costs-label" htmlFor="closing-costs">Closing Costs (8%)</InputLabel>
               <TextField
                 id="closing-costs"
-                type="number"
+                type="text"
                 InputProps={{
                   readOnly: true,
                 }}
                 value={closingCosts.toFixed(2)}
                 aria-labelledby="closing-costs-label"
+                fullWidth
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel id="title-costs-label" htmlFor="title-costs">Title Costs</InputLabel>
+              <InputLabel id="title-costs-label" htmlFor="title-costs">Title Costs (0.55%)</InputLabel>
               <TextField
                 id="title-costs"
-                type="number"
+                type="text"
                 InputProps={{
                   readOnly: true,
                 }}
                 value={titleCosts.toFixed(2)}
                 aria-labelledby="title-costs-label"
+                fullWidth
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel id="inspection-fees-label" htmlFor="inspection-fees">Inspection Fees</InputLabel>
+              <InputLabel id="inspection-fees-label" htmlFor="inspection-fees">Inspection Fees (2%)</InputLabel>
               <TextField
                 id="inspection-fees"
-                type="number"
+                type="text"
                 InputProps={{
                   readOnly: true,
                 }}
                 value={inspectionFees.toFixed(2)}
                 aria-labelledby="inspection-fees-label"
+                fullWidth
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel id="wholesale-fee-label" htmlFor="wholesale-fee">Wholesale Fee</InputLabel>
+              <InputLabel id="wholesale-fee-label" htmlFor="wholesale-fee">Wholesale Fee (Enter Amt If Different)</InputLabel>
               <TextField
                 id="wholesale-fee"
-                type="number"
-                InputProps={{
-                  readOnly: true,
-                }}
-                value={wholesaleFee.toFixed(2)}
+                type="text"
+                onChange={handleWholesaleFeeChange}
+                value={wholesaleFee}
+                placeholder="0.00"
                 aria-labelledby="wholesale-fee-label"
+                fullWidth
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel id="other-fees-label" htmlFor="other-fees">Other Fees</InputLabel>
+              <InputLabel id="other-fees-label" htmlFor="other-fees">Other Fees (If Needed)</InputLabel>
               <TextField
                 id="other-fees"
-                type="number"
+                type="text"
                 onChange={handleOtherFeesChange}
-                value={parseFloat(otherFees).toFixed(2)}
+                value={otherFees}
+                placeholder="0.00"
                 aria-labelledby="other-fees-label"
+                fullWidth
               />
             </Grid>
             <Grid item xs={12}>
               <InputLabel id="selling-price-label" htmlFor="selling-price">Selling Price</InputLabel>
               <TextField
                 id="selling-price"
-                type="number"
+                type="text"
                 InputProps={{
                   readOnly: true,
                 }}
                 value={sellingPrice.toFixed(2)}
                 aria-labelledby="selling-price-label"
+                fullWidth
               />
             </Grid>
           </Grid>
