@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import { markdownify } from "@lib/utils/textConverter";
-
+import { useRouter } from 'next/router';
 import WholesaleForm from '@components/Wholesale';
+
 
 function Roi({ data }) {
   const [value, setValue] = useState(0);
   const { frontmatter } = data;
   const { title, heading, wholesaletitle, strmtrtitle, fnftitle, bnhtitle } = frontmatter;
+  const router = useRouter();
+
+  useEffect(() => {
+    const hash = router.asPath.split('#')[1];
+    const hashToIndex = {
+      'bnh': 0,
+      'fnf': 1,
+      'strmtr': 2,
+      'wholesale': 3,
+    };
+
+    setValue(hashToIndex[hash] || 0);
+  }, [router.asPath]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -27,7 +41,12 @@ function Roi({ data }) {
             <Card>
               <Box sx={{ width: '100%', minHeight: '900px' }} className='bg-theme-light'>
                 <Box  >
-                  <Tabs className='roitab-links' value={value} onChange={handleChange} centered aria-label="Return on Investment Calculators">
+                  <Tabs value={value} onChange={handleChange} centered aria-label="Return on Investment Calculators"
+                    sx={{ '.MuiTab-root': { fontSize: '1rem',  color: '#222' },
+                          '.MuiTab-root.Mui-selected': { fontSize: '1rem', fontWeight: 'bold', color: '#ff0000' },
+                          '.MuiTabs-indicator': { backgroundColor: '#ff0000' },
+                        }}
+                      >
                     <Tab label="Buy N Hold" />
                     <Tab label="Fix N Flip" />
                     <Tab label="STR / MTR" />
@@ -64,6 +83,7 @@ function Roi({ data }) {
       </div>
     </section>
   );
+  
 }
 
 export default Roi;

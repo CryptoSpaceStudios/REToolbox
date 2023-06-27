@@ -17,13 +17,13 @@ const Home = ({ frontmatter }) => {
   return (
     <Base title={title}>
       {/* Banner */}
-      <section className="section pb-[50px]" alt="Main Page" aria-label="Main Page">
-        <div className="container" alt="Main Page" aria-label="Main Page">
-          <div className="row text-center"  alt="Main Page" aria-label="Main Page" aria-description="Main Page">
-            <div className="mx-auto lg:col-10" alt="Main Page" aria-label="Main Page" aria-description="Main Page">
-              <h1 className="font-primary font-bold pb-[30px]" alt={banner.title} aria-label={banner.title}>{banner.title}</h1>
-              <h2 className="font-primary font-bold pb-[30px]" alt={banner.heading} aria-label={banner.heading} >{markdownify(banner.heading)}</h2>
-              <p className="mt-4 pb-[30px]" alt="SubHeading" aria-label="SubHeading" aria-description="SubHeading" >{markdownify(banner.content)}</p>
+      <section className="section pb-[50px]" aria-label="Main Page">
+        <div className="container">
+          <div className="row text-center">
+            <div className="mx-auto lg:col-10">
+              <h1 className="font-primary font-bold pb-[30px]" aria-label={banner.title}>{banner.title}</h1>
+              <h2 className="font-primary font-bold pb-[30px]" aria-label={banner.heading}>{markdownify(banner.heading)}</h2>
+              <p className="mt-4 pb-[30px]">{markdownify(banner.content)}</p>
               {banner.button.enable && (
                 <Link
                   className="btn btn-primary mt-4"
@@ -39,8 +39,6 @@ const Home = ({ frontmatter }) => {
                 width={750}
                 height={390}
                 alt="banner image"
-                aria-label="banner image"
-                aria-description="banner image"
                 priority
               />
             </div>
@@ -49,47 +47,40 @@ const Home = ({ frontmatter }) => {
       </section>
 
       {/* Features */}
-      <section className="section bg-theme-light" alt='Featured Tools' aria-label='Featured Tools'>
-        <div className="container" alt='Featured Tools' aria-label='Featured Tools' aria-description='Featured Tools' >
-          <div className="text-center">
-            <h2 alt={feature.title} aria-label={feature.title} >{markdownify(feature.title)}</h2>
-            
-          </div>
-          <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-            {feature.features.map((item, i) => (
-              <div
-                onClick={() => { location.href = item.link; }}
-                className="feature-card rounded-xl bg-white p-5 pb-8 text-center"
-                key={`feature-${i}`}
-                alt={item.name}
-                aria-label={item.name}
-                aria-description={item.name}
-                data-tooltip={item.name}
-                id={item.name}
-                
-              >
-                {item.icon && (
-                  <Image
-                    className="mx-auto"
-                    href={item.link}
-                    src={item.icon}
-                    width={30}
-                    height={30}
-                    alt={item.name}
-                    title={item.name}
-                    aria-label={item.name}
-                  />
-                )}
-                <div className="mt-4" alt={item.name} title={item.name} aria-label={item.name} aria-description={item.name}>
-                  {markdownify(item.name, "h3", "h5")}
-                  <p className="mt-3">{item.content}</p>
-
-                </div>
-              </div>
-            ))}
+<section className="section bg-theme-light" aria-label='Featured Tools'>
+  <div className="container">
+    <div className="text-center">
+      <h2 className="mb-4" aria-label={feature.title}>{markdownify(feature.title)}</h2>
+      <h3 className="mb-8" aria-label={feature.heading}>{markdownify(feature.heading)}</h3>
+    </div>
+    <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+      {feature.features.map((item, i) => (
+        <div
+          onClick={() => { location.href = item.link; }}
+          className="feature-card rounded-xl bg-white p-5 pb-8 text-center"
+          key={`feature-${i}`}
+          aria-label={item.name}
+        >
+          {item.icon && (
+            <Image
+              className="mx-auto"
+              href={item.link}
+              src={item.icon}
+              width={30}
+              height={30}
+              alt={item.name}
+              title={item.name}
+            />
+          )}
+          <div className="mt-4">
+            {markdownify(item.name, "h3", "h5")}
+            <p className="mt-3">{item.content}</p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* services */}
       {services.map((service, index) => {

@@ -11,6 +11,7 @@ banner:
 # feature
 feature: 
   title: Featured Tools
+  heading: Click on any of the panels to go to that tool
   features:
   - name: "Seller Net Calculator"
     icon: "/images/calculator.svg"
@@ -23,7 +24,7 @@ feature:
   - name: "ROI Calculator"
     icon: "/images/user-clock.svg"
     link: "/roi"
-    content: "Quickly and accurately determine the ROI on your exit strategy, whether it be Buy & Hold, F&F, or Wholesale!"
+    content: "Quickly and accurately determine the ROI on your exit strategy, whether it be Buy & Hold, F&F, STR/MTR or Wholesale!"
   - name: "Value for Money"
     icon: "/images/love.svg"
     link: "#"

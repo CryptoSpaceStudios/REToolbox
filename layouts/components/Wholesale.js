@@ -47,7 +47,7 @@ function WholesaleForm() {
         <CardContent>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <InputLabel id="purchase-price-label" htmlFor="purchase-price">Purchase Price</InputLabel>
+              <InputLabel id="purchase-price-label" htmlFor="purchase-price">Purchase Price (Enter Amt)</InputLabel>
               <TextField
                 id="purchase-price"
                 type="text"
@@ -111,7 +111,7 @@ function WholesaleForm() {
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel id="wholesale-fee-label" htmlFor="wholesale-fee">Wholesale Fee (Enter Amt If Different)</InputLabel>
+              <InputLabel id="wholesale-fee-label" htmlFor="wholesale-fee">Wholesale Fee (Enter Amt)</InputLabel>
               <TextField
                 id="wholesale-fee"
                 type="text"
