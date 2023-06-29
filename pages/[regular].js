@@ -11,6 +11,7 @@ import Tos from "@layouts/Tos";
 import Privacy from "@layouts/PrivacyPolicy";
 import Roi from "@layouts/Roi";
 import SubtoCalc from "@layouts/SubToWrap";
+import CensusData from "@layouts/CensusData";
 
 import { getRegularPage, getSinglePage } from "@lib/contentParser";
 
@@ -51,6 +52,8 @@ const RegularPages = ({ data }) => {
         <Roi data={data} />
       ) : layout === "subtocalc" ? (
         <SubtoCalc data={data} />
+      ) : layout === "censusdata" ? (
+        <CensusData data={data} />
       ) : (
         <Default data={data} />
       )}

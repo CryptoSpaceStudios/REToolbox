@@ -11,10 +11,13 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 
+import { EntryFeeContext } from '@components/EntryFeeCalc'; 
+
 function AcquisitionForm() {
   const router = useRouter();
   const goToNextTab = () => { router.push('/subtocalc#disposition'); };
   
+
   const [purchasePrice, setPurchasePrice] = useState('');
   const [entryFeeCost, setEntryFeeCost] = useState('');
   const [mortgageBalance, setMortgageBalance] = useState('');
