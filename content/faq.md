@@ -12,6 +12,9 @@ faqs:
 - title: Do you have a discord?
   answer: No. 
 
+- title: Are you on Social Media
+  answer: check the social icons in the footer of the page
+
 - title: Is there any support?
   answer: Send a request through the [Contact](/contact) page
 

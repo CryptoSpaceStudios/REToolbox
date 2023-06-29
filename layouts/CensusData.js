@@ -7,8 +7,8 @@ import Grid from '@mui/material/Grid';
 import { markdownify } from "@lib/utils/textConverter";
 import { useRouter } from 'next/router';
 
-import CensusNewResiData from '@components/CensusNewResiConst';
-import CensusNewHomeSales from './components/CensusNewHomeSales';
+import CensusNewResiData from '@components/Census/CensusNewResiConst';
+import CensusNewHomeSales from './components/Census/CensusNewHomeSales';
 import CensusConstSpending from './components/Census/CensusConstSpending';
 
 
