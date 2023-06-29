@@ -43,6 +43,10 @@ import {
   SiLitecoin 
 } from "react-icons/si";
 
+
+import Image from 'next/image';
+import privyIcon from "../../public/othersvg/logo-privy.svg";
+
 const Social = ({ source, className }) => {
   const {
     address,
@@ -64,6 +68,7 @@ const Social = ({ source, className }) => {
     medium,
     phone,
     pinterest,
+    privy,
     reddit,
     rss,
     skype,
@@ -83,8 +88,36 @@ const Social = ({ source, className }) => {
     youtube,
     
   } = source;
+
+
+const PrivyIcon = ({src, href}) => {
+  return (
+    <a
+    alt="Get Privy"
+    title="Get Privy"
+    aria-label="Get Privy"
+    href={privy}
+    target="_blank"
+    rel="noopener noreferrer nofollow"
+    >
+    <Image src="/othersvg/logo-privy.svg" alt="Get Privy" width='36' height='36' aria-label="Get Privy"/>
+    </a>
+  )
+
+}
+
+
+
   return (
     <ul className={className}>
+
+      {privy && (
+        <li className="inline-block">
+            <PrivyIcon />
+        </li>
+      )}
+
+
       {facebook && (
         <li className="inline-block">
           <a

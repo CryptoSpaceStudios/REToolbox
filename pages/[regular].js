@@ -10,6 +10,8 @@ import Zillowfsbo from "@layouts/ZillowFsbo";
 import Tos from "@layouts/Tos";
 import Privacy from "@layouts/PrivacyPolicy";
 import Roi from "@layouts/Roi";
+import SubtoCalc from "@layouts/SubToWrap";
+
 import { getRegularPage, getSinglePage } from "@lib/contentParser";
 
 // for all regular pages
@@ -47,6 +49,8 @@ const RegularPages = ({ data }) => {
         <Zillowfsbo data={data} />
       ) : layout === "roi" ? (
         <Roi data={data} />
+      ) : layout === "subtocalc" ? (
+        <SubtoCalc data={data} />
       ) : (
         <Default data={data} />
       )}
