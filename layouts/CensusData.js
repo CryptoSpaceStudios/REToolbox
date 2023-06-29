@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 import CensusNewResiData from '@components/CensusNewResiConst';
 import CensusNewHomeSales from './components/CensusNewHomeSales';
-import CensusConstSpending from './components/CensusConstSpending';
+import CensusConstSpending from './components/Census/CensusConstSpending';
 
 
 function CensusData({ data }) {

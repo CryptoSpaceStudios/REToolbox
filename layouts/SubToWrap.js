@@ -8,9 +8,9 @@ import { markdownify } from "@lib/utils/textConverter";
 import { useRouter } from 'next/router';
 
 // Import Calculators
-import EntryFeeForm from '@components/EntryFeeCalc';
-import AcquisitionForm from '@components/AcquisitionCalc';
-import DispositionForm from '@components/DispositionCalc';
+import EntryFeeForm from '@layouts/components/SubToCalc/EntryFeeCalc';
+import AcquisitionForm from '@layouts/components/SubToCalc/AcquisitionCalc';
+import DispositionForm from '@layouts/components/SubToCalc/DispositionCalc';
 
 function SubtoCalc({ data }) {
   const [value, setValue] = useState(0);

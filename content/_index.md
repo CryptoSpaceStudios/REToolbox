@@ -32,7 +32,7 @@ feature:
   - name: "Faster Response"
     icon: "/images/speedometer.svg"
     link: "#"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit quam nihil"
+    content: "Insert some text here"
   - name: "Zillow FSBO"
     icon: "/images/zillow.svg"
     link: "#"
@@ -42,7 +42,7 @@ feature:
 # services
 services:
   - title: "A company standing different from others"
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur. Leo facilisi nunc viverra tellus. Ac laoreet sit vel consquat. consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur. Leo facilisi nunc viverra tellus. Ac laoreet sit vel consquat."
+    content: "Insert some text here"
     images:
       - "/images/service-slide-1.png"
       - "/images/service-slide-2.png"
