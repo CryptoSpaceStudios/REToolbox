@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { use, useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router'; 
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -11,19 +11,40 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 
+import { EntryFeeContext } from '@layouts/components/SubToCalc/EntryFeeContext'; 
+import { PurchasePriceContext, MortgageBalanceContext, MortgagePiContext, MortgageInterestContext } from '@layouts/components/SubToCalc/AcquisitionStates';
+
+
 function DispositionForm() {
   const router = useRouter();
   const goToNextTab = () => { router.push('/subtocalc#disposition'); };
   
+  const { entryFee } = useContext(EntryFeeContext);
   const [arvEstimate, setArvEstimate] = useState('');
   const [downPayment, setDownPayment] = useState('');
-  const [acquisitionCost, setAcquisitionCost] = useState('');
   const [cashOnSale, setCashOnSale] = useState('');  
   const [balanceDueSeller, setBalanceDueSeller] = useState('');
   const [buyersPayment, setBuyersPayment] = useState('');
-  const [acqMortgagePayment, setAcqMortgagePayment] = useState('');
+
+  const { mortgagePi } = useContext(MortgagePiContext);
+  const [acqMortgagePayment, setAcqMortgagePayment] = useState(mortgagePi);
+
   const [cashFlow, setCashFlow] = useState('');
   const [equityGap, setEquityGap] = useState('');
+
+  useEffect(() => {
+    if (arvEstimate !== '') {
+      const downPaymentValue = arvEstimate * 0.1;
+      setDownPayment(downPaymentValue);
+      setCashOnSale(downPaymentValue - entryFee);
+      setBalanceDueSeller(arvEstimate - downPaymentValue);
+      setAcqMortgagePayment(mortgagePi);
+    } else {
+      setDownPayment('');
+      setCashOnSale('');
+    }
+  }, [arvEstimate, entryFee, mortgagePi]);
+
 
   return (
     <Container maxWidth="md"  >
@@ -39,12 +60,13 @@ function DispositionForm() {
               <InputLabel className="roitablinks" id="arv-estimate-label" htmlFor="arv-estimate">ARV Estimate (Enter Amt)</InputLabel>
               <TextField
                 id="arv-estimate"
-                type="text"
+                type="number"
                 value={arvEstimate}
                 placeholder="0.00"
                 aria-labelledby="arv-estimate-label"
                 required
                 fullWidth
+                onChange={(e) => setArvEstimate(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -55,6 +77,9 @@ function DispositionForm() {
                 value={downPayment}
                 placeholder="0.00"
                 aria-labelledby="down-payment-label"
+                InputProps={{
+                  readOnly: true,
+                }}
                 fullWidth
               />
             </Grid>
@@ -63,7 +88,7 @@ function DispositionForm() {
               <TextField
                 id="acquisition-cost"
                 type="text"
-                value={acquisitionCost}
+                value={entryFee}
                 placeholder="0.00"
                 aria-labelledby="acquisition-cost-label"
                 fullWidth
@@ -96,6 +121,9 @@ function DispositionForm() {
               <TextField
                 id="acq-mortgage-payment"
                 type="text"
+                InputProps={{
+                  readOnly: true,
+                }}
                 value={acqMortgagePayment}
                 placeholder="0.00"
                 aria-labelledby="acq-mortgage-payment-label"

@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router'; 
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -10,12 +10,15 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-
-export const EntryFeeContext = createContext();
+import { EntryFeeContext } from '@layouts/components/SubToCalc/EntryFeeContext';
 
 function EntryFeeForm() {
   const router = useRouter();
   const goToNextTab = () => { router.push('/subtocalc#acquisition'); };
+
+  // Use context for entryFee
+  const { entryFee, setEntryFee } = useContext(EntryFeeContext);
+
   const [sellerPayment, setSellerPayment] = useState('');
   const [closingTitleCosts, setClosingTitleCosts] = useState('');
   const [leadCosts, setLeadCosts] = useState('');
@@ -24,14 +27,17 @@ function EntryFeeForm() {
   const [holdTimeCosts, setHoldTimeCosts] = useState('');
   const [marketingFees, setMarketingFees] = useState('');
 
-  const entryFee = 
-    (sellerPayment ? parseFloat(sellerPayment) : 0) + 
-    (closingTitleCosts ? parseFloat(closingTitleCosts) : 0) + 
-    (leadCosts ? parseFloat(leadCosts) : 0) + 
-    (paymentsOwed ? parseFloat(paymentsOwed) : 0) + 
-    (prepCosts ? parseFloat(prepCosts) : 0) + 
-    (holdTimeCosts ? parseFloat(holdTimeCosts) : 0) + 
-    (marketingFees ? parseFloat(marketingFees) : 0);
+  useEffect(() => {
+    setEntryFee(
+      (sellerPayment ? parseFloat(sellerPayment) : 0) + 
+      (closingTitleCosts ? parseFloat(closingTitleCosts) : 0) + 
+      (leadCosts ? parseFloat(leadCosts) : 0) + 
+      (paymentsOwed ? parseFloat(paymentsOwed) : 0) + 
+      (prepCosts ? parseFloat(prepCosts) : 0) + 
+      (holdTimeCosts ? parseFloat(holdTimeCosts) : 0) + 
+      (marketingFees ? parseFloat(marketingFees) : 0)
+    );
+  }, [sellerPayment, closingTitleCosts, leadCosts, paymentsOwed, prepCosts, holdTimeCosts, marketingFees]);
 
   const handleInputChange = (event, setter) => {
     const value = event.target.value;
@@ -41,17 +47,16 @@ function EntryFeeForm() {
   };
 
   return (
-    <EntryFeeContext.Provider value={{entryFee}}>
-      <Container maxWidth="md">
-        <Card style={{ boxShadow: '0 3px 10px rgb(0, 0, 0)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <CardContent>
-            <Box marginBottom={3} marginTop={4}>
-              <Typography variant="h5" component="h2" gutterBottom align="center">
-                Fill in the fields below and easily get your entry fee
-              </Typography>
-            </Box>
-            <Grid container spacing={2}> <Grid item xs={12}>
-              <InputLabel className="roitablinks" id="seller-payment-label" htmlFor="seller-payment">Seller Payment (Enter Amt)</InputLabel>
+    <Container maxWidth="md">
+      <Card style={{ boxShadow: '0 3px 10px rgb(0, 0, 0)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <CardContent>
+          <Box marginBottom={3} marginTop={4}>
+            <Typography variant="h5" component="h2" gutterBottom align="center">
+              Fill in the fields below and easily get your entry fee
+            </Typography>
+          </Box>
+          <Grid item xs={12}>
+                <InputLabel className="roitablinks" id="seller-payment-label" htmlFor="seller-payment">Seller Payment (Enter Amt)</InputLabel>
               <TextField
                 id="seller-payment"
                 type="text"
@@ -154,11 +159,10 @@ function EntryFeeForm() {
                   &nbsp;Next
                 </Button>
               </Grid>
-            </Grid>
-          </CardContent>
-        </Card>
-      </Container>
-    </EntryFeeContext.Provider>
+		
+        </CardContent>
+      </Card>
+    </Container>
   );
 }
 

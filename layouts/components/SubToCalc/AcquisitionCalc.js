@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useRouter } from 'next/router'; 
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -11,15 +11,16 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 
-import { EntryFeeContext } from '@layouts/components/SubToCalc/EntryFeeCalc'; 
+import { EntryFeeContext } from '@layouts/components/SubToCalc/EntryFeeContext'; 
 
 function AcquisitionForm() {
   const router = useRouter();
   const goToNextTab = () => { router.push('/subtocalc#disposition'); };
   
-
+  const { entryFee } = useContext(EntryFeeContext);
+  
   const [purchasePrice, setPurchasePrice] = useState('');
-  const [entryFeeCost, setEntryFeeCost] = useState('');
+  const [entryFeeCost, setEntryFeeCost] = useState(entryFee);
   const [mortgageBalance, setMortgageBalance] = useState('');
   const [mortgagePi, setMortgagePi] = useState('');
   const [mortgageInterest, setMortgageInterest] = useState('');
@@ -40,6 +41,7 @@ function AcquisitionForm() {
                 id="purchase-price"
                 type="text"
                 value={purchasePrice}
+                onChange={(e) => setPurchasePrice(e.target.value)}
                 placeholder="0.00"
                 aria-labelledby="purchase-price-label"
                 required
@@ -51,6 +53,7 @@ function AcquisitionForm() {
               <TextField
                 id="entry-fee-costs"
                 type="text"
+                InputProps={{ readOnly: true, }}
                 value={entryFeeCost}
                 placeholder="0.00"
                 aria-labelledby="entry-fee-costs-label"
@@ -63,6 +66,7 @@ function AcquisitionForm() {
                 id="mortgage-balance"
                 type="text"
                 value={mortgageBalance}
+                onChange={(e) => setMortgageBalance(e.target.value)}
                 placeholder="0.00"
                 aria-labelledby="mortgage-balance-label"
                 fullWidth
@@ -74,6 +78,7 @@ function AcquisitionForm() {
                 id="mortgage-pi"
                 type="text"
                 value={mortgagePi}
+                onChange={(e) => { setMortgagePi(e.target.value); setAcqMortgagePayment(e.target.value); }}
                 placeholder="0.00"
                 aria-labelledby="mortgage-pi-label"
                 fullWidth
@@ -85,6 +90,7 @@ function AcquisitionForm() {
                 id="mortgage-interest"
                 type="text"
                 value={mortgageInterest}
+                onChange={(e) => setMortgageInterest(e.target.value)}
                 placeholder="0.00 %"
                 aria-labelledby="mortgage-interest-label"
                 fullWidth

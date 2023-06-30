@@ -1,3 +1,4 @@
+// Part 1
 import React, { useEffect, useState, useContext } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -8,15 +9,29 @@ import { markdownify } from "@lib/utils/textConverter";
 import { useRouter } from 'next/router';
 
 // Import Calculators
-import EntryFeeForm from '@layouts/components/SubToCalc/EntryFeeCalc';
+import { EntryFeeContext } from '@layouts/components/SubToCalc/EntryFeeContext';
+import { PurchasePriceContext, MortgageBalanceContext, MortgagePiContext, MortgageInterestContext } from '@layouts/components/SubToCalc/AcquisitionStates';
+
 import AcquisitionForm from '@layouts/components/SubToCalc/AcquisitionCalc';
 import DispositionForm from '@layouts/components/SubToCalc/DispositionCalc';
+import EntryFeeForm from '@layouts/components/SubToCalc/EntryFeeCalc';
 
 function SubtoCalc({ data }) {
   const [value, setValue] = useState(0);
   const { frontmatter } = data;
   const { title, heading, dispositiontitle, acquisitiontitle, entrytitle } = frontmatter;
   const router = useRouter();
+
+  // Create a state for entryFee
+  const [entryFee, setEntryFee] = useState(0);
+  
+  // Create states for AcquisitionForm fields
+  const [purchasePrice, setPurchasePrice] = useState('');
+  const [mortgageBalance, setMortgageBalance] = useState('');
+  const [mortgagePi, setMortgagePi] = useState('');
+  const [mortgageInterest, setMortgageInterest] = useState('');
+  const [acqMortgagePayment, setAcqMortgagePayment] = useState('');
+
 
   useEffect(() => {
     const hash = router.asPath.split('#')[1];
@@ -32,6 +47,7 @@ function SubtoCalc({ data }) {
   const handleChange = (event, newValue) => { setValue(newValue); };
 
   return (
+    // Part 2
     <section className="section">
       <div className="container">
         {markdownify(title, "h1", "text-center font-normal")}<br />
@@ -53,21 +69,31 @@ function SubtoCalc({ data }) {
                   </Tabs>
                   <Box sx={{ p: 3 }} />
                 </Box>
-                {value === 0 && (
-                  <>{markdownify(entrytitle, "h3", "text-center font-normal")}<br />
-                  <div><EntryFeeForm /></div>
-                  </>                  
-                )}
-                {value === 1 && (
-                  <>{markdownify(acquisitiontitle, "h3", "text-center font-normal")}<br />
-                  <div><AcquisitionForm /></div>
-                  </>                  
-                )}
-                {value === 2 && (
-                  <>{markdownify(dispositiontitle, "h3", "text-center font-normal")}<br />
-                  <div><DispositionForm /></div>
-                  </>
-                )}
+                <EntryFeeContext.Provider value={{ entryFee, setEntryFee }}>
+                  <PurchasePriceContext.Provider value={{ purchasePrice, setPurchasePrice }}>
+                    <MortgageBalanceContext.Provider value={{ mortgageBalance, setMortgageBalance }}>
+                      <MortgagePiContext.Provider value={{ mortgagePi, setMortgagePi }}>
+                        <MortgageInterestContext.Provider value={{ mortgageInterest, setMortgageInterest }}>
+                          {value === 0 && (
+                            <>{markdownify(entrytitle, "h3", "text-center font-normal")}<br />
+                            <div><EntryFeeForm /></div>
+                            </>                  
+                          )}
+                          {value === 1 && (
+                            <>{markdownify(acquisitiontitle, "h3", "text-center font-normal")}<br />
+                            <div><AcquisitionForm /></div>
+                            </>                  
+                          )}
+                          {value === 2 && (
+                            <>{markdownify(dispositiontitle, "h3", "text-center font-normal")}<br />
+                            <div><DispositionForm /></div>
+                            </>
+                          )}
+                        </MortgageInterestContext.Provider>
+                      </MortgagePiContext.Provider>
+                    </MortgageBalanceContext.Provider>
+                  </PurchasePriceContext.Provider>
+                </EntryFeeContext.Provider>
               </Box>
             </Card>
           </Grid>
