@@ -29,14 +29,10 @@ feature:
     icon: "/images/love.svg"
     link: "/subtocalc"
     content: "Super Fast and Easy Tool for calculating your SubTo Wrap Deals"
-  - name: "Faster Response"
-    icon: "/images/speedometer.svg"
-    link: "#"
-    content: "Insert some text here"
   - name: "Zillow FSBO"
     icon: "/images/zillow.svg"
     link: "#"
-    content: "Get the latest Zillow FSBO listings"
+    content: "Get the latest Zillow FSBO listings (Coming Soon)"
  
 
 # services
