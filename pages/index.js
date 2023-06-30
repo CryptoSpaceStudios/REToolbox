@@ -145,7 +145,7 @@ const Home = ({ frontmatter }) => {
       })}
 
       {/* workflow */}
-      <section className="section pb-0">
+      {/* <section className="section pb-0">
         <div className="mb-8 text-center">
           {markdownify(
             workflow.title,
@@ -160,10 +160,10 @@ const Home = ({ frontmatter }) => {
           width={1920}
           height={296}
         />
-      </section>
+      </section> */}
 
       {/* Cta */}
-      <Cta cta={call_to_action} />
+      {/* <Cta cta={call_to_action} /> */}
     </Base>
   );
 };
