@@ -13,7 +13,7 @@ faqs:
   answer: No. 
 
 - title: Are you on Social Media
-  answer: check the social icons in the footer of the page
+  answer: Check the Social icons in the footer of the page
 
 - title: Is there any support?
   answer: Send a request through the [Contact](/contact) page
