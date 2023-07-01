@@ -40,14 +40,11 @@ const Contact = ({ data }) => {
     },
   });
 
-  const [siteKey, setSiteKey] = useState(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
+  const [siteKey, setSiteKey] = useState(process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY);
 
     useEffect(() => {
-      setSiteKey(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
+      setSiteKey(process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY);
     }, []);
-
-  console.log(`SiteKEY is ${siteKey}`);
-  console.log(`site key is ${process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY}`);
 
   return (
     <Box 
@@ -66,7 +63,7 @@ const Contact = ({ data }) => {
       </section>
       <Card className="mb-8" sx={{ 
         width: '50%', 
-        minWidth: '300px', 
+        minWidth: '335px', 
         boxShadow: '0px 5px 15px rgba(0, 0, 0, 1)' // Apply drop shadow
       }}>
         <CardContent>
@@ -138,7 +135,7 @@ const Contact = ({ data }) => {
               sitekey={siteKey}
               onChange={onChange}
             />
-            {console.log(`Inside ReCAPTCHA, siteKey is ${siteKey}`)}
+
 
             <Box display="flex" justifyContent="center" mt={6} mb={4}>
               <ContactButton variant="contained" type="submit" color="success" endIcon={<SendIcon />} >
