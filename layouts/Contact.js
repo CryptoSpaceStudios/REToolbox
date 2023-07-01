@@ -14,7 +14,40 @@ import ReCAPTCHA from "react-google-recaptcha";
 const Contact = ({ data }) => {
   const { frontmatter } = data;
   const { title, info } = frontmatter;
-  const { contact_form_action } = config.params;
+  const { contact_form_action, reCAPTCHA_site_key } = config.params;
+  const [captchaToken, setCaptchaToken] = useState(null);
+  
+  const { register, handleSubmit, formState: { errors }, setError } = useForm();
+
+  const onChange = (value) => {
+    console.log("Captcha value:", value);
+    setCaptchaToken(value);
+  }
+  
+  const onSubmit = data => {
+    const formData = {...data, "g-recaptcha-response": captchaToken};
+    console.log(formData);
+    // Handle form submission here
+  };
+
+  const ContactButton = styled(Button) ({
+    backgroundColor: blueGrey[500],
+    fontWeight: '600',
+    color: grey[900],
+    '&:hover': {
+      backgroundColor: green[300],
+      fontWeight: '900',
+    },
+  });
+
+  const [siteKey, setSiteKey] = useState(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
+
+    useEffect(() => {
+      setSiteKey(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
+    }, []);
+
+  console.log(`SiteKEY is ${siteKey}`);
+  console.log(`site key is ${process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY}`);
 
   return (
     <Box 
