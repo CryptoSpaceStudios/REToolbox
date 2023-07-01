@@ -4,6 +4,7 @@
       "theme_color": {
         "primary": "#690000",
         "secondary": "#b40c0c",
+        "dark": "#222",
         "third": "#FF0000",
         "body": "#f6f6f6",
         "border": "#e9e9e9",

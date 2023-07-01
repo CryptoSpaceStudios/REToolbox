@@ -1,75 +1,155 @@
+import React, { useEffect, useState } from "react";
 import config from "@config/config.json";
 import { markdownify } from "@lib/utils/textConverter";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import { useForm } from "react-hook-form";
+import { black, green, blueGrey, grey } from "@mui/material/colors";
+import { styled } from "@mui/material/styles";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = ({ data }) => {
   const { frontmatter } = data;
   const { title, info } = frontmatter;
-  const { contact_form_action } = config.params;
+  const { contact_form_action, reCAPTCHA_site_key } = config.params;
+  const [captchaToken, setCaptchaToken] = useState(null);
+  
+  const { register, handleSubmit, formState: { errors }, setError } = useForm();
+
+  const onChange = (value) => {
+    console.log("Captcha value:", value);
+    setCaptchaToken(value);
+  }
+  
+  const onSubmit = data => {
+    const formData = {...data, "g-recaptcha-response": captchaToken};
+    console.log(formData);
+    // Handle form submission here
+  };
+
+  const ContactButton = styled(Button) ({
+    backgroundColor: blueGrey[500],
+    fontWeight: '600',
+    color: grey[900],
+    '&:hover': {
+      backgroundColor: green[300],
+      fontWeight: '900',
+    },
+  });
+
+  const [siteKey, setSiteKey] = useState(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
+
+    useEffect(() => {
+      setSiteKey(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
+    }, []);
+
+  console.log(`SiteKEY is ${siteKey}`);
+  console.log(`site key is ${process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY}`);
 
   return (
-    <section className="section">
-      <div className="container">
-        {markdownify(title, "h1", "text-center font-normal")}
-        <div className="section row pb-0">
-          <div className="col-12 md:col-6 lg:col-7">
-            <form
-              className="contact-form"
-              method="POST"
-              action={contact_form_action}
-            >
-              <div className="mb-3">
-                <input
-                  className="form-input w-full rounded"
-                  name="name"
-                  type="text"
-                  placeholder="Name"
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <input
-                  className="form-input w-full rounded"
-                  name="email"
-                  type="email"
-                  placeholder="Your email"
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <input
-                  className="form-input w-full rounded"
-                  name="subject"
-                  type="text"
-                  placeholder="Subject"
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <textarea
-                  className="form-textarea w-full rounded-md"
-                  rows="7"
-                  placeholder="Your message"
-                />
-              </div>
-              <button type="submit" className="btn btn-primary">
-                Send Now
-              </button>
-            </form>
-          </div>
-          <div className="content col-12 md:col-6 lg:col-5">
-            {markdownify(info.title, "h4")}
-            {markdownify(info.description, "p", "mt-4")}
-            <ul className="contact-list mt-5">
-              {info.contacts.map((contact, index) => (
-                <li key={index}>
-                  {markdownify(contact, "strong", "text-dark")}
-                </li>
-              ))}
-            </ul>
-          </div>
+    <Box 
+      display="flex" 
+      flexDirection="column" 
+      alignItems="center" 
+      justifyContent="center" 
+      height="100%"  // Adjust as needed
+    >
+      <section className="section">
+        <div className="container">
+          {markdownify(title, "h1", "text-center font-normal")}
+          {markdownify(info.title, "h4", "mt-6")}
+          {markdownify(info.description, "p", "mt-4")}
         </div>
-      </div>
-    </section>
+      </section>
+      <Card className="mb-8" sx={{ 
+        width: '50%', 
+        minWidth: '300px', 
+        boxShadow: '0px 5px 15px rgba(0, 0, 0, 1)' // Apply drop shadow
+      }}>
+        <CardContent>
+          <form
+            className="contact-form"
+            method="POST"
+            action={contact_form_action}
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <div className="mb-3">
+              <input
+                {...register("name", { required: "Name is required" })}
+                className="form-input w-full rounded"
+                type="text"
+                placeholder="Name"
+              />
+              {errors.name && <p>{errors.name.message}</p>}
+            </div>
+            <div className="mb-3">
+              <input
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Email is not valid"
+                  }
+                })}
+                className="form-input w-full rounded"
+                type="email"
+                placeholder="Your email"
+              />
+              {errors.email && <p>{errors.email.message}</p>}
+            </div>
+            <div className="mb-3">
+              <input
+                {...register("phone", { required: "Phone number is required" })}
+                className="form-input w-full rounded"
+                type="phone"
+                placeholder="Phone Number"
+              />
+              {errors.phone && <p>{errors.phone.message}</p>}
+            </div>
+            <div className="mb-3">
+              <input
+                {...register("subject", { required: "Subject is required" })}
+                className="form-input w-full rounded"
+                type="text"
+                placeholder="Subject"
+              />
+              {errors.subject && <p>{errors.subject.message}</p>}
+            </div>
+            <div className="mb-3">
+              <textarea
+                {...register("message", { 
+                  required: "Message is required", 
+                  minLength: {
+                    value: 20,
+                    message: "Message must be at least 20 characters"
+                  }
+                })}
+                className="form-textarea w-full rounded-md"
+                rows="5"
+                placeholder="Your message"
+              />
+              {errors.message && <p>{errors.message.message}</p>}
+            </div>
+            
+            <ReCAPTCHA            
+              sitekey={siteKey}
+              onChange={onChange}
+            />
+            {console.log(`Inside ReCAPTCHA, siteKey is ${siteKey}`)}
+
+            <Box display="flex" justifyContent="center" mt={6} mb={4}>
+              <ContactButton variant="contained" type="submit" color="success" endIcon={<SendIcon />} >
+                Send Now
+              </ContactButton>
+            </Box>
+          </form>
+        </CardContent>
+      </Card>
+      
+    </Box>
   );
 };
 
