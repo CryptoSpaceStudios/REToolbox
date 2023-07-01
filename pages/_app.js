@@ -55,7 +55,7 @@ const App = ({ Component, pageProps }) => {
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
       </Head>
-      <GoogleAdSense publisherId="ca-pub-8822117230676209" />
+      <GoogleAdSense publisherId="pub-8822117230676209" />
       <Component {...pageProps} />
       <Analytics />
     </>
