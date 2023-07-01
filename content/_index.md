@@ -23,20 +23,16 @@ feature:
     content: "Quickly and Accurately analyze properties to help you find your Maximum Allowable faster"
   - name: "ROI Calculator"
     icon: "/images/user-clock.svg"
-    link: "/roi"
-    content: "Quickly and accurately determine the ROI on your exit strategy, whether it be Buy & Hold, F&F, STR/MTR or Wholesale!"
+    link: "/#"
+    content: "Quickly and accurately determine the ROI on your exit strategy, whether it be Buy & Hold, F&F, STR/MTR or Wholesale! (Coming Soon)"
   - name: "Subject-To Wrap Calculator"
     icon: "/images/love.svg"
     link: "/subtocalc"
     content: "Super Fast and Easy Tool for calculating your SubTo Wrap Deals"
-  - name: "Faster Response"
-    icon: "/images/speedometer.svg"
-    link: "#"
-    content: "Insert some text here"
   - name: "Zillow FSBO"
     icon: "/images/zillow.svg"
     link: "#"
-    content: "Get the latest Zillow FSBO listings"
+    content: "Get the latest Zillow FSBO listings (Coming Soon)"
  
 
 # services

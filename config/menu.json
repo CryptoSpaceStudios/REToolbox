@@ -4,14 +4,7 @@
       "name": "Home",
       "url": "/"
     },
-    {
-      "name": "Blog",
-      "url": "/blogs"
-    },
-    {
-      "name": "Pricing",
-      "url": "/pricing"
-    },
+
     {
       "name": "Contact",
       "url": "/contact"
@@ -19,6 +12,10 @@
     {
       "name": "FAQ",
       "url": "/faq"
+    },
+    {
+      "name": "MAO",
+      "url": "/mao"
     },
     {
       "name": "Seller Net Calc",
