@@ -40,14 +40,10 @@ const Contact = ({ data }) => {
     },
   });
 
-  const [siteKey, setSiteKey] = useState(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
-
+  const [siteKey, setSiteKey] = useState(process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY);
     useEffect(() => {
-      setSiteKey(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
+      setSiteKey(process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY);
     }, []);
-
-  console.log(`SiteKEY is ${siteKey}`);
-  console.log(`site key is ${process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY}`);
 
   return (
     <Box 
