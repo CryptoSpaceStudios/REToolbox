@@ -9,7 +9,7 @@ async function sendEmail(req, res) {
       from: "no-reply@retoolbox.xyz", // your website email address here
       subject: `Contact Form Submission From ${req.body.subject}`,
       text: `TEXT CONTENT ${req.body.message}`,
-      html: `<p>HTML Body message ${req.body.message}</p> <p>HTML PHONE ${req.body.phone}</p><p>HTML NAME ${req.body.name}</p>`
+      html: `<p>HTML NAME ${req.body.name}</p><p>HTML PHONE ${req.body.phone}</p><p>HTML EMAIL ${req.body.email}</p><p>HTML Body message ${req.body.message}</p> `
     });
 
     return res.status(200).json({ error: "" });
