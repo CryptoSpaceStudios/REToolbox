@@ -20,15 +20,36 @@ const Contact = ({ data }) => {
   const { register, handleSubmit, formState: { errors }, setError } = useForm();
 
   const onChange = (value) => {
-    console.log("Captcha value:", value);
+    /* console.log("Captcha value:", value); */
     setCaptchaToken(value);
   }
   
-  const onSubmit = data => {
+  const onSubmit = async (data) => {
+    console.log('Form submitted with data:', data);
+
     const formData = {...data, "g-recaptcha-response": captchaToken};
-    console.log(formData);
-    // Handle form submission here
+  
+    // Make a POST request to the backend
+    const response = await fetch('./api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+  
+    console.log('the response is', response);
+
+    if (response.ok) {
+      // handle successful email sending
+      console.log('Email sent successfully');
+    } else {
+      // handle error
+      console.error('Error sending email');
+      response.json().then(data => console.log(data));
+    }
   };
+  
 
   const ContactButton = styled(Button) ({
     backgroundColor: blueGrey[500],
@@ -135,8 +156,6 @@ const Contact = ({ data }) => {
               sitekey={siteKey}
               onChange={onChange}
             />
-
-
             <Box display="flex" justifyContent="center" mt={6} mb={4}>
               <ContactButton variant="contained" type="submit" color="success" endIcon={<SendIcon />} >
                 Send Now
@@ -144,8 +163,7 @@ const Contact = ({ data }) => {
             </Box>
           </form>
         </CardContent>
-      </Card>
-      
+      </Card>      
     </Box>
   );
 };
