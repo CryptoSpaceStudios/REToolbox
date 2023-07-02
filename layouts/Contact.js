@@ -29,7 +29,7 @@ const Contact = ({ data }) => {
       },
       body: JSON.stringify({ name, email, phone, subject, message }),
     });
-    
+  
     console.log('The Body is ', JSON.stringify({ name, email, phone, subject, message }) );
     console.log('The Response is', response);
   
@@ -39,8 +39,14 @@ const Contact = ({ data }) => {
     } else {
       // handle error
       console.error('Error sending email');
-      const errorData = await response.json();
-      console.error(errorData);
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.indexOf('application/json') !== -1) {
+        const errorData = await response.json();
+        console.error(errorData);
+      } else {
+        const errorText = await response.text();
+        console.error(errorText);
+      }
     }
   };
   
