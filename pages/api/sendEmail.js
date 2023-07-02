@@ -5,8 +5,6 @@ sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
 console.log('SENDGRID KEY:', process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
-  console.log('Incoming request method:', req.method);
-  // console.log('Incoming request:', req);
 
   if (req.method === 'POST') {
     const { name, email, phone, subject, message } = req.body;
@@ -19,7 +17,6 @@ export default async function handler(req, res) {
       html: `<p>${message}</p>`
     };
 
-    console.log('the form content is ', content);
 
     try {
       await sgMail.send(content);
