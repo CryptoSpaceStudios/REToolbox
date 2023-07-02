@@ -18,6 +18,7 @@ const Contact = ({ data }) => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState('');
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
@@ -29,7 +30,7 @@ const Contact = ({ data }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, subject, message }),
+      body: JSON.stringify({ name, email, phone, subject, message }),
     });
 
     if (response.ok) {
