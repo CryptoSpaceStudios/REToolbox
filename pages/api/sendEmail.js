@@ -5,8 +5,8 @@ sendgrid.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
 async function sendEmail(req, res) {
   try {
     await sendgrid.send({
-      to: "retoolbox@retoolbox.zyz", // Your email where you'll receive emails
-      from: "no-reply@retoolbox.zyz", // your website email address here
+      to: "no-reply@retoolbox.xyz", // Your email where you'll receive emails
+      from: "no-reply@retoolbox.xyz", // your website email address here
       subject: `[Lead from website] : ${req.body.subject}`,
       text: req.body.message,
       html: `<p>${req.body.message}</p>`
@@ -14,10 +14,11 @@ async function sendEmail(req, res) {
 
     return res.status(200).json({ error: "" });
   } catch (error) {
+    console.log(error.response.body);
     return res.status(error.statusCode || 500).json({ error: error.message });
-    console.log(error);
-    
-  }
+}
+
+
 }
 
 export default sendEmail;
