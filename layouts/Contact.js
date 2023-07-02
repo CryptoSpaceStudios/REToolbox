@@ -14,17 +14,14 @@ const Contact = ({ data }) => {
   const { frontmatter } = data;
   const { title, info } = frontmatter;
   const { contact_form_action } = config.params;
-  const { register, handleSubmit, formState: { errors }, setError } = useForm();
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState('');
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
   const onSubmit = async (event) => {
     event.preventDefault();
-
+  
+    // get form values
+    const { name, email, phone, subject, message } = getValues();
+  
     const response = await fetch('/api/sendEmail', {
       method: 'POST',
       headers: {
@@ -32,7 +29,10 @@ const Contact = ({ data }) => {
       },
       body: JSON.stringify({ name, email, phone, subject, message }),
     });
-
+    
+    console.log('The Body is ', JSON.stringify({ name, email, phone, subject, message }) );
+    console.log('The Response is', response);
+  
     if (response.ok) {
       // handle successful email sending
       console.log('Email sent successfully');
@@ -43,6 +43,7 @@ const Contact = ({ data }) => {
       console.error(errorData);
     }
   };
+  
 
    const ContactButton = styled(Button) ({
     backgroundColor: blueGrey[500],
