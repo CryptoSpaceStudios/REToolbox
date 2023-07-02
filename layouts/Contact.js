@@ -20,17 +20,17 @@ const Contact = ({ data }) => {
     event.preventDefault();
   
     // get form values
-    const { name, email, phone, subject, message } = getValues();
+    const { name, email, phone_number, subject, message } = getValues();
   
     const response = await fetch('/api/sendEmail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, phone, subject, message }),
+      body: JSON.stringify({ name, email, phone_number, subject, message }),
     });
   
-    console.log('The Body is ', JSON.stringify({ name, email, phone, subject, message }) );
+    console.log('The Body is ', JSON.stringify({ name, email, phone_number, subject, message }) );
     console.log('The Response is', response);
   
     if (response.ok) {
@@ -112,12 +112,12 @@ const Contact = ({ data }) => {
             </div>
             <div className="mb-3">
               <input
-                {...register("phone", { required: "Phone number is required" })}
+                {...register("phone_number", { required: "Phone number is required" })}
                 className="form-input w-full rounded"
-                type="phone"
+                type="phone_number"
                 placeholder="Phone Number"
               />
-              {errors.phone && <p>{errors.phone.message}</p>}
+              {errors.phone_number && <p>{errors.phone_number.message}</p>}
             </div>
             <div className="mb-3">
               <input
