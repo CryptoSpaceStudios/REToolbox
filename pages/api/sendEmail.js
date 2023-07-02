@@ -1,29 +1,21 @@
-import sgMail from '@sendgrid/mail';
+import sendgrid from "@sendgrid/mail";
 
-sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-export default async function handler(req, res) {
+async function sendEmail(req, res) {
+  try {
+    await sendgrid.send({
+      to: "youremail@gmail.com", // Your email where you'll receive emails
+      from: "youremail@gmail.com", // your website email address here
+      subject: `[Lead from website] : ${req.body.subject}`,
+      text: req.body.message,
+      html: `<p>${req.body.message}</p>`
+    });
 
-  if (req.method === 'POST') {
-    const { name, email, phone, subject, message } = req.body;
-
-    const content = {
-      to: 'retoolbox@retoolbox.xyz', // replace with your email
-      from: email,
-      subject: `New Message From ${name} - ${subject} - ${phone}`,
-      text: message,
-      html: `<p>${message}</p>`
-    };
-
-
-    try {
-      await sgMail.send(content);
-      res.status(200).send('Message sent successfully.');
-    } catch (error) {
-      console.log('ERROR', error);
-      res.status(400).send('Message not sent.');
-    }
-  } else {
-    res.status(404).json({ error: 'Invalid request method' });
+    return res.status(200).json({ error: "" });
+  } catch (error) {
+    return res.status(error.statusCode || 500).json({ error: error.message });
   }
 }
+
+export default sendEmail;

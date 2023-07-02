@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import config from "@config/config.json";
 import { markdownify } from "@lib/utils/textConverter";
 import Card from "@mui/material/Card";
@@ -15,18 +15,22 @@ const Contact = ({ data }) => {
   const { title, info } = frontmatter;
   const { contact_form_action } = config.params;
   const { register, handleSubmit, formState: { errors }, setError } = useForm();
-  const onSubmit = async (data) => {
-    console.log('Form submitted with data:', data);
-  
-    const response = await fetch('./api/sendEmail', {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+
+    const response = await fetch('/api/sendEmail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ name, email, subject, message }),
     });
-  
-    console.log('the response is', response);
 
     if (response.ok) {
       // handle successful email sending
@@ -34,11 +38,12 @@ const Contact = ({ data }) => {
     } else {
       // handle error
       console.error('Error sending email');
-      response.json().then(data => console.log('the data is', data));
+      const errorData = await response.json();
+      console.error(errorData);
     }
   };
-  
-  const ContactButton = styled(Button) ({
+
+   const ContactButton = styled(Button) ({
     backgroundColor: blueGrey[500],
     fontWeight: '600',
     color: grey[900],
@@ -71,9 +76,7 @@ const Contact = ({ data }) => {
         <CardContent>
           <form
             className="contact-form"
-            method="POST"
-            action={contact_form_action}
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={onSubmit}
           >
             <div className="mb-3">
               <input
@@ -138,7 +141,6 @@ const Contact = ({ data }) => {
                 Send Now
               </ContactButton>
             </Box>
-
           </form>
         </CardContent>
       </Card>      
