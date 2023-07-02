@@ -9,33 +9,21 @@ import SendIcon from "@mui/icons-material/Send";
 import { useForm } from "react-hook-form";
 import { black, green, blueGrey, grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = ({ data }) => {
   const { frontmatter } = data;
   const { title, info } = frontmatter;
-  const { contact_form_action, reCAPTCHA_site_key } = config.params;
-  const [captchaToken, setCaptchaToken] = useState(null);
-  
+  const { contact_form_action } = config.params;
   const { register, handleSubmit, formState: { errors }, setError } = useForm();
-
-  const onChange = (value) => {
-    /* console.log("Captcha value:", value); */
-    setCaptchaToken(value);
-  }
-  
   const onSubmit = async (data) => {
     console.log('Form submitted with data:', data);
-
-    const formData = {...data, "g-recaptcha-response": captchaToken};
   
-    // Make a POST request to the backend
     const response = await fetch('./api/sendEmail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      
     });
   
     console.log('the response is', response);
@@ -50,7 +38,6 @@ const Contact = ({ data }) => {
     }
   };
   
-
   const ContactButton = styled(Button) ({
     backgroundColor: blueGrey[500],
     fontWeight: '600',
@@ -60,12 +47,6 @@ const Contact = ({ data }) => {
       fontWeight: '900',
     },
   });
-
-  const [siteKey, setSiteKey] = useState(process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY);
-
-    useEffect(() => {
-      setSiteKey(process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY);
-    }, []);
 
   return (
     <Box 
@@ -151,16 +132,13 @@ const Contact = ({ data }) => {
               />
               {errors.message && <p>{errors.message.message}</p>}
             </div>
-            
-            <ReCAPTCHA            
-              sitekey={siteKey}
-              onChange={onChange}
-            />
+
             <Box display="flex" justifyContent="center" mt={6} mb={4}>
               <ContactButton variant="contained" type="submit" color="success" endIcon={<SendIcon />} >
                 Send Now
               </ContactButton>
             </Box>
+
           </form>
         </CardContent>
       </Card>      
