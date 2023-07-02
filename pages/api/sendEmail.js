@@ -2,8 +2,6 @@ import sgMail from '@sendgrid/mail';
 
 sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
 
-console.log('SENDGRID KEY:', process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
-
 export default async function handler(req, res) {
 
   if (req.method === 'POST') {
