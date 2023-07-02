@@ -23,7 +23,7 @@ const Contact = ({ data }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      
+      body: JSON.stringify(data),
     });
   
     console.log('the response is', response);
@@ -34,7 +34,7 @@ const Contact = ({ data }) => {
     } else {
       // handle error
       console.error('Error sending email');
-      response.json().then(data => console.log(data));
+      response.json().then(data => console.log('the data is', data));
     }
   };
   
