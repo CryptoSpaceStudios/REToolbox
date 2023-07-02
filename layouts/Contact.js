@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { useForm } from "react-hook-form";
-import { black, green, blueGrey, grey } from "@mui/material/colors";
+import { green, blueGrey, grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 
 const Contact = ({ data }) => {

@@ -7,9 +7,9 @@ async function sendEmail(req, res) {
     await sendgrid.send({
       to: "no-reply@retoolbox.xyz", // Your email where you'll receive emails
       from: "no-reply@retoolbox.xyz", // your website email address here
-      subject: `[Lead from website] : ${req.body.subject}`,
-      text: req.body.message,
-      html: `<p>${req.body.message}</p>`
+      subject: `Contact Form Submission From ${req.body.subject}`,
+      text: `TEXT CONTENT ${req.body.message}`,
+      html: `<p>HTML Body message ${req.body.message}</p>`
     });
 
     return res.status(200).json({ error: "" });
