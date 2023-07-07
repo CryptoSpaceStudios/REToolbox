@@ -1,3 +1,4 @@
+import { Typography, Card, CardContent, Box } from '@mui/material';
 import { markdownify } from "@lib/utils/textConverter";
 
 function Tos({ data }) {
@@ -6,25 +7,31 @@ function Tos({ data }) {
   return (
     <section className="section">
       <div className="container">
-      <div>
         <div className="mb-6">
-          {markdownify(title, "h1", "text-center font-normal")}
+          <Typography variant="h2" align="center" gutterBottom>
+            {title}
+          </Typography>
         </div>
         <div className="mt-6">
-          {markdownify(heading, "h2", "text-center font-normal")}
+          <Typography variant="h3" align="center" gutterBottom>
+            {heading}
+          </Typography>
         </div>
-      </div>
-        
-        
-        <div className="section row  -mt-6">
+        <div className="section row -mt-6">
           {conditions.map((tos, index) => (
             <div key={index} className="col-12 mt-6 md:col-6">
-              <div className="p-12  shadow">
-                <div className="faq-head relative">
-                  {markdownify(tos.title, "h4")}
-                </div>
-                {markdownify(tos.answer, "p", "faq-body mt-4")}
-              </div>
+              <Box sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px' }}>
+                <Card variant="outlined" className="p-12 shadow" sx={{ borderRadius: 'inherit' }}>
+                  <CardContent>
+                    <Typography variant="h4" className="faq-head relative">
+                      {tos.title}
+                    </Typography>
+                    <Typography variant="body1" className="faq-body mt-4">
+                      {markdownify(tos.answer, "p", "faq-body mt-4")}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Box>
             </div>
           ))}
         </div>
