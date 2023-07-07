@@ -20,7 +20,7 @@ const Header = () => {
   const { enable, label, link } = config.nav_button;
 
   return (
-    <header className="header bg-theme-light" alt='Navigation Menu' aria-label='Navigation Menu' aria-description='Navigation Menu'>
+    <header className="header bg-theme-light dark:bg-theme-dark" alt='Navigation Menu' aria-label='Navigation Menu' aria-description='Navigation Menu'>
       <nav className="navbar container"  alt='Navigation Menu' aria-label='Navigation Menu'>
         {/* logo */}
         <div className="order-0" alt='Logo Image' aria-label='Logo Image' aria-description='Logo Image'>

@@ -19,10 +19,10 @@
   li {
     @apply inline-block;
     a {
-      @apply block h-9 w-9 rounded-full border border-dark text-center text-white transition hover:bg-third;
+      @apply block h-9 w-9 rounded-full border border-dark dark:border-white text-center text-white transition hover:bg-third;
 
       svg {
-        @apply m-auto h-9 fill-dark;
+        @apply m-auto h-9 fill-dark dark:fill-white;
       }
 
       &:hover svg {

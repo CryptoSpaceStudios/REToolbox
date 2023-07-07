@@ -79,7 +79,8 @@ const Contact = ({ data }) => {
       <Card className="mb-8" sx={{ 
         width: '50%', 
         minWidth: '335px', 
-        boxShadow: '0px 5px 15px rgba(0, 0, 0, 1)' // Apply drop shadow
+        boxShadow: '0 0 10px rgba(0, 0, 0, 1)', 
+        borderRadius: '16px' // Apply drop shadow
       }}>
         <CardContent>
           <form

@@ -13,7 +13,7 @@ const Footer = () => {
   const { copyright, footer_content } = config.params;
   const { footer } = menu;
   return (
-    <footer className="section bg-theme-light pb-0" alt="Footer" aria-label="Footer" aria-description="Footer">
+    <footer className="section bg-theme-light dark:bg-theme-dark pb-0" alt="Footer" aria-label="Footer" aria-description="Footer">
       <div className="container" style={{ display: 'flex', flexDirection: 'column' }} alt="Footer" aria-label="Footer" aria-description="Footer">
 
         {/* footer menu */}
@@ -84,7 +84,7 @@ const Footer = () => {
         {/* copyright */}
         <Grid container justifyContent="center" alignItems="center" style={{marginTop: '1em'}}>
             <Grid item xs={12}>
-                <div className="border-t border-border py-6 text-sm text-center" alt="CopyRight" aria-label="CopyRight" aria-description="CopyRight">
+                <div className="border-t border-border py-6 text-sm text-center dark:text-white" alt="CopyRight" aria-label="CopyRight" aria-description="CopyRight">
                   ©{new Date().getFullYear()}{" "} {markdownify(config.site.logo_text)}
                 </div>
             </Grid>

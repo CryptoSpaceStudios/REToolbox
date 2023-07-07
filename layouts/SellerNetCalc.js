@@ -57,10 +57,10 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
     };
     
     const calculateMlsCosts = () => {
-      const realtorCommissions = Number((parseFloat(0.06 * sellingPrice)).toFixed(2));
-      const titleCosts = Number((parseFloat(0.0055 * sellingPrice)).toFixed(2));
-      const closingCosts = Number((parseFloat(0.08 * sellingPrice)).toFixed(2));
-      const inspection = Number((parseFloat(0.02 * sellingPrice)).toFixed(2));
+      const realtorCommissions = parseFloat((0.06 * sellingPrice)).toFixed(2);
+      const titleCosts = parseFloat((0.0055 * sellingPrice)).toFixed(2);
+      const closingCosts = parseFloat((0.08 * sellingPrice)).toFixed(2);
+      const inspection = parseFloat((0.02 * sellingPrice)).toFixed(2);
       return { realtorCommissions, titleCosts, closingCosts, inspection };
     };
     
@@ -109,7 +109,7 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                 justifyContent: 'center',
               }}
             >
-              <Typography variant="h1" gutterBottom>{frontmatter.title}</Typography>
+              <Typography variant="h2" gutterBottom>{frontmatter.title}</Typography>
               <h2></h2><h3></h3><h4></h4>
             </Box>
           </Grid>
@@ -133,10 +133,10 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
           {youSave()}
         </Box>
           
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
-            <Card sx={{ boxShadow: '0 0 10px black' }} className='ml-5 mr-5'>
-              <CardContent>
+        <Grid container spacing={2} >
+          <Grid item xs={12} md={6} >
+            <Card sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px' }} className='ml-5 mr-5'>
+              <CardContent className='' >
                 <div className="grid-container" alt="Direct Sale to Us" aria-description='Direct Sale to Us'>
                   <h4 className='text-center' alt="Direct Sale to Us" aria-label='Direct Sale to Us'>Direct Sale to Us</h4>
                   <h5 className='text-center' alt="Estimated" aria-label='Estimated'>(Estimated)</h5>
@@ -149,27 +149,27 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
                     <TextField type="number" value={costs.realtorCommissions} alt="Realtor Commissions" aria-label='Realtor Commissions' aria-description='Realtor Commissions' placeholder="Enter Selling Price" readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Title Costs" aria-description='Title Costs'>
-                    <label for="dtstitlecost" alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs'>Title Costs (0.55%)</label>
+                    <label htmlFor="dtstitlecost" alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs'>Title Costs (0.55%)</label>
                     <TextField id='dtstitlecost' type="number" value={costs.titleCosts} alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs'readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Closing Costs" aria-description='Closing Costs'>
-                    <label for='dtsclosingcosts' alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs'>Closing Costs (8%)</label>
+                    <label htmlFor='dtsclosingcosts' alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs'>Closing Costs (8%)</label>
                     <TextField id='dtsclosingcosts' type="number" value={costs.closingCosts} alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Inspection Costs" aria-description='Inspection Costs'>
-                    <label for='dtscInspectionCosts' alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs'>Inspection (2%)</label>
+                    <label htmlFor='dtscInspectionCosts' alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs'>Inspection (2%)</label>
                     <TextField id='dtscInspectionCosts' type="number" value={costs.inspection} alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Sale" aria-description='Net Sale'>
-                    <label for='dtscNetSale' alt="Net Sale" aria-description='Net Sale'>Net Sale</label>
+                    <label htmlFor='dtscNetSale' alt="Net Sale" aria-description='Net Sale'>Net Sale</label>
                     <TextField id='dtscNetSale' type="number" value={sellingPrice} alt="Net Sale" readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Mortgage" aria-description='Mortgage'>
-                    <label for='dtsMortgage' alt="Mortgage" aria-description='Mortgage'>Mortgage</label>
+                    <label htmlFor='dtsMortgage' alt="Mortgage" aria-description='Mortgage'>Mortgage</label>
                     <TextField id='dtsMortgage' type="number" value={mortgage} alt="Mortgage" aria-label='Mortgage' aria-description='Mortgage' onChange={(e) => setMortgage(e.target.value)} onBlur={(e) => setMortgage(parseFloat(e.target.value).toFixed(2))} placeholder="Enter Mortgage Amount" fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Equity" aria-description='Net Equity'>
-                    <label for='dtsnetEquity' alt="Net Equity" aria-label='Net Equity' aria-description='Net Equity'>Net Equity</label>
+                    <label htmlFor='dtsnetEquity' alt="Net Equity" aria-label='Net Equity' aria-description='Net Equity'>Net Equity</label>
                     <TextField id='dtsnetEquity' type="number" value={calculateNetEquity()} alt="Net Equity" aria-label='Net Equity' aria-description='Net Equity' onBlur={(e) => setNetEquity(parseFloat(e.target.value).toFixed(2))} readOnly fullWidth />
                   </div>
                 </div>
@@ -177,41 +177,41 @@ import { Card, CardContent, Grid, TextField, Box, Typography } from '@mui/materi
             </Card>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Card sx={{ boxShadow: '0 0 10px black' }} className='ml-5 mr-5'>
+            <Card sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px' }} className='ml-5 mr-5'>
               <CardContent>
                 <div className="grid-container" alt="Listing on MLS" aria-description='Listing on MLS'>
                   <h4 className='text-center' alt="Listing on MLS" aria-label='Listing on MLS'>Listing on MLS</h4>
                   <h5 className='text-center' alt="Listing on MLS" aria-label='Listing on MLS'>(Estimated)</h5>
                   <div className="grid-item" alt="Listing on MLS" aria-description='Listing on MLS'>
-                    <label for='mlssellingprice' alt="Selling Price"  aria-description='Selling Price'>Selling Price</label>
+                    <label htmlFor='mlssellingprice' alt="Selling Price"  aria-description='Selling Price'>Selling Price</label>
                     <TextField id='mlssellingprice' type="number" value={sellingPrice}  alt="Selling Price on MLS" aria-label='Selling Price on MLS' aria-description='Selling Price on MLS' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Realtor Commissions" aria-description='Realtor Commissions'>
-                    <label for='mlsrealtorcommission' alt="Realtor Commissions" aria-label='Realtor Commissions' aria-description='Realtor Commissions'>Realtor Commissions (6%)</label>
+                    <label htmlFor='mlsrealtorcommission' alt="Realtor Commissions" aria-label='Realtor Commissions' aria-description='Realtor Commissions'>Realtor Commissions (6%)</label>
                     <TextField id='mlsrealtorcommission' type="number" value={mlsCosts.realtorCommissions} alt="Realtor Commissions" aria-label='Realtor Commissions' aria-description='Realtor Commissions' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Title Costs" aria-description='Title Costs'>
-                    <label for='mlstitlecosts' alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs'>Title Costs (0.55%)</label>
+                    <label htmlFor='mlstitlecosts' alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs'>Title Costs (0.55%)</label>
                     <TextField id='mlstitlecosts' type="number" value={mlsCosts.titleCosts} alt="Title Costs" aria-label='Title Costs' aria-description='Title Costs' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Closing Costs" aria-description='Closing Costs'>
-                    <label for='mlsclosingcosts' alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs'>Closing Costs (8%)</label>
+                    <label htmlFor='mlsclosingcosts' alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs'>Closing Costs (8%)</label>
                     <TextField id='mlsclosingcosts' type="number" value={mlsCosts.closingCosts} alt="Closing Costs" aria-label='Closing Costs' aria-description='Closing Costs' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Inspection Costs" aria-description='Inspection Costs'>
-                    <label for='mlsinspectioncosts'  alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs'>Inspection (2%)</label>
+                    <label htmlFor='mlsinspectioncosts'  alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs'>Inspection (2%)</label>
                     <TextField id='mlsinspectioncosts' type="number" value={mlsCosts.inspection} alt="Inspection Costs" aria-label='Inspection Costs' aria-description='Inspection Costs' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Sale on MLS" aria-description='Net Sale on MLS'>
-                    <label for='mslnetsale' alt="Net Sale on MLS" aria-description='Net Sale on MLS'>Net Sale</label>
+                    <label htmlFor='mslnetsale' alt="Net Sale on MLS" aria-description='Net Sale on MLS'>Net Sale</label>
                     <TextField id='mslnetsale' type="number" value={sellingPrice} alt="Net Sale on MLS" aria-label='Net Sale on MLS' aria-description='Net Sale on MLS' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Mortgage"  aria-description='Mortgage'>
-                    <label for='mlsmortgage' alt="Mortgage" aria-description='Mortgage'>Mortgage</label>
+                    <label htmlFor='mlsmortgage' alt="Mortgage" aria-description='Mortgage'>Mortgage</label>
                     <TextField id='mlsmortgage' type="number" value={mortgage} alt="Mortgage" aria-label='Mortgage' aria-description='Mortgage' readOnly fullWidth />
                   </div>
                   <div className="grid-item" alt="Net Equity" aria-description='Net Equity'>
-                    <label for='mlsnetequity' alt="Net Equity" aria-label='Net Equity' aria-description='Net Equity'>Net Equity</label>
+                    <label htmlFor='mlsnetequity' alt="Net Equity" aria-label='Net Equity' aria-description='Net Equity'>Net Equity</label>
                     <TextField id='mlsnetequity' type="number" value={calculateMlsNetEquity()} alt="Net Equity" aria-label='Net Equity' aria-description='Net Equity' readOnly fullWidth />
                   </div>
                 </div>

@@ -1,9 +1,9 @@
 html {
-  @apply text-base;
+  @apply text-base ;
 }
 
 body {
-  @apply bg-body font-primary font-normal leading-relaxed text-text;
+  @apply bg-body font-primary font-normal leading-relaxed text-text dark:bg-stone-800/60;
 }
 
 h1,

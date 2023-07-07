@@ -4,7 +4,7 @@
 
 // navbar items
 .navbar {
-  @apply relative flex flex-wrap items-center justify-between;
+  @apply relative flex flex-wrap items-center justify-between ;
 }
 
 .navbar-brand {
@@ -16,11 +16,11 @@
 }
 
 .navbar-nav {
-  @apply text-center md:text-left;
+  @apply text-center md:text-left ;
 }
 
 #nav-menu {
-  @apply w-full overflow-hidden md:max-h-full md:w-auto;
+  @apply w-full overflow-hidden md:max-h-full md:w-auto ;
 }
 
 .nav-item {
@@ -32,7 +32,7 @@
 }
 
 .nav-link {
-  @apply py-3 px-2 font-primary text-base font-bold text-dark transition hover:text-third md:py-4 lg:px-3;
+  @apply py-3 px-2 font-primary text-base font-bold text-base dark:text-white transition hover:text-third md:py-4 lg:px-3;
 
   &-active {
     @apply text-primary;
@@ -42,7 +42,7 @@
 .support-links {
   @apply space-x-4;
   
-    @apply py-3 px-2 font-primary text-base font-bold text-dark transition hover:text-third md:py-4 lg:px-3;
+    @apply py-3 px-2 font-primary text-base font-bold text-dark dark:text-white transition hover:text-third md:py-4 lg:px-3;
 
     &-active {
       @apply py-9 px-6 text-primary;

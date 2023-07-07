@@ -1,3 +1,4 @@
+import { Typography, Card, CardContent, Box } from '@mui/material';
 import { markdownify } from "@lib/utils/textConverter";
 
 function Faq({ data }) {
@@ -6,16 +7,24 @@ function Faq({ data }) {
   return (
     <section className="section">
       <div className="container">
-        {markdownify(title, "h1", "text-center font-normal")}
+        <Typography variant="h2" align="center" gutterBottom>
+          {title}
+        </Typography>
         <div className="section row  -mt-6">
           {faqs.map((faq, index) => (
             <div key={index} className="col-12 mt-6 md:col-6">
-              <div className="p-12  shadow">
-                <div className="faq-head relative">
-                  {markdownify(faq.title, "h4")}
-                </div>
-                {markdownify(faq.answer, "p", "faq-body mt-4")}
-              </div>
+              <Box sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px' }}>
+                <Card variant="outlined" className="p-12 shadow  dark:bg-zinc-300" sx={{ borderRadius: 'inherit' }}>
+                  <CardContent>
+                    <Typography variant="h4" className="faq-head relative">
+                      {faq.title}
+                    </Typography>
+                    <Typography variant="body1" className="faq-body mt-4">
+                      {markdownify(faq.answer, "p", "faq-body mt-4")}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Box>
             </div>
           ))}
         </div>

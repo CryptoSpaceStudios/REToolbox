@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Box, Typography, TextField, MenuItem, Select, InputLabel, FormControl, Card, CardContent, FormHelperText, Grid } from '@mui/material';
 
 const rehabLevels = [
+  { label: 'Turn Key', value: 1},
   { label: 'Clean up', value: 20 },
   { label: 'Lipstick', value: 25 },
   { label: 'Moderate', value: 30 },
@@ -9,7 +10,9 @@ const rehabLevels = [
   { label: 'Rekt', value: 50 },
 ];
 
-function MaoCalculator() {
+function MaoCalculator({ data }) {
+	const { frontmatter } = data;
+  const { title, heading, maos } = frontmatter;
   const [address, setAddress] = useState("");
   const [sqft, setSqft] = useState(0);
   const [arv, setArv] = useState(0);
@@ -72,46 +75,28 @@ function MaoCalculator() {
   };
 
   return (
-    <Container 
-      maxWidth="md" 
-      role='region'
-      aria-label='MAO'>
-      
-      {/* Header */}
-      <Typography variant="h2" component="h2" gutterBottom style={{ textAlign: 'center' }}>
-        Maximum Allowable Offer
-      </Typography>
+    <Grid container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }} mb={5}>
+      <Container maxWidth="md" role='region' aria-label='MAO'>
+        <Typography variant="h2" component="h2" gutterBottom style={{ textAlign: 'center' }}>{frontmatter.title}</Typography>
 
-      {/* DISPLAYS MAO RESULTS */}
-      <Box>
-        {mao > 0 ? (
-          <Typography variant="h5" component="h2" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}>
-            MAO for this property is ${mao.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-          </Typography>
-        ) : (
-          <Typography variant="h5" component="h2" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}>
-            It will cost you ${Math.abs(mao).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} out of pocket to do this deal
-          </Typography>
-        )}
-      </Box>
-      {/* END OF MAO RESULTS */}
+        <Box>
+          {mao > 0 ? (
+            <Typography variant="h5" component="h2" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}>
+              MAO for this property is ${mao.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </Typography>
+          ) : (
+            <Typography variant="h5" component="h5" gutterBottom style={{ textAlign: 'center' }}>{frontmatter.heading}</Typography>
+          )}
+        </Box>
 
-      <Box mt={5} mb={8} boxShadow={8} sx={{ display: 'flex', justifyContent: 'center' }} 
-            role='region'
-            aria-label='MAO'>
-        <Card sx={{ width: '85%' }}  
-            role='region'
-            aria-label='MAO'>
-          <CardContent 
-            role='region'
-            aria-label='MAO'>
-            <form onSubmit={handleSubmit}
-              role='form'
-              aria-label='MAO'>
-              <Grid container spacing={3} mt={5} mb={5}  direction="column"
-                role='grid'
-                aria-label='MAO'>
-              {/* Top of MAO Form grid */}
+        <Box sx={{ display: 'flex', justifyContent: 'center' }} >
+          <Card sx={{ width: '100%', maxWidth: '800px', boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px', margin: 'auto' }} role='region' aria-label='MAO'>
+            <CardContent role='region' aria-label='MAO'>
+              <form onSubmit={handleSubmit} role='form' aria-label='MAO'>
+                <Grid container spacing={3} mt={5} mb={5}  direction="column" role='grid' aria-label='MAO'>
+
+
+                  {/* Top of MAO Form grid */}
                 <Grid item
                     role='gridcell'
                     aria-label='Square Footage'>
@@ -252,14 +237,15 @@ function MaoCalculator() {
                     aria-label='Maximum Allowable Offer'
                   />
                 </Grid>
-              </Grid>
-            </form>
-          </CardContent>
-        </Card>
-      </Box>
-    </Container>
+
+                </Grid>
+              </form>
+            </CardContent>
+          </Card>
+        </Box>
+      </Container>
+    </Grid>
   );
 }
 
 export default MaoCalculator;
-
