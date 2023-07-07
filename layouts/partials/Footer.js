@@ -73,6 +73,7 @@ const Footer = () => {
                     aria-label={config.site.logo_text}
                     aria-description={config.site.logo_text}
                     title={config.site.logo_text}
+                    className="clickityclack"
                   />
                 </Link>
               </div>

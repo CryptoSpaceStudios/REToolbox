@@ -34,7 +34,7 @@ const Home = ({ frontmatter }) => {
                 </Link>
               )}
               <Image
-                className="mx-auto mt-12"
+                className="mx-auto mt-12 clickityclack"
                 src={banner.image}
                 width={750}
                 height={390}
@@ -63,7 +63,7 @@ const Home = ({ frontmatter }) => {
         >
           {item.icon && (
             <Image
-              className="mx-auto"
+              className="mx-auto clickityclack"
               href={item.link}
               src={item.icon}
               width={30}
@@ -108,7 +108,7 @@ const Home = ({ frontmatter }) => {
                     {/* Slides */}
                     {service?.images.map((slide, index) => (
                       <SwiperSlide key={index}>
-                        <Image src={slide} alt="" width={600} height={500} />
+                        <Image className="clickityclack" src={slide} alt="" width={600} height={500} />
                       </SwiperSlide>
                     ))}
                   </Swiper>

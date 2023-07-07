@@ -12,7 +12,7 @@ const Logo = ({ src }) => {
       href={base_url}
       alt={logo_text}
       aria-label={logo_text}
-      className="navbar-brand block py-1"
+      className="navbar-brand block py-1 clickityclack"
       style={{
         height: logo_height.replace("px", "") + "px",
         width: logo_width.replace("px", "") + "px",

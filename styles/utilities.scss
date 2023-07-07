@@ -6,3 +6,8 @@ strong {
 .shadow {
   @apply shadow-[0_12px_24px_-6px_rgba(45,67,121,0.1)]
 }
+
+// stops right click on images
+.clickityclack {
+    pointer-events: none;
+}
