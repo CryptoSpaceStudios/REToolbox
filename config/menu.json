@@ -18,12 +18,12 @@
       "url": "/roi"
     },
     {
-      "name": "Seller Net Calc",
+      "name": "Seller Net",
       "url": "/sellernetcalc",
       "desc": "NAME"
     },
     {
-      "name": "SubTo Calc",
+      "name": "Subject-To",
       "url": "/subtocalc",
       "desc": "NAME"
     }

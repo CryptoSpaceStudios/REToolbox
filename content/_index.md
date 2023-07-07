@@ -15,12 +15,12 @@ feature:
   features:
   - name: "Seller Net Calculator"
     icon: "/images/calculator.svg"
-    content: "Instantly calculate how much more a seller can benefit from selling to you"
+    content: "Instantly calculate how much more a seller can benefit from selling to an Real Estate Investor vs Selling on the MLS Traditionally"
     link: "/sellernetcalc"
   - name: "MOA Calculator"
     icon: "/images/calculator1.svg"
     link: "/mao"
-    content: "Quickly and Accurately analyze properties to help you find your Maximum Allowable faster"
+    content: "Quickly and Accurately analyze properties to help you find your Maximum Allowable Offer (MAO) in an instant"
   - name: "ROI Calculator"
     icon: "/images/user-clock.svg"
     link: "/#"
@@ -28,24 +28,32 @@ feature:
   - name: "Subject-To Wrap Calculator"
     icon: "/images/love.svg"
     link: "/subtocalc"
-    content: "Super Fast and Easy Tool for calculating your SubTo Wrap Deals"
+    content: "Super Fast and Easy Tool for calculating your Subject-To (SubTo) Real Estate Deals including Wraps"
   - name: "Zillow FSBO"
     icon: "/images/zillow.svg"
     link: "#"
-    content: "Get the latest Zillow FSBO listings (Coming Soon)"
- 
+    content: "Get the latest Zillow listings (Coming Soon)"
 
 # services
 services:
-  - title: "A company standing different from others"
-    content: "Insert some text here"
+  - title: "Tools to help investors, From new to seasoned"
+    content: "The Maximum Allowable Offer (MAO) Calculator,   Subject-To (SubTo) Calculator, Seller Finance Net Calculator and more will help Real Estate Investors quickly analyze deals to make descisions faster, thereby increasing revenue!"
     images:
       - "/images/service-slide-1.png"
       - "/images/service-slide-2.png"
       - "/images/service-slide-3.png"
     button:
       enable: true
-      label: Check it out
+      label: Check the SubTo Calculator out
+      link: /subtocalc
+
+  - title: "Have Suggestions for New Tools?"
+    content: 'If you have a great idea for a tool that would be useful for Real Estate Investors, Let us know via the Contact page! ~~~ Examples are useful, so please include any examples or links to examples of the tool in question if you have any'
+    images:
+    - "/images/user-clock.svg"
+    button:
+      enable: true
+      label: Send us your Idea
       link: /contact
 
 # workflow
