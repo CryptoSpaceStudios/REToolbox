@@ -1,6 +1,6 @@
 ---
-title: SubTo Calculator
-heading: Quickly Analyze Subject-To (SubTo) wrap deals
+title: Subject-To (SubTo) Calculator
+heading: Analyze Subject-To (SubTo) deals to quickly calculate your entry fee, acquisition cost and disposition info
 entrytitle: Entry Fee Calculator
 acquisitiontitle: Acquisition Calculator
 dispositiontitle: Disposition Calculator
