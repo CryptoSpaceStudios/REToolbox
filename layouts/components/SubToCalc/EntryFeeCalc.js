@@ -52,7 +52,7 @@ function EntryFeeForm() {
         <CardContent>
           <Box marginBottom={3} marginTop={4}>
             <Typography variant="h5" component="h2" gutterBottom align="center">
-              Fill in the fields below and easily get your entry fee
+              Fill in the fields below to get your entry fee
             </Typography>
           </Box>
           <Grid item xs={12}>

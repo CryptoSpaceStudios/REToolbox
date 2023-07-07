@@ -54,8 +54,8 @@ function SubtoCalc({ data }) {
         {markdownify(heading, "h3", "text-center font-normal")}
         <Grid container justifyContent="center" className='mt-6'>
           <Grid item xs={12} md={9} >
-            <Card>
-              <Box sx={{ width: '100%', height: '100%', minHeight: '1150px' }} className='bg-theme-light'>
+            <Card >
+              <Box sx={{ width: '100%', height: '100%', minHeight: '1150px' }} className='bg-theme-light dark:bg-theme-dark'>
                 <Box  >
                   <Tabs value={value} onChange={handleChange} centered aria-label="Return on Investment Calculators"
                     sx={{ '.MuiTab-root': {   color: '#222' },
