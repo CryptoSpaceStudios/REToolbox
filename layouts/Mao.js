@@ -7,7 +7,7 @@ const rehabLevels = [
   { label: 'Lipstick', value: 25 },
   { label: 'Moderate', value: 30 },
   { label: 'Heavy', value: 40 },
-  { label: 'Rekt', value: 50 },
+  { label: 'Rekt  ', value: 50 },
 ];
 
 function MaoCalculator({ data }) {
@@ -81,8 +81,8 @@ function MaoCalculator({ data }) {
 
         <Box>
           {mao > 0 ? (
-            <Typography variant="h5" component="h2" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}>
-              MAO for this property is ${mao.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            <Typography variant="h4" component="h2" gutterBottom style={{ textAlign: 'center', color: 'blue', fontWeight: 'bold' }}>
+              The MAO for this property is ${mao.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </Typography>
           ) : (
             <Typography variant="h5" component="h5" gutterBottom style={{ textAlign: 'center' }}>{frontmatter.heading}</Typography>
