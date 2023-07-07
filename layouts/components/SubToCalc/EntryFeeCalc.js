@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import { EntryFeeContext } from '@layouts/components/SubToCalc/EntryFeeContext';
+import { EntryFeeContext } from '@layouts/components/SubToCalc/SubToCalcStates';
 
 function EntryFeeForm() {
   const router = useRouter();

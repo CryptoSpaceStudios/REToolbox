@@ -10,16 +10,21 @@
       "url": "/contact"
     },
     {
-      "name": "FAQ",
-      "url": "/faq"
-    },
-    {
       "name": "MAO",
       "url": "/mao"
     },
     {
+      "name": "ROI",
+      "url": "/roi"
+    },
+    {
       "name": "Seller Net Calc",
       "url": "/sellernetcalc",
+      "desc": "NAME"
+    },
+    {
+      "name": "SubTo Calc",
+      "url": "/subtocalc",
       "desc": "NAME"
     }
   ],
