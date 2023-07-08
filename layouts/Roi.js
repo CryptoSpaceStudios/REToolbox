@@ -55,7 +55,7 @@ function Roi({ data }) {
         <Grid container justifyContent="center" className='mt-6'>
           <Grid item xs={12} md={9} >
             <Card>
-              <Box sx={{ width: '100%', minHeight: '1230px' }} className='bg-theme-light dark:bg-theme-dark'>
+              <Box sx={{ width: '100%', minHeight: '1280px' }} className='bg-theme-light dark:bg-theme-dark'>
                 <Box  >
                   <Tabs value={value} onChange={handleChange} centered aria-label="Return on Investment Calculators"
                     sx={{ '.MuiTab-root': { fontSize: '1rem',  color: '#222' },
