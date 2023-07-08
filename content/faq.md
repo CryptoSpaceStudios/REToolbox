@@ -12,7 +12,7 @@ faqs:
   - title: Why are there ads?
     answer: The same reason everyone else does [tbh](https://www.urbandictionary.com/define.php?term=Tbh).  When I get enough [ROI](https://www.urbandictionary.com/define.php?term=ROI), I'll revisit that.  A [Donation](/donate) page for people who value the tools, utilities and the work put into this as well as genuinely nice people who would want to chip in a few bucks is being considered.
   - title: Do you have a discord?
-    answer: No.
+    answer: Check the Social Media Icons at the bottom of the page.
   - title: Are you on Social Media
     answer: Check the Social icons in the footer of the page
   - title: Is there any support?
