@@ -92,10 +92,10 @@ function StrMtrForm() {
 
   return (
     <Container maxWidth="sm">
-      <Card style={{ boxShadow: '0 3px 10px rgb(0, 0, 0)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Card style={{ boxShadow: '0 3px 10px rgb(0, 0, 0, 1)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <CardContent>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={12} md={12} lg={12} >
               <InputLabel id="purchase-price-label" htmlFor="purchase-price">Purchase Price (Enter Amt)</InputLabel>
               <TextField
                 id="purchase-price"
