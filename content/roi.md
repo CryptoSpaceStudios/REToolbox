@@ -2,7 +2,8 @@
 title: Return on Investment Calculator
 heading: These Calculators will help you quickly calculate your ROI on several different exit strategies
 wholesaletitle: Wholesale Calculator
-strmtrtitle: Short or Medium Term Rental Calculator
+strmtrtitle: Rental Calculator
+strmtrsubtitle: "Simply Enter in Purchase Price and any additional Fees (Wholesale/Misc),<br/>Select your note rate and term, Enter in Property Taxes and Insurance<br/>and the Rental Calculator will take care of the rest!"
 fnftitle: Fix and Flip Calculator
 bnhtitle: Buy and Hold Calculator
 layout: roi 

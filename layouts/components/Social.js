@@ -33,15 +33,13 @@ import {
   IoLogoWordpress,
   IoLogoYoutube,
   IoMail,
+  
 } from "react-icons/io5";
 
-import {
-  FaEthereum
-} from "react-icons/fa6";
-
-import {
-  SiLitecoin 
-} from "react-icons/si";
+import { LiaHandPeaceSolid } from "react-icons/lia";
+import { GiElephant } from "react-icons/gi";
+import { FaEthereum } from "react-icons/fa6";
+import { SiLitecoin } from "react-icons/si";
 
 
 import Image from 'next/image';
@@ -56,6 +54,7 @@ const Social = ({ source, className }) => {
     codepen,
     discord,
     dribbble,
+    elephantchallenge,
     email,
     ethereum,
     facebook,
@@ -75,6 +74,7 @@ const Social = ({ source, className }) => {
     slack,
     snapchat,
     soundcloud,
+    subto,
     tiktok,
     tumblr,
     twitter,
@@ -117,7 +117,34 @@ const PrivyIcon = ({src, href}) => {
         </li>
       )}
 
-
+      {subto && (
+        <li className="inline-block">
+          <a
+            alt="Join SubTo"
+            title="Join SubTo"
+            aria-label="Join SubTo"
+            href={subto}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <LiaHandPeaceSolid />
+          </a>
+        </li>
+      )}
+      {elephantchallenge && (
+        <li className="inline-block">
+          <a
+            alt="Join The Elephant Challenge"
+            title="Join The Elephant Challenge"
+            aria-label="Join The Elephant Challenge"
+            href={elephantchallenge}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <GiElephant />
+          </a>
+        </li>
+      )}
       {facebook && (
         <li className="inline-block">
           <a

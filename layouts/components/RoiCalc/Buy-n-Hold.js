@@ -6,7 +6,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
 
-function WholesaleForm() {
+function BnHForm() {
   const [purchasePrice, setPurchasePrice] = useState('');
   const [wholesaleFee, setWholesaleFee] = useState('');
   const [otherFees, setOtherFees] = useState('');
@@ -154,4 +154,4 @@ function WholesaleForm() {
   );
 }
 
-export default WholesaleForm;
+export default BnHForm;

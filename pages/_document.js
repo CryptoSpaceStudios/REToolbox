@@ -1,5 +1,10 @@
 import config from "@config/config.json";
 import { Head, Html, Main, NextScript } from "next/document";
+import { Suspense } from 'react';
+
+function Loading() {
+  return <h2>🌀 Loading...</h2>;
+}
 
 const Document = () => {
   // destructuring items from config object
@@ -17,10 +22,12 @@ const Document = () => {
         />
       </Head>
       <body>
+      <Suspense fallback={<Loading />}>
         <Main />
+      </Suspense>  
         {/* <TwSizeIndicator /> */}
         <NextScript />
-        
+      
       </body>
     </Html>
   );
