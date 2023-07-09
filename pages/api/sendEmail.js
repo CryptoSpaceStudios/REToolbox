@@ -14,7 +14,7 @@ async function sendEmail(req, res) {
       html: `<p>Name: ${req.body.first_name} ${req.body.last_name}</p><p>Phone: ${req.body.phone_number}</p><p>Email: ${req.body.email}</p><p>Message: ${req.body.message}</p> `
     });
 
-    // Add entry into sendgrid global contact list after sending the email
+    // make the client request to add entry into database after sending the email
     const request = {
       url: `https://api.sendgrid.com/v3/marketing/contacts`,
       method: 'PUT',
