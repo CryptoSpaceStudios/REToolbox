@@ -23,7 +23,7 @@ const Contact = ({ data }) => {
     const { first_name, last_name, email, phone_number, subject, message } = getValues();
   
     const data = JSON.stringify({ first_name, last_name, email, phone_number, subject, message });
-    console.log('The Form Data is ', data);
+    /* console.log('The Form Data is ', data); */
   
     // send form data to /api/sendEmail
     const response = await fetch('/api/sendEmail', {
