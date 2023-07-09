@@ -91,7 +91,7 @@ function StrMtrForm() {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container className="StrMtrForm" maxWidth="md">
       <Card style={{ boxShadow: '0 3px 10px rgb(0, 0, 0, 1)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <CardContent>
           <Grid container spacing={2}>
@@ -172,7 +172,7 @@ function StrMtrForm() {
               />
             </Grid>
             <Grid item xs={6}>
-              <InputLabel id="other-fees-label" htmlFor="other-fees">Other Acquisition Fees (If Needed)</InputLabel>
+              <InputLabel id="other-fees-label" htmlFor="other-fees">Other Fees (If Needed)</InputLabel>
               <TextField
                 id="other-fees"
                 type="text"

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+
 import config from "@config/config.json";
 import { markdownify } from "@lib/utils/textConverter";
 import Card from "@mui/material/Card";
@@ -13,31 +14,30 @@ import { styled } from "@mui/material/styles";
 const Contact = ({ data }) => {
   const { frontmatter } = data;
   const { title, info } = frontmatter;
-  const { contact_form_action } = config.params;
   const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
   const onSubmit = async (event) => {
     event.preventDefault();
-  
+
     // get form values
-    const { name, email, phone_number, subject, message } = getValues();
+    const { first_name, last_name, email, phone_number, subject, message } = getValues();
   
+    const data = JSON.stringify({ first_name, last_name, email, phone_number, subject, message });
+    console.log('The Form Data is ', data);
+  
+    // send form data to /api/sendEmail
     const response = await fetch('/api/sendEmail', {
       method: 'POST',
-      headers: {
+      headers: { 
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, phone_number, subject, message }),
+      body: data,
     });
-  
-    console.log('The Body is ', JSON.stringify({ name, email, phone_number, subject, message }) );
-    console.log('The Response is', response);
-  
+
     if (response.ok) {
-      // handle successful email sending
       console.log('Email sent successfully');
+      
     } else {
-      // handle error
       console.error('Error sending email');
       const contentType = response.headers.get('content-type');
       if (contentType && contentType.indexOf('application/json') !== -1) {
@@ -49,9 +49,8 @@ const Contact = ({ data }) => {
       }
     }
   };
-  
 
-   const ContactButton = styled(Button) ({
+  const ContactButton = styled(Button) ({
     backgroundColor: blueGrey[500],
     fontWeight: '600',
     color: grey[900],
@@ -89,12 +88,21 @@ const Contact = ({ data }) => {
           >
             <div className="mb-3">
               <input
-                {...register("name", { required: "Name is required" })}
+                {...register("first_name", { required: "First Name is required" })}
                 className="form-input w-full rounded"
                 type="text"
-                placeholder="Name"
+                placeholder="First Name"
               />
-              {errors.name && <p>{errors.name.message}</p>}
+              {errors.name && <p>{errors.first_name.message}</p>}
+            </div>
+            <div className="mb-3">
+              <input
+                {...register("last_name", { required: "Last Name is required" })}
+                className="form-input w-full rounded"
+                type="text"
+                placeholder="Last Name"
+              />
+              {errors.name && <p>{errors.last_name.message}</p>}
             </div>
             <div className="mb-3">
               <input
