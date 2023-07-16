@@ -1,0 +1,179 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "boolean"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "layout",
+          "name": "layout",
+          "type": "string"
+        },
+        {
+          "title": "faqs",
+          "name": "faqs",
+          "type": "block",
+          "fields": [
+            {
+              "title": "0",
+              "name": "0",
+              "type": "fields",
+              "fields": [
+                {
+                  "title": "title",
+                  "name": "title",
+                  "type": "string"
+                },
+                {
+                  "title": "answer",
+                  "name": "answer",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "title": "1",
+              "name": "1",
+              "type": "fields",
+              "fields": [
+                {
+                  "title": "title",
+                  "name": "title",
+                  "type": "string"
+                },
+                {
+                  "title": "answer",
+                  "name": "answer",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "title": "2",
+              "name": "2",
+              "type": "fields",
+              "fields": [
+                {
+                  "title": "title",
+                  "name": "title",
+                  "type": "string"
+                },
+                {
+                  "title": "answer",
+                  "name": "answer",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "title": "3",
+              "name": "3",
+              "type": "fields",
+              "fields": [
+                {
+                  "title": "title",
+                  "name": "title",
+                  "type": "string"
+                },
+                {
+                  "title": "answer",
+                  "name": "answer",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "title": "4",
+              "name": "4",
+              "type": "fields",
+              "fields": [
+                {
+                  "title": "title",
+                  "name": "title",
+                  "type": "string"
+                },
+                {
+                  "title": "answer",
+                  "name": "answer",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "title": "5",
+              "name": "5",
+              "type": "fields",
+              "fields": [
+                {
+                  "title": "title",
+                  "name": "title",
+                  "type": "string"
+                },
+                {
+                  "title": "answer",
+                  "name": "answer",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "title": "6",
+              "name": "6",
+              "type": "fields",
+              "fields": [
+                {
+                  "title": "title",
+                  "name": "title",
+                  "type": "string"
+                },
+                {
+                  "title": "answer",
+                  "name": "answer",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

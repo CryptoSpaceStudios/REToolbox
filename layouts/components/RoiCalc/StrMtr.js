@@ -102,7 +102,7 @@ function StrMtrForm() {
                 type="text"
                 onChange={handlePurchasePriceChange}
                 value={purchasePrice}
-                placeholder="0.00"
+                placeholder="Enter Purchase Price"
                 aria-labelledby="purchase-price-label"
                 fullWidth
               />
@@ -166,7 +166,7 @@ function StrMtrForm() {
                 type="text"
                 onChange={handleWholesaleFeeChange}
                 value={wholesaleFee}
-                placeholder="0.00"
+                placeholder="Enter Wholesale Fee if any"
                 aria-labelledby="wholesale-fee-label"
                 fullWidth
               />
@@ -178,7 +178,7 @@ function StrMtrForm() {
                 type="text"
                 onChange={handleOtherFeesChange}
                 value={otherFees}
-                placeholder="0.00"
+                placeholder="Enter Other fees if any"
                 aria-labelledby="other-fees-label"
                 fullWidth
               />
@@ -218,13 +218,13 @@ function StrMtrForm() {
               </Select>
             </Grid>
             <Grid item xs={6}>
-              <InputLabel id="mortgage-rate-label" htmlFor="mortgage-rate">Mortgage Rate (i.e. 2.95 = 2.95%)</InputLabel>
+              <InputLabel id="mortgage-rate-label" htmlFor="mortgage-rate">Mortgage Rate</InputLabel>
               <TextField
                 id="mortgage-rate"
                 type="text"
                 onChange={handleMortgageRateChange}
                 value={mortgageRate}
-                placeholder="0.00"
+                placeholder="Enter Rate (i.e. 3.575)"
                 aria-labelledby="mortgage-rate-label"
                 fullWidth
               />
@@ -249,7 +249,7 @@ function StrMtrForm() {
                 type="text"
                 onChange={handlePropertyTaxesChange}
                 value={propertyTaxes}
-                placeholder="0.00"
+                placeholder="Enter Yearly Property Taxes"
                 aria-labelledby="property-taxes-label"
                 fullWidth
               />
@@ -261,7 +261,7 @@ function StrMtrForm() {
                 type="text"
                 onChange={handlePropertyInsuranceChange}
                 value={propertyInsurance}
-                placeholder="0.00"
+                placeholder="Enter Yearly Property Insurance"
                 aria-labelledby="property-insurance-label"
                 fullWidth
               />
@@ -274,19 +274,21 @@ function StrMtrForm() {
                 InputProps={{
                   readOnly: true,
                 }}
-                value={mortgagePITI.toFixed(2)}
+                value={isFinite(mortgagePITI) ? mortgagePITI.toFixed(2) : ''}
+                placeholder="PITI will be calculated when required fields are filled"
                 aria-labelledby="mortgage-piti-label"
                 fullWidth
               />
             </Grid>
+
             <Grid item xs={12}>
-              <InputLabel id="gross-rental-income-label" htmlFor="gross-rental-income">Gross Rental Income</InputLabel>
+              <InputLabel id="gross-rental-income-label" htmlFor="gross-rental-income">Monthly Rental Income</InputLabel>
               <TextField
                 id="gross-rental-income"
                 type="text"
                 onChange={handleGrossRentalIncomeChange}
                 value={grossRentalIncome}
-                placeholder="0.00"
+                placeholder="Enter Rent Amount you are charging tenant"
                 aria-labelledby="gross-rental-income-label"
                 fullWidth
               />

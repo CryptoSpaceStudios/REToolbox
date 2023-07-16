@@ -52,7 +52,7 @@ function WholesaleForm() {
                 type="text"
                 onChange={handlePurchasePriceChange}
                 value={purchasePrice}
-                placeholder="0.00"
+                placeholder="Enter Purchase Price"
                 aria-labelledby="purchase-price-label"
                 fullWidth
               />
@@ -116,7 +116,7 @@ function WholesaleForm() {
                 type="text"
                 onChange={handleWholesaleFeeChange}
                 value={wholesaleFee}
-                placeholder="0.00"
+                placeholder="Enter Wholesale Fee if any"
                 aria-labelledby="wholesale-fee-label"
                 fullWidth
               />
@@ -128,7 +128,7 @@ function WholesaleForm() {
                 type="text"
                 onChange={handleOtherFeesChange}
                 value={otherFees}
-                placeholder="0.00"
+                placeholder="Enter Other fees if any"
                 aria-labelledby="other-fees-label"
                 fullWidth
               />
