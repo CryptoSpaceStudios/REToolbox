@@ -80,7 +80,7 @@ function FnFForm() {
   
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
       <Card style={{ boxShadow: '0 3px 10px rgb(0, 0, 0)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <CardContent>
           <Grid container spacing={2}>
