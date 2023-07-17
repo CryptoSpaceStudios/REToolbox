@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Box, Typography, TextField, MenuItem, Select, InputLabel, FormControl, Card, CardContent, FormHelperText, Grid } from '@mui/material';
 
 const rehabLevels = [
-  { label: 'Turn Key', value: 1},
+  { label: 'Turn Key', value: 0},
   { label: 'Clean up', value: 20 },
   { label: 'Lipstick', value: 25 },
   { label: 'Moderate', value: 30 },
