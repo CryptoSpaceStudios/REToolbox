@@ -17,22 +17,20 @@ function Tos({ data }) {
             {heading}
           </Typography>
         </div>
-        <div className="section row -mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
           {conditions.map((tos, index) => (
-            <div key={index} className="col-12 mt-6 md:col-6">
-              <Box sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px' }}>
-                <Card variant="outlined" className="p-12 shadow" sx={{ borderRadius: 'inherit' }}>
-                  <CardContent>
-                    <Typography variant="h4" className="faq-head relative">
-                      {tos.title}
-                    </Typography>
-                    <Typography variant="body1" className="faq-body mt-4">
-                      {markdownify(tos.answer, "p", "faq-body mt-4")}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Box>
-            </div>
+            <Box key={index} sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', borderRadius: '16px' }}>
+              <Card variant="outlined" className="p-12 shadow" sx={{ borderRadius: 'inherit' }}>
+                <CardContent>
+                  <Typography variant="h4" className="faq-head relative">
+                    {tos.title}
+                  </Typography>
+                  <Typography variant="body1" className="faq-body mt-4">
+                    {markdownify(tos.answer, "p", "faq-body mt-4")}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Box>
           ))}
         </div>
       </div>

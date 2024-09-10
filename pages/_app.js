@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import TagManager from "react-gtm-module";
 import "styles/style.scss";
 
-
-import { Analytics } from "@vercel/analytics/react";
 import { GoogleAdSense } from "nextjs-google-adsense";
 
 const App = ({ Component, pageProps }) => {
@@ -56,10 +54,32 @@ const App = ({ Component, pageProps }) => {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
+        {/* SEO meta tags */}
+        <meta name="description" content={config.site.description} />
+        <meta name="keywords" content={config.site.keywords ? config.site.keywords.join(", ") : ""} />
+        <meta name="author" content={config.site.author} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={config.site.url} />
+
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content={config.site.title} />
+        <meta property="og:description" content={config.site.description} />
+        <meta property="og:image" content={`${config.site.url}/images/og-image.jpg`} />
+        <meta property="og:url" content={config.site.url} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={config.site.title} />
+
+        {/* Twitter Card meta tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={config.site.title} />
+        <meta name="twitter:description" content={config.site.description} />
+        <meta name="twitter:image" content={`${config.site.url}/images/og-image.jpg`} />
+        <meta name="twitter:site" content={config.site.twitterHandle} />
+        <meta name="twitter:creator" content={config.site.twitterHandle} />
       </Head>
       <GoogleAdSense publisherId="pub-8822117230676209" />
       <Component {...pageProps} />
-      <Analytics />
+      {/* <Analytics /> */} {/* Removed */}
     </>
   );
 };

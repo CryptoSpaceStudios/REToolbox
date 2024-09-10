@@ -2,34 +2,41 @@
   "main": [
     {
       "name": "Home",
-      "url": "/"
+      "url": "/",
+      "hasChildren": false
     },
-
+    {
+      "name": "About",
+      "url": "/about",
+      "hasChildren": false
+    },
     {
       "name": "Contact",
-      "url": "/contact"
+      "url": "/contact",
+      "hasChildren": false
     },
     {
-      "name": "MAO",
-      "url": "/mao"
+      "name": "MAO Calc ",
+      "url": "/mao",
+      "hasChildren": false
     },
     {
-      "name": "ROI",
-      "url": "/roi"
+      "name": "ROI Calc ",
+      "url": "/roi",
+      "hasChildren": false
     },
     {
-      "name": "Seller Net",
+      "name": "Seller Net Calc",
       "url": "/sellernetcalc",
-      "desc": "NAME"
+      "hasChildren": false
     },
     {
-      "name": "Subject-To",
+      "name": "SubTo Calc ",
       "url": "/subtocalc",
-      "desc": "NAME"
+      "hasChildren": false
     }
   ],
   "footer": [
-    
     {
       "name": "Support",
       "menu": [

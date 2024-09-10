@@ -43,7 +43,6 @@
   
 }
 
-
 // form style
 .form-input,
 .form-textarea {
@@ -61,24 +60,24 @@
   }
 }
 
-//feature card
+// feature card
 .feature-card {
   @apply transition-all duration-200 ease-in-out hover:shadow;
 }
 
-//swiper pagination
+// swiper pagination
 .service-carousel .swiper-pagination {
   @apply flex justify-center;
 
   span {
-    @apply mx-[5px] inline-block h-[10px] w-[10px] cursor-pointer rounded-full border  border-primary;
+    @apply mx-[5px] inline-block h-[10px] w-[10px] cursor-pointer rounded-full border border-primary;
     &.swiper-pagination-bullet-active {
       @apply bg-primary;
     }
   }
 }
 
-//cta link
+// cta link
 .cta-link {
   img {
     transition: margin 0.3s ease;
@@ -90,9 +89,9 @@
   }
 }
 
-//card
+// card
 .card {
-  @apply mt-10 rounded-[4px] border border-[rgba(0,0,0,.125)] bg-white px-5 px-5 py-12 py-12 shadow md:mt-0;
+  @apply mt-10 rounded-[4px] border border-[rgba(0,0,0,.125)] bg-white px-5 py-12 shadow md:mt-0 dark:bg-gray-800 dark:border-gray-700;
 }
 
 .col-recommended {
@@ -103,7 +102,7 @@
   }
 }
 
-//faq
+// faq
 .faq {
   &-head {
     &::before {
@@ -117,7 +116,8 @@
     }
   }
 }
-//mao
+
+// mao
 .mao {
   &-head {
     &::before {
@@ -131,7 +131,8 @@
     }
   }
 }
-//Seller Net Calc
+
+// Seller Net Calc
 .sellernetcalc {
   &-head {
     &::before {
@@ -146,13 +147,12 @@
   }
 }
 
-//contact
+// contact
 .contact-list {
   a {
     @apply font-semibold text-dark;
   }
 }
-
 
 .StrMtrForm input,
 .StrMtrForm label {

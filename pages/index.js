@@ -12,10 +12,10 @@ import Tooltip from '@mui/material/Tooltip'
 
 const Home = ({ frontmatter }) => {
   const { banner, feature, services, workflow, call_to_action } = frontmatter;
-  const { title } = config.site;
+  const { title, description, keywords, author, url, twitterHandle } = config.site;
 
   return (
-    <Base title={title}>
+    <Base title={title} description={description} keywords={keywords} author={author} url={url} twitterHandle={twitterHandle}>
       {/* Banner */}
       <section className="section pb-[50px]" aria-label="Main Page">
         <div className="container">
@@ -47,40 +47,40 @@ const Home = ({ frontmatter }) => {
       </section>
 
       {/* Features */}
-<section className="section bg-theme-light" aria-label='Featured Tools'>
-  <div className="container">
-    <div className="text-center">
-      <h2 className="mb-4" aria-label={feature.title}>{markdownify(feature.title)}</h2>
-      <h3 className="mb-8" aria-label={feature.heading}>{markdownify(feature.heading)}</h3>
-    </div>
-    <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-      {feature.features.map((item, i) => (
-        <div
-          onClick={() => { location.href = item.link; }}
-          className="feature-card rounded-xl bg-white p-5 pb-8 text-center"
-          key={`feature-${i}`}
-          aria-label={item.name}
-        >
-          {item.icon && (
-            <Image
-              className="mx-auto clickityclack"
-              href={item.link}
-              src={item.icon}
-              width={30}
-              height={30}
-              alt={item.name}
-              title={item.name}
-            />
-          )}
-          <div className="mt-4">
-            {markdownify(item.name, "h3", "h5")}
-            <p className="mt-3">{item.content}</p>
+      <section className="section bg-theme-light dark:bg-theme-dark" aria-label='Featured Tools'>
+        <div className="container">
+          <div className="text-center">
+            <h2 className="mb-4 dark:text-dark-text" aria-label={feature.title}>{markdownify(feature.title)}</h2>
+            <h3 className="mb-8 dark:text-dark-text" aria-label={feature.heading}>{markdownify(feature.heading)}</h3>
+          </div>
+          <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+            {feature.features.map((item, i) => (
+              <div
+                onClick={() => { location.href = item.link; }}
+                className="feature-card rounded-xl bg-white p-5 pb-8 text-center"
+                key={`feature-${i}`}
+                aria-label={item.name}
+              >
+                {item.icon && (
+                  <Image
+                    className="mx-auto clickityclack"
+                    href={item.link}
+                    src={item.icon}
+                    width={30}
+                    height={30}
+                    alt={item.name}
+                    title={item.name}
+                  />
+                )}
+                <div className="mt-4">
+                  {markdownify(item.name, "h3", "h5")}
+                  <p className="mt-3">{item.content}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* services */}
       {services.map((service, index) => {
