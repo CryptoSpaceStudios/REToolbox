@@ -16,10 +16,10 @@ This project provides a suite of calculators and tools for real estate investors
 - ❓ [Vercel Analytics](https://vercel.com/analytics)
 - 🏠 Maximum Allowable Offer (MAO) Calculator
 - 💰 Return on Investment (ROI) Calculators:
-  - Buy and Hold
-  - Fix and Flip
-  - Short-Term Rental
-  - Wholesale
+  - 🏡 Buy and Hold
+  - 🏠 Fix and Flip
+  - 🏘️ Short-Term Rental
+  - 🏡 Wholesale
 - 📝 Subject To / Wrap Calculator
 - 💵 Seller Net Calculator
 
@@ -39,18 +39,26 @@ This project provides a suite of calculators and tools for real estate investors
 After finishing all the customization, you can create a production build by running this command.
 `npm run build`
 
-## 🐞Reporting Issues
 
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/themefisher/bigspring-light-nextjs/issues). It's possible someone has already reported the same problem.
-
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/themefisher/bigspring-light-nextjs/issues).
 
 ## Config
 
-- Main theme CSS settings are in `src/theme/theme.ts`
-- App routing is handled in `src/app` directory (Next.js 13 App Router)
-- `src/config/site.ts` contains site-wide configuration
-- `src/config/dashboard.ts` contains dashboard-specific settings
+The project configuration is primarily managed through JSON files located in the `config/` directory:
+
+- `config/config.json`: Contains site-wide settings, including:
+  - Site metadata (title, description, keywords, author, URL)
+  - Social media handles
+  - Logo dimensions
+  - Pagination settings
+  - Contact form action
+  - Google Tag Manager ID
+  - Extensive SEO and bot-related metadata
+
+- `config/menu.json`: Defines the structure for main navigation and footer menus
+
+- `config/theme.json`: Specifies the color scheme and typography settings for the site
+
+
 
 **If you are using Vercel, the VERCEL_URL environment variable autopopulates for sitemap generation**
 
@@ -58,19 +66,7 @@ If your problem or idea has not been addressed yet, feel free to [open a new iss
 
 **On Vercel, modify your build settings: use "npm run build" as the build command**
 
-### Available Components
 
-The project includes various pre-built components:
-
-- Layout components (Dashboard, Auth)
-- UI components (Button, Card, Dialog, etc.)
-- Form components (Input, Select, Checkbox, etc.)
-- Data visualization components (Charts, Graphs)
-- AI Chat component
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/your-repo-name/issues) if you want to contribute.
 
 ## 📝 License
 
