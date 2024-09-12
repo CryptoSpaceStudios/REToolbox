@@ -108,7 +108,7 @@ const Home = ({ frontmatter }) => {
                     {/* Slides */}
                     {service?.images.map((slide, index) => (
                       <SwiperSlide key={index}>
-                        <Image className="clickityclack" src={slide} alt="" width={600} height={500} />
+                        <Image className="clickityclack" src={slide} alt="RE Toolbox" width={600} height={500} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
