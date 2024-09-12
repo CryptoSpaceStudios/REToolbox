@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useRouter } from 'next/router'; 
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -10,32 +10,32 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import { EntryFeeContext, PurchasePriceContext, MortgageBalanceContext, MortgagePiContext, MortgageInterestContext, SellerPaymentContext, ClosingTitleCostsContext, LeadCostsContext, PaymentsOwedContext, PrepCostsContext, HoldTimeCostsContext, MarketingFeesContext } from '@layouts/components/SubToCalc/SubToCalcStates'
 
-import { EntryFeeContext } from '@layouts/components/SubToCalc/EntryFeeContext'; 
 
 function AcquisitionForm() {
   const router = useRouter();
   const goToNextTab = () => { router.push('/subtocalc#disposition'); };
-  
   const { entryFee } = useContext(EntryFeeContext);
   
-  const [purchasePrice, setPurchasePrice] = useState('');
+  const { purchasePrice, setPurchasePrice } = useContext(PurchasePriceContext);
+  const { mortgageBalance, setMortgageBalance } = useContext(MortgageBalanceContext);
+  const { mortgagePi, setMortgagePi } = useContext(MortgagePiContext);
+  const { mortgageInterest, setMortgageInterest } = useContext(MortgageInterestContext);
+
   const [entryFeeCost, setEntryFeeCost] = useState(entryFee);
-  const [mortgageBalance, setMortgageBalance] = useState('');
-  const [mortgagePi, setMortgagePi] = useState('');
-  const [mortgageInterest, setMortgageInterest] = useState('');
 
   return (
-    <Container maxWidth="md"  >
+    <Container maxWidth="md">
       <Card style={{ boxShadow: '0 3px 10px rgb(0, 0, 0)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <CardContent >
+        <CardContent>
           <Box marginBottom={3} marginTop={4}>
             <Typography variant="h5" component="h2" gutterBottom align="center">
               Fill in the fields below and easily get Acquisition Costs
             </Typography>
           </Box>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+	<Grid item xs={12}>
               <InputLabel className="roitablinks" id="purchase-price-label" htmlFor="purchase-price">Purchase Price (Enter Amt)</InputLabel>
               <TextField
                 id="purchase-price"
@@ -78,7 +78,7 @@ function AcquisitionForm() {
                 id="mortgage-pi"
                 type="text"
                 value={mortgagePi}
-                onChange={(e) => { setMortgagePi(e.target.value); setAcqMortgagePayment(e.target.value); }}
+                onChange={(e) => { setMortgagePi(e.target.value); }}
                 placeholder="0.00"
                 aria-labelledby="mortgage-pi-label"
                 fullWidth

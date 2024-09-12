@@ -13,39 +13,47 @@ feature:
   title: Featured Tools
   heading: Click on any of the panels to go to that tool
   features:
-  - name: "Seller Net Calculator"
+  - name: "Seller Finance Calculator"
     icon: "/images/calculator.svg"
-    content: "Instantly calculate how much more a seller can benefit from selling to you"
+    content: "Instantly calculate how much more the seller can benefit from selling to an Real Estate Investor vs Selling on the MLS Traditionally"
     link: "/sellernetcalc"
   - name: "MOA Calculator"
     icon: "/images/calculator1.svg"
     link: "/mao"
-    content: "Quickly and Accurately analyze properties to help you find your Maximum Allowable faster"
-  - name: "ROI Calculator"
+    content: "Quickly and Accurately analyze properties to help you find your Maximum Allowable Offer (MAO) in an instant"
+  - name: "Return on Investment (ROI) Calculator"
     icon: "/images/user-clock.svg"
     link: "/#"
-    content: "Quickly and accurately determine the ROI on your exit strategy, whether it be Buy & Hold, F&F, STR/MTR or Wholesale! (Coming Soon)"
-  - name: "Subject-To Wrap Calculator"
+    content: "Quickly and accurately determine the Return on Investment (ROI) on your exit strategy, whether it be Buy & Hold, Fix and Flip, Rentals or Wholesale!"
+  - name: "Subject-To Calculator"
     icon: "/images/love.svg"
     link: "/subtocalc"
-    content: "Super Fast and Easy Tool for calculating your SubTo Wrap Deals"
+    content: "Super Fast and Easy Tool for calculating your Subject-To (SubTo) Real Estate Deals including Wraps"
   - name: "Zillow FSBO"
     icon: "/images/zillow.svg"
     link: "#"
-    content: "Get the latest Zillow FSBO listings (Coming Soon)"
- 
+    content: "Get the latest Zillow listings (Coming Soon)"
 
 # services
 services:
-  - title: "A company standing different from others"
-    content: "Insert some text here"
+  - title: "Tools to help investors, From new to seasoned"
+    content: "The Maximum Allowable Offer (MAO) Calculator, Return on Investment (ROI) Calculator,  Subject-To (SubTo) Calculator, Seller Finance Calculator and more will help Real Estate Investors quickly analyze deals to make descisions faster, thereby increasing revenue!"
     images:
       - "/images/service-slide-1.png"
       - "/images/service-slide-2.png"
       - "/images/service-slide-3.png"
     button:
       enable: true
-      label: Check it out
+      label: Check out the SubTo Calculator
+      link: /subtocalc
+
+  - title: "Have Suggestions for New Tools?"
+    content: 'If you have a great idea for a tool that would be useful for Real Estate Investors, Let us know via the Contact page! ~~~ Examples are useful, so please include any examples or links to examples of the tool in question if you have any'
+    images:
+    - "/images/cta.svg"
+    button:
+      enable: true
+      label: Send us your Idea
       link: /contact
 
 # workflow

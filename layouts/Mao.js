@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Container, Box, Typography, TextField, MenuItem, Select, InputLabel, FormControl, Card, CardContent, FormHelperText, Grid } from '@mui/material';
 
 const rehabLevels = [
+  { label: 'Turn Key', value: 0},
   { label: 'Clean up', value: 20 },
   { label: 'Lipstick', value: 25 },
   { label: 'Moderate', value: 30 },
   { label: 'Heavy', value: 40 },
-  { label: 'Rekt', value: 50 },
+  { label: 'Rekt  ', value: 50 },
 ];
 
-function MaoCalculator() {
+function MaoCalculator({ data }) {
+	const { frontmatter } = data;
+  const { title, heading, maos } = frontmatter;
   const [address, setAddress] = useState("");
   const [sqft, setSqft] = useState(0);
   const [arv, setArv] = useState(0);
@@ -72,52 +75,34 @@ function MaoCalculator() {
   };
 
   return (
-    <Container 
-      maxWidth="md" 
-      role='region'
-      aria-label='MAO'>
-      
-      {/* Header */}
-      <Typography variant="h2" component="h2" gutterBottom style={{ textAlign: 'center' }}>
-        Maximum Allowable Offer
-      </Typography>
+    <Grid container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }} mb={5}>
+      <Container maxWidth="md" role='region' aria-label='MAO'>
+        <Typography variant="h2" component="h2" gutterBottom style={{ textAlign: 'center' }} className="dark:text-white">{frontmatter.title}</Typography>
 
-      {/* DISPLAYS MAO RESULTS */}
-      <Box>
-        {mao > 0 ? (
-          <Typography variant="h5" component="h2" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}>
-            MAO for this property is ${mao.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-          </Typography>
-        ) : (
-          <Typography variant="h5" component="h2" gutterBottom style={{ textAlign: 'center', color: 'red', fontWeight: 'bold' }}>
-            It will cost you ${Math.abs(mao).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} out of pocket to do this deal
-          </Typography>
-        )}
-      </Box>
-      {/* END OF MAO RESULTS */}
+        <Box>
+          {mao > 0 ? (
+            <Typography variant="h4" component="h2" gutterBottom style={{ textAlign: 'center', color: 'blue', fontWeight: 'bold' }}>
+              The MAO for this property is ${mao.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </Typography>
+          ) : (
+            <Typography variant="h5" component="h5" gutterBottom style={{ textAlign: 'center' }} className="dark:text-white">{frontmatter.heading}</Typography>
+          )}
+        </Box>
 
-      <Box mt={5} mb={8} boxShadow={8} sx={{ display: 'flex', justifyContent: 'center' }} 
-            role='region'
-            aria-label='MAO'>
-        <Card sx={{ width: '85%' }}  
-            role='region'
-            aria-label='MAO'>
-          <CardContent 
-            role='region'
-            aria-label='MAO'>
-            <form onSubmit={handleSubmit}
-              role='form'
-              aria-label='MAO'>
-              <Grid container spacing={3} mt={5} mb={5}  direction="column"
-                role='grid'
-                aria-label='MAO'>
-              {/* Top of MAO Form grid */}
+        <Box sx={{ display: 'flex', justifyContent: 'center' }} >
+          <Card sx={{ width: '100%', maxWidth: '800px', boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px', margin: 'auto' }} role='region' aria-label='MAO' className='light:bg-white dark:bg-theme-dark'>
+            <CardContent role='region' aria-label='MAO' className='light:text-dark dark:text-white'>
+              <form onSubmit={handleSubmit} role='form' aria-label='MAO'>
+                <Grid container spacing={3} mt={5} mb={5}  direction="column" role='grid' aria-label='MAO'>
+
+
+                  {/* Top of MAO Form grid */}
                 <Grid item
                     role='gridcell'
                     aria-label='Square Footage'>
                 <InputLabel 
                     htmlFor='sqftage'
-                    id="sqft-label">Square Footage</InputLabel>
+                    id="sqft-label" className="dark:text-white">Square Footage</InputLabel>
                   <TextField
                     id='sqftage'
                     fullWidth
@@ -135,7 +120,7 @@ function MaoCalculator() {
                     aria-label='After Repair Value (ARV)'>
                 <InputLabel 
                     htmlFor='arrrvvv'
-                    id="arv-label">After Repair Value (ARV)</InputLabel>
+                    id="arv-label" className="dark:text-white">After Repair Value (ARV)</InputLabel>
                   <TextField
                     id='arrrvvv'
                     fullWidth
@@ -153,7 +138,7 @@ function MaoCalculator() {
                   aria-label='Rehab Level'>
                 <InputLabel 
                       htmlFor='rehabamount'
-                      id="rehab-label">Rehab Level</InputLabel>
+                      id="rehab-label" className="dark:text-white">Rehab Level</InputLabel>
                   <FormControl fullWidth error={!!errors.rehabLevel}>
                     <Select
                       id='rehabamount'
@@ -174,7 +159,7 @@ function MaoCalculator() {
                 <Grid item
                   role='gridcell'
                   aria-label='Realtor Commission'>
-                <InputLabel htmlFor='realtorcommissions' id="rcomm-label">Realtor Commission (3%)</InputLabel>
+                <InputLabel htmlFor='realtorcommissions' id="rcomm-label" className="dark:text-white">Realtor Commission (3%)</InputLabel>
                   <TextField
                     id='realtorcommissions'
                     fullWidth
@@ -187,7 +172,7 @@ function MaoCalculator() {
                 <Grid item
                     role='gridcell'
                     aria-label='Title Costs'>
-                <InputLabel htmlFor='titlecosts' id="tcost-label">Title Costs (0.55%)</InputLabel>
+                <InputLabel htmlFor='titlecosts' id="tcost-label" className="dark:text-white">Title Costs (0.55%)</InputLabel>
                   <TextField
                     id='titlecosts'
                     fullWidth
@@ -200,7 +185,7 @@ function MaoCalculator() {
                 <Grid item
                   role='gridcell'
                   aria-label='Closing Costs'>
-                <InputLabel htmlFor='closingcosts' id="ccost-label">Closing Costs (8%)</InputLabel>
+                <InputLabel htmlFor='closingcosts' id="ccost-label" className="dark:text-white">Closing Costs (8%)</InputLabel>
                   <TextField
                     id='closingcosts'
                     fullWidth
@@ -213,7 +198,7 @@ function MaoCalculator() {
                 <Grid item
                   role='gridcell'
                   aria-label='Rehab Cost'>
-                <InputLabel htmlFor='rehabcost' id="rehabcost-label">Rehab Cost</InputLabel>
+                <InputLabel htmlFor='rehabcost' id="rehabcost-label" className="dark:text-white">Rehab Cost</InputLabel>
                   <TextField
                     id='rehabcost'
                     fullWidth
@@ -226,7 +211,7 @@ function MaoCalculator() {
                 <Grid item
                   role='gridcell'
                   aria-label='Wholesale Fee'>
-                <InputLabel htmlFor='wholesale' id="wholesale-label">Wholesale Fee (Change if Needed)</InputLabel>
+                <InputLabel htmlFor='wholesale' id="wholesale-label" className="dark:text-white">Wholesale Fee (Change if Needed)</InputLabel>
                   <TextField
                     id='wholesale'
                     fullWidth
@@ -242,7 +227,7 @@ function MaoCalculator() {
                 <Grid item
                   role='gridcell'
                   aria-label='Maximum Allowable Offer'>
-                <InputLabel htmlFor='maototal' id="mao-label">Maximum Allowable Offer</InputLabel>
+                <InputLabel htmlFor='maototal' id="mao-label" className="dark:text-white">Maximum Allowable Offer</InputLabel>
                   <TextField
                     id='maototal'
                     fullWidth
@@ -252,14 +237,15 @@ function MaoCalculator() {
                     aria-label='Maximum Allowable Offer'
                   />
                 </Grid>
-              </Grid>
-            </form>
-          </CardContent>
-        </Card>
-      </Box>
-    </Container>
+
+                </Grid>
+              </form>
+            </CardContent>
+          </Card>
+        </Box>
+      </Container>
+    </Grid>
   );
 }
 
 export default MaoCalculator;
-

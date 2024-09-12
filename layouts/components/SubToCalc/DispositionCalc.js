@@ -1,4 +1,4 @@
-import React, { use, useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router'; 
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -11,9 +11,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 
-import { EntryFeeContext } from '@layouts/components/SubToCalc/EntryFeeContext'; 
-import { PurchasePriceContext, MortgageBalanceContext, MortgagePiContext, MortgageInterestContext } from '@layouts/components/SubToCalc/AcquisitionStates';
-
+import { EntryFeeContext, MortgagePiContext, PurchasePriceContext } from '@layouts/components/SubToCalc/SubToCalcStates'; 
 
 function DispositionForm() {
   const router = useRouter();
@@ -29,27 +27,49 @@ function DispositionForm() {
   const { mortgagePi } = useContext(MortgagePiContext);
   const [acqMortgagePayment, setAcqMortgagePayment] = useState(mortgagePi);
 
-  const [cashFlow, setCashFlow] = useState('');
-  const [equityGap, setEquityGap] = useState('');
+  const [ cashFlow, setCashFlow ] = useState('');
+  const [ equityGap, setEquityGap ] = useState('');
+  const { purchasePrice } = useContext(PurchasePriceContext);
 
   useEffect(() => {
     if (arvEstimate !== '') {
-      const downPaymentValue = arvEstimate * 0.1;
-      setDownPayment(downPaymentValue);
-      setCashOnSale(downPaymentValue - entryFee);
-      setBalanceDueSeller(arvEstimate - downPaymentValue);
-      setAcqMortgagePayment(mortgagePi);
+      const downPaymentValue = parseFloat(arvEstimate) * 0.1;
+      const cashOnSaleValue = downPaymentValue - parseFloat(entryFee);
+      setDownPayment(downPaymentValue.toFixed(2));
+      setCashOnSale(cashOnSaleValue.toFixed(2));
+      setBalanceDueSeller((parseFloat(arvEstimate) - downPaymentValue).toFixed(2));
+      setAcqMortgagePayment(parseFloat(mortgagePi).toFixed(2));
     } else {
       setDownPayment('');
       setCashOnSale('');
     }
   }, [arvEstimate, entryFee, mortgagePi]);
 
+  useEffect(() => {
+    if (buyersPayment && acqMortgagePayment) {
+      const cashFlowValue = parseFloat(buyersPayment) - parseFloat(acqMortgagePayment);
+      setCashFlow(cashFlowValue.toFixed(2));
+    } else {
+      setCashFlow('');
+    }
+  }, [buyersPayment, acqMortgagePayment]);
+
+  useEffect(() => {
+    if (arvEstimate && purchasePrice) {
+      const equityGapValue = parseFloat(arvEstimate) - parseFloat(purchasePrice);
+      setEquityGap(equityGapValue.toFixed(2));
+    } else {
+      setEquityGap('');
+    }
+  }, [arvEstimate, purchasePrice]);
+
 
   return (
-    <Container maxWidth="md"  >
+    <Container maxWidth="md">
       <Card style={{ boxShadow: '0 3px 10px rgb(0, 0, 0)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <CardContent >
+        <CardContent>
+
+
           <Box marginBottom={3} marginTop={4}>
             <Typography variant="h5" component="h2" gutterBottom align="center">
               Fill in the fields below and easily get Disposition Costs
@@ -130,21 +150,22 @@ function DispositionForm() {
                 fullWidth
               />
             </Grid>
-
+          
             <Grid item xs={12}>
-              <InputLabel className="roitablinks" id="buyers-payment-label" htmlFor="buyers-payment">Buyers Payment</InputLabel>
+              <InputLabel className="roitablinks" id="buyers-payment-label" htmlFor="buyers-payment">Buyers Monthly Payment (Enter Amt)</InputLabel>
               <TextField
                 id="buyers-payment"
-                type="text"
+                type="number"
                 value={buyersPayment}
                 placeholder="0.00"
                 aria-labelledby="buyers-payment-label"
+                onChange={(e) => setBuyersPayment(e.target.value)}
                 fullWidth
               />
             </Grid>
-
-            <Grid item xs={12}>
-              <InputLabel className="roitablinks" id="cash-flow-label" htmlFor="cash-flow">Cash Flow</InputLabel>
+          
+		<Grid item xs={12}>
+              <InputLabel className="roitablinks" id="cash-flow-label" htmlFor="cash-flow">Cash Flow per Month</InputLabel>
               <TextField
                 id="cash-flow"
                 type="text"
@@ -179,6 +200,7 @@ function DispositionForm() {
               </Button>
             </Grid>
           </Grid>
+
         </CardContent>
       </Card>
     </Container>

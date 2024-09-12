@@ -6,7 +6,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
 
-function WholesaleForm() {
+function BnHForm() {
   const [purchasePrice, setPurchasePrice] = useState('');
   const [wholesaleFee, setWholesaleFee] = useState('');
   const [otherFees, setOtherFees] = useState('');
@@ -42,7 +42,7 @@ function WholesaleForm() {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
       <Card style={{ boxShadow: '0 3px 10px rgb(0, 0, 0)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <CardContent>
           <Grid container spacing={2}>
@@ -53,12 +53,12 @@ function WholesaleForm() {
                 type="text"
                 onChange={handlePurchasePriceChange}
                 value={purchasePrice}
-                placeholder="0.00"
+                placeholder="Enter Purchase Price"
                 aria-labelledby="purchase-price-label"
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <InputLabel id="realtor-commissions-label" htmlFor="realtor-commissions">Realtor Commissions (3%)</InputLabel>
               <TextField
                 id="realtor-commissions"
@@ -71,7 +71,7 @@ function WholesaleForm() {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <InputLabel id="closing-costs-label" htmlFor="closing-costs">Closing Costs (8%)</InputLabel>
               <TextField
                 id="closing-costs"
@@ -84,7 +84,7 @@ function WholesaleForm() {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <InputLabel id="title-costs-label" htmlFor="title-costs">Title Costs (0.55%)</InputLabel>
               <TextField
                 id="title-costs"
@@ -97,7 +97,7 @@ function WholesaleForm() {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <InputLabel id="inspection-fees-label" htmlFor="inspection-fees">Inspection Fees (2%)</InputLabel>
               <TextField
                 id="inspection-fees"
@@ -110,32 +110,32 @@ function WholesaleForm() {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <InputLabel id="wholesale-fee-label" htmlFor="wholesale-fee">Wholesale Fee (Enter Amt)</InputLabel>
               <TextField
                 id="wholesale-fee"
                 type="text"
                 onChange={handleWholesaleFeeChange}
                 value={wholesaleFee}
-                placeholder="0.00"
+                placeholder="Enter Wholesale Fee if any"
                 aria-labelledby="wholesale-fee-label"
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <InputLabel id="other-fees-label" htmlFor="other-fees">Other Fees (If Needed)</InputLabel>
               <TextField
                 id="other-fees"
                 type="text"
                 onChange={handleOtherFeesChange}
                 value={otherFees}
-                placeholder="0.00"
+                placeholder="Enter Other fees if any"
                 aria-labelledby="other-fees-label"
                 fullWidth
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel id="selling-price-label" htmlFor="selling-price">Selling Price</InputLabel>
+              <InputLabel id="selling-price-label" htmlFor="selling-price">Acquisition Cost</InputLabel>
               <TextField
                 id="selling-price"
                 type="text"
@@ -154,4 +154,4 @@ function WholesaleForm() {
   );
 }
 
-export default WholesaleForm;
+export default BnHForm;

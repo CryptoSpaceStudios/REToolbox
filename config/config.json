@@ -1,12 +1,14 @@
 {
   "site": {
-    "title": "The Real Estate Investors Toolbox ",
-    "base_url": "/",
-    "favicon": "/icons/48.webp",
+    "title": "The Real Estate Investors Toolbox",
+    "description": "The Real Estate Investors Toolbox - A Collection of Tools to help work those deals faster such as the MAO and Seller Net Calculator, and much more",
+    "keywords": ["Real Estate Investor", "MAO", "maximum allowable offer", "Seller Finance Calculator", "Seller Finance", "Creative Finance", "Real Estate", "Subto", "Subject-To", "Pace Morby SubTo", "Pace Morby SubjectTo", "REToolbox", "Investor toolbox", "Investors Toolbox", "deal writing", "real estate investing"],
+    "author": "RE Toolbox",
+    "url": "https://www.retoolbox.io",
+    "twitterHandle": "@yourtwitterhandle",
     "logo": "/images/navlogo.webp",
     "logo_width": "139",
-    "logo_height": "84",
-    "logo_text": "The Real Estate Investors Toolbox "
+    "logo_height": "84"
   },
 
   "settings": {
@@ -23,7 +25,7 @@
 
   "params": {
     "contact_form_action": "",
-    "tag_manager_id": "G-36JG6V8849",
+    "tag_manager_id": "G-ZB82X1VN73",
     "footer_content": "",
     "copyright": "The Real Estate Investors Toolbox "
   },

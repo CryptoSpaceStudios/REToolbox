@@ -1,5 +1,5 @@
 .header {
-  @apply bg-white py-[14px] px-4 md:px-0 md:py-[9px];
+  @apply bg-white py-[14px] px-4 md:px-0 md:py-[9px] dark:bg-gray-900;
 }
 
 // navbar items
@@ -32,7 +32,7 @@
 }
 
 .nav-link {
-  @apply py-3 px-2 font-primary text-base font-bold text-dark transition hover:text-third md:py-4 lg:px-3;
+  @apply py-3 px-2 font-primary text-base font-bold text-base dark:text-white transition hover:text-third md:py-4 lg:px-3;
 
   &-active {
     @apply text-primary;
@@ -42,7 +42,7 @@
 .support-links {
   @apply space-x-4;
   
-    @apply py-3 px-2 font-primary text-base font-bold text-dark transition hover:text-third md:py-4 lg:px-3;
+    @apply py-3 px-2 font-primary text-base font-bold text-dark dark:text-white transition hover:text-third md:py-4 lg:px-3;
 
     &-active {
       @apply py-9 px-6 text-primary;

@@ -1,39 +1,23 @@
-import config from "@config/config.json";
 import Image from "next/image";
-import Link from "next/link";
+import config from "@config/config.json";
 
 const Logo = ({ src }) => {
-  // destructuring items from config object
-  const { base_url, logo, logo_width, logo_height, logo_text, title } =
-    config.site;
+  const logoSrc = src || config.site.logo;
+  const logoAlt = config.site.title || "Logo";
 
   return (
-    <Link
-      href={base_url}
-      alt={logo_text}
-      aria-label={logo_text}
-      className="navbar-brand block py-1"
-      style={{
-        height: logo_height.replace("px", "") + "px",
-        width: logo_width.replace("px", "") + "px",
-      }}
-    >
-      {src || logo ? (
+    <div className="logo">
+      {logoSrc ? (
         <Image
-          width={logo_width.replace("px", "") * 2}
-          height={logo_height.replace("px", "") * 2}
-          src={src ? src : logo}
-          alt={title}
-          aria-label={logo_text}
-          aria-description={logo_text}
-          priority
+          src={logoSrc}
+          alt={logoAlt}
+          width={config.site.logo_width}
+          height={config.site.logo_height}
         />
-      ) : logo_text ? (
-        logo_text
       ) : (
-        title
+        <span>{logoAlt}</span>
       )}
-    </Link>
+    </div>
   );
 };
 

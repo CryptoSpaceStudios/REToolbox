@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import { EntryFeeContext } from '@layouts/components/SubToCalc/EntryFeeContext';
+import { EntryFeeContext } from '@layouts/components/SubToCalc/SubToCalcStates';
 
 function EntryFeeForm() {
   const router = useRouter();
@@ -51,12 +51,12 @@ function EntryFeeForm() {
       <Card style={{ boxShadow: '0 3px 10px rgb(0, 0, 0)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <CardContent>
           <Box marginBottom={3} marginTop={4}>
-            <Typography variant="h5" component="h2" gutterBottom align="center">
-              Fill in the fields below and easily get your entry fee
+            <Typography variant="h5" component="h3" gutterBottom align="center">
+              Fill in the fields below to get your entry fee,<br />then click the `Next` Button to continue
             </Typography>
           </Box>
           <Grid item xs={12}>
-                <InputLabel className="roitablinks" id="seller-payment-label" htmlFor="seller-payment">Seller Payment (Enter Amt)</InputLabel>
+                <InputLabel className="roitablinks" id="seller-payment-label" htmlFor="seller-payment">Payment to Seller (Enter Amt)</InputLabel>
               <TextField
                 id="seller-payment"
                 type="text"
@@ -69,7 +69,7 @@ function EntryFeeForm() {
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel className="roitablinks" id="payments-owed-label" htmlFor="payments-owed">Payments Owed (Enter Amt if any)</InputLabel>
+              <InputLabel className="roitablinks" id="payments-owed-label" htmlFor="payments-owed">Payments / Leins / Etc (Enter Amt)</InputLabel>
               <TextField
                 id="payments-owed"
                 type="text"
@@ -81,7 +81,7 @@ function EntryFeeForm() {
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel className="roitablinks" id="lead-costs-label" htmlFor="lead-costs">Lead Costs (Enter Amt if any)</InputLabel>
+              <InputLabel className="roitablinks" id="lead-costs-label" htmlFor="lead-costs">Lead Costs (Enter Amt)</InputLabel>
               <TextField
                 id="lead-costs"
                 type="text"
@@ -142,7 +142,7 @@ function EntryFeeForm() {
             </Grid>
 
               <Grid item xs={12}>
-                <InputLabel className="roitablinks" id="entry-fee-label" htmlFor="entry-fee">Entry Fee</InputLabel>
+                <InputLabel className="roitablinks" id="entry-fee-label" htmlFor="entry-fee">Your Entry Fee is</InputLabel>
                 <TextField
                   id="entry-fee"
                   type="text"

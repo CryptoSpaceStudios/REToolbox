@@ -59,6 +59,7 @@ module.exports = {
         border: theme.colors.default.theme_color.border,
         "theme-light": theme.colors.default.theme_color.theme_light,
         "theme-dark": theme.colors.default.theme_color.theme_dark,
+        "dark-text": "#000000", // Add dark mode text color
       },
       fontSize: {
         base: font_base + "px",
@@ -78,10 +79,16 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {
+      textColor: ['dark', 'light'],
+      backgroundColor: ['dark', 'light'],
+    },
+  },
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("tailwind-bootstrap-grid")({ generateContainer: false }),
   ],
-  // important: true,
+  darkMode: 'class', // Enable dark mode using a class
 };

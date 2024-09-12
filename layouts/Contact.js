@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+
 import config from "@config/config.json";
 import { markdownify } from "@lib/utils/textConverter";
 import Card from "@mui/material/Card";
@@ -7,27 +8,46 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { useForm } from "react-hook-form";
-import { black, green, blueGrey, grey } from "@mui/material/colors";
+import { green, blueGrey, grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = ({ data }) => {
   const { frontmatter } = data;
   const { title, info } = frontmatter;
-  const { contact_form_action, reCAPTCHA_site_key } = config.params;
-  const [captchaToken, setCaptchaToken] = useState(null);
-  
-  const { register, handleSubmit, formState: { errors }, setError } = useForm();
+  const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
-  const onChange = (value) => {
-    console.log("Captcha value:", value);
-    setCaptchaToken(value);
-  }
+  const onSubmit = async (event) => {
+    event.preventDefault();
+
+    // get form values
+    const { first_name, last_name, email, phone_number, subject, message } = getValues();
   
-  const onSubmit = data => {
-    const formData = {...data, "g-recaptcha-response": captchaToken};
-    console.log(formData);
-    // Handle form submission here
+    const data = JSON.stringify({ first_name, last_name, email, phone_number, subject, message });
+    /* console.log('The Form Data is ', data); */
+  
+    // send form data to /api/sendEmail
+    const response = await fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+      },
+      body: data,
+    });
+
+    if (response.ok) {
+      console.log('Email sent successfully');
+      
+    } else {
+      console.error('Error sending email');
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.indexOf('application/json') !== -1) {
+        const errorData = await response.json();
+        console.error(errorData);
+      } else {
+        const errorText = await response.text();
+        console.error(errorText);
+      }
+    }
   };
 
   const ContactButton = styled(Button) ({
@@ -40,15 +60,6 @@ const Contact = ({ data }) => {
     },
   });
 
-  const [siteKey, setSiteKey] = useState(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
-
-    useEffect(() => {
-      setSiteKey(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
-    }, []);
-
-  console.log(`SiteKEY is ${siteKey}`);
-  console.log(`site key is ${process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY}`);
-
   return (
     <Box 
       display="flex" 
@@ -59,31 +70,39 @@ const Contact = ({ data }) => {
     >
       <section className="section">
         <div className="container">
-          {markdownify(title, "h1", "text-center font-normal")}
-          {markdownify(info.title, "h4", "mt-6")}
-          {markdownify(info.description, "p", "mt-4")}
+          {markdownify(title, "h1", "text-center font-normal dark:text-contrast light:text-dark")}
+          {markdownify(info.title, "h4", "mt-6 dark:text-contrast light:text-dark")}
+          {markdownify(info.description, "p", "mt-4 dark:text-contrast light:text-dark")}
         </div>
       </section>
-      <Card className="mb-8" sx={{ 
+      <Card className="mb-8 dark:bg-light light:bg-dark" sx={{ 
         width: '50%', 
-        minWidth: '300px', 
-        boxShadow: '0px 5px 15px rgba(0, 0, 0, 1)' // Apply drop shadow
+        minWidth: '335px', 
+        boxShadow: '0 0 10px rgba(0, 0, 0, 1)', 
+        borderRadius: '16px' // Apply drop shadow
       }}>
         <CardContent>
           <form
-            className="contact-form"
-            method="POST"
-            action={contact_form_action}
-            onSubmit={handleSubmit(onSubmit)}
+            className="contact-form dark:text-contrast light:text-dark"
+            onSubmit={onSubmit}
           >
             <div className="mb-3">
               <input
-                {...register("name", { required: "Name is required" })}
+                {...register("first_name", { required: "First Name is required" })}
                 className="form-input w-full rounded"
                 type="text"
-                placeholder="Name"
+                placeholder="First Name"
               />
-              {errors.name && <p>{errors.name.message}</p>}
+              {errors.name && <p>{errors.first_name.message}</p>}
+            </div>
+            <div className="mb-3">
+              <input
+                {...register("last_name", { required: "Last Name is required" })}
+                className="form-input w-full rounded"
+                type="text"
+                placeholder="Last Name"
+              />
+              {errors.name && <p>{errors.last_name.message}</p>}
             </div>
             <div className="mb-3">
               <input
@@ -102,12 +121,12 @@ const Contact = ({ data }) => {
             </div>
             <div className="mb-3">
               <input
-                {...register("phone", { required: "Phone number is required" })}
+                {...register("phone_number", { required: "Phone number is required" })}
                 className="form-input w-full rounded"
-                type="phone"
+                type="phone_number"
                 placeholder="Phone Number"
               />
-              {errors.phone && <p>{errors.phone.message}</p>}
+              {errors.phone_number && <p>{errors.phone_number.message}</p>}
             </div>
             <div className="mb-3">
               <input
@@ -133,12 +152,6 @@ const Contact = ({ data }) => {
               />
               {errors.message && <p>{errors.message.message}</p>}
             </div>
-            
-            <ReCAPTCHA            
-              sitekey={siteKey}
-              onChange={onChange}
-            />
-            {console.log(`Inside ReCAPTCHA, siteKey is ${siteKey}`)}
 
             <Box display="flex" justifyContent="center" mt={6} mb={4}>
               <ContactButton variant="contained" type="submit" color="success" endIcon={<SendIcon />} >
@@ -147,8 +160,7 @@ const Contact = ({ data }) => {
             </Box>
           </form>
         </CardContent>
-      </Card>
-      
+      </Card>      
     </Box>
   );
 };

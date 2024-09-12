@@ -19,10 +19,10 @@
   li {
     @apply inline-block;
     a {
-      @apply block h-9 w-9 rounded-full border border-dark text-center text-white transition hover:bg-third;
+      @apply block h-9 w-9 rounded-full border border-dark dark:border-white text-center text-white transition hover:bg-third;
 
       svg {
-        @apply m-auto h-9 fill-dark;
+        @apply m-auto h-9 fill-dark dark:fill-white;
       }
 
       &:hover svg {
@@ -43,7 +43,6 @@
   
 }
 
-
 // form style
 .form-input,
 .form-textarea {
@@ -61,38 +60,36 @@
   }
 }
 
-//feature card
+// feature card
 .feature-card {
   @apply transition-all duration-200 ease-in-out hover:shadow;
 }
 
-//swiper pagination
+// swiper pagination
 .service-carousel .swiper-pagination {
   @apply flex justify-center;
 
   span {
-    @apply mx-[5px] inline-block h-[10px] w-[10px] cursor-pointer rounded-full border  border-primary;
+    @apply mx-[5px] inline-block h-[10px] w-[10px] cursor-pointer rounded-full border border-primary;
     &.swiper-pagination-bullet-active {
       @apply bg-primary;
     }
   }
 }
 
-//cta link
+// cta link
 .cta-link {
-  img {
-    transition: margin 0.3s ease;
-  }
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+
   &:hover {
-    img {
-      @apply ml-2;
-    }
+    color: #DADADA; // Define your desired hover color here
   }
 }
 
-//card
+// card
 .card {
-  @apply mt-10 rounded-[4px] border border-[rgba(0,0,0,.125)] bg-white px-5 px-5 py-12 py-12 shadow md:mt-0;
+  @apply mt-10 rounded-[4px] border border-[rgba(0,0,0,.125)] bg-white px-5 py-12 shadow md:mt-0 dark:bg-gray-800 dark:border-gray-700;
 }
 
 .col-recommended {
@@ -103,7 +100,7 @@
   }
 }
 
-//faq
+// faq
 .faq {
   &-head {
     &::before {
@@ -117,7 +114,8 @@
     }
   }
 }
-//mao
+
+// mao
 .mao {
   &-head {
     &::before {
@@ -131,7 +129,8 @@
     }
   }
 }
-//Seller Net Calc
+
+// Seller Net Calc
 .sellernetcalc {
   &-head {
     &::before {
@@ -146,9 +145,138 @@
   }
 }
 
-//contact
+// contact
 .contact-list {
   a {
     @apply font-semibold text-dark;
   }
+}
+
+.StrMtrForm input,
+.StrMtrForm label {
+  font-size: 16px;
+}
+
+/* Change layout and font size for screens below 450px */
+@media screen and (max-width: 490px) {
+  .StrMtrForm input,
+  .StrMtrForm label {
+    font-size: 14px;
+  }
+
+  .StrMtrForm .MuiGrid-grid-xs-6 {
+    flex-basis: 0;
+    max-width: none;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .StrMtrForm input,
+  .StrMtrForm label {
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .StrMtrForm .MuiGrid-grid-xs-6 {
+    flex-basis: 0;
+    max-width: none;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .StrMtrForm input,
+  .StrMtrForm label {
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .StrMtrForm .MuiGrid-grid-xs-6 {
+    flex-basis: 0;
+    max-width: none;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .StrMtrForm input,
+  .StrMtrForm label {
+    font-size: 9px;
+    font-weight: 700;
+  }
+
+  .StrMtrForm .MuiGrid-grid-xs-6 {
+    flex-basis: 0;
+    max-width: none;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .StrMtrForm input,
+  .StrMtrForm label {
+    font-size: 7px;
+    font-weight: 900;
+  }
+
+  .StrMtrForm .MuiGrid-grid-xs-6 {
+    flex-basis: 0;
+    max-width: none;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 295px) {
+  .StrMtrForm input,
+  .StrMtrForm label {
+    font-size: 6px;
+    font-weight: 900;
+  }
+
+  .StrMtrForm .MuiGrid-grid-xs-6 {
+    flex-basis: 0;
+    max-width: none;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 265px) {
+  .StrMtrForm input,
+  .StrMtrForm label {
+    font-size: 5px;
+    font-weight: 900;
+  }
+
+  .StrMtrForm .MuiGrid-grid-xs-6 {
+    flex-basis: 0;
+    max-width: none;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 235px) {
+  .StrMtrForm input,
+  .StrMtrForm label {
+    font-size: 4px;
+    font-weight: 900;
+  }
+
+  .StrMtrForm .MuiGrid-grid-xs-6 {
+    flex-basis: 0;
+    max-width: none;
+    flex-grow: 1;
+  }
+}
+
+.light .text-contrast {
+  color: #000000; // Light mode color
+}
+
+.dark .text-contrast {
+  color: #DADADA; // Dark mode color
+}
+
+.dark .text-contrast:hover {
+  color: #B0B0B0; // Hover color in dark mode
 }
