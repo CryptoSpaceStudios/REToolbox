@@ -70,12 +70,12 @@ const Contact = ({ data }) => {
     >
       <section className="section">
         <div className="container">
-          {markdownify(title, "h1", "text-center font-normal")}
-          {markdownify(info.title, "h4", "mt-6")}
-          {markdownify(info.description, "p", "mt-4")}
+          {markdownify(title, "h1", "text-center font-normal dark:text-contrast light:text-dark")}
+          {markdownify(info.title, "h4", "mt-6 dark:text-contrast light:text-dark")}
+          {markdownify(info.description, "p", "mt-4 dark:text-contrast light:text-dark")}
         </div>
       </section>
-      <Card className="mb-8" sx={{ 
+      <Card className="mb-8 dark:bg-light light:bg-dark" sx={{ 
         width: '50%', 
         minWidth: '335px', 
         boxShadow: '0 0 10px rgba(0, 0, 0, 1)', 
@@ -83,7 +83,7 @@ const Contact = ({ data }) => {
       }}>
         <CardContent>
           <form
-            className="contact-form"
+            className="contact-form dark:text-contrast light:text-dark"
             onSubmit={onSubmit}
           >
             <div className="mb-3">

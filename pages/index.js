@@ -21,9 +21,9 @@ const Home = ({ frontmatter }) => {
         <div className="container">
           <div className="row text-center">
             <div className="mx-auto lg:col-10">
-              <h1 className="font-primary font-bold pb-[30px]" aria-label={banner.title}>{banner.title}</h1>
-              <h2 className="font-primary font-bold pb-[30px]" aria-label={banner.heading}>{markdownify(banner.heading)}</h2>
-              <p className="mt-4 pb-[30px]">{markdownify(banner.content)}</p>
+              <h1 className="font-primary font-bold pb-[30px] dark:text-white" aria-label={banner.title}>{banner.title}</h1>
+              <h2 className="font-primary font-bold pb-[30px] dark:text-white" aria-label={banner.heading}>{markdownify(banner.heading)}</h2>
+              <p className="mt-4 pb-[30px] dark:text-white">{markdownify(banner.content)}</p>
               {banner.button.enable && (
                 <Link
                   className="btn btn-primary mt-4"
@@ -47,17 +47,17 @@ const Home = ({ frontmatter }) => {
       </section>
 
       {/* Features */}
-      <section className="section bg-theme-light dark:bg-theme-dark" aria-label='Featured Tools'>
+      <section className="section light:bg-theme-light dark:bg-theme-dark" aria-label='Featured Tools'>
         <div className="container">
           <div className="text-center">
-            <h2 className="mb-4 dark:text-dark-text" aria-label={feature.title}>{markdownify(feature.title)}</h2>
-            <h3 className="mb-8 dark:text-dark-text" aria-label={feature.heading}>{markdownify(feature.heading)}</h3>
+            <h2 className="mb-4 dark:text-white" aria-label={feature.title}>{markdownify(feature.title)}</h2>
+            <h3 className="mb-8 dark:text-white" aria-label={feature.heading}>{markdownify(feature.heading)}</h3>
           </div>
           <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {feature.features.map((item, i) => (
               <div
                 onClick={() => { location.href = item.link; }}
-                className="feature-card rounded-xl bg-white p-5 pb-8 text-center"
+                className="feature-card rounded-xl bg-white p-5 pb-8 text-center text-dark"
                 key={`feature-${i}`}
                 aria-label={item.name}
               >
@@ -72,8 +72,8 @@ const Home = ({ frontmatter }) => {
                     title={item.name}
                   />
                 )}
-                <div className="mt-4">
-                  {markdownify(item.name, "h3", "h5")}
+                <div className="mt-4 text-dark">
+                  <h3 className="h5 dark:text-dark">{item.name}</h3>
                   <p className="mt-3">{item.content}</p>
                 </div>
               </div>
@@ -88,7 +88,7 @@ const Home = ({ frontmatter }) => {
         return (
           <section
             key={`service-${index}`}
-            className={`section ${isOdd && "bg-theme-light"}`}
+            className={`section ${isOdd && "light:bg-theme-light dark:bg-theme-dark"}`}
           >
             <div className="container">
               <div className="items-center gap-8 md:grid md:grid-cols-2">
@@ -118,14 +118,14 @@ const Home = ({ frontmatter }) => {
                 <div
                   className={`service-content mt-5 md:mt-0 ${
                     !isOdd && "md:order-1"
-                  }`}
+                  } `}
                 >
-                  <h2 className="font-bold leading-[40px]">{service?.title}</h2>
-                  <p className="mt-4 mb-2">{service?.content}</p>
+                  <h2 className="font-bold leading-[40px] dark:text-contrast light:text-dark">{service?.title}</h2>
+                  <p className="mt-4 mb-2 dark:text-contrast light:text-dark">If you have a great idea for a tool that would be useful for Real Estate Investors, Let us know via the Contact page! ~~~ Examples are useful, so please include any examples or links to examples of the tool in question if you have any</p>
                   {service.button.enable && (
                     <Link
                       href={service?.button.link}
-                      className="cta-link inline-flex items-center text-primary"
+                      className="cta-link inline-flex items-center dark:text-contrast light:text-dark"
                     >
                       {service?.button.label}
                       <Image
@@ -144,26 +144,7 @@ const Home = ({ frontmatter }) => {
         );
       })}
 
-      {/* workflow */}
-      {/* <section className="section pb-0">
-        <div className="mb-8 text-center">
-          {markdownify(
-            workflow.title,
-            "h2",
-            "mx-auto max-w-[400px] font-bold leading-[44px]"
-          )}
-          {markdownify(workflow.description, "p", "mt-3")}
-        </div>
-        <Image
-          src={workflow.image}
-          alt="workflow image"
-          width={1920}
-          height={296}
-        />
-      </section> */}
 
-      {/* Cta */}
-      {/* <Cta cta={call_to_action} /> */}
     </Base>
   );
 };

@@ -80,7 +80,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      textColor: ['dark', 'light'],
+      backgroundColor: ['dark', 'light'],
+    },
   },
   plugins: [
     require("@tailwindcss/typography"),

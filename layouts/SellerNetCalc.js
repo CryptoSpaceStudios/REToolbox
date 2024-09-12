@@ -48,7 +48,7 @@ function SellerNetCalc({ data }) {
     const mlsCosts = calculateMlsCosts();
     const netEquity = parseFloat((sellingPrice - mortgage - mlsCosts.realtorCommissions).toFixed(2));
     return netEquity;
-  }, [sellingPrice, mortgage, calculateMlsCosts]);
+  }, [sellingPrice, mortgage, calculateMlsCosts]);  
 
   const calculateDifference = () => {
     const netEquity = calculateNetEquity();
@@ -145,11 +145,11 @@ function SellerNetCalc({ data }) {
 
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
-          <Card sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px' }} className='ml-5 mr-5'>
-            <CardContent className=''>
+          <Card sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px' }} className='ml-5 mr-5 light:bg-white dark:bg-theme-dark'>
+            <CardContent className='light:text-dark dark:text-white'>
               <div className="grid-container" alt="Direct Sale to Us" aria-description='Direct Sale to Us'>
-                <h4 className='text-center' alt="Direct Sale to Us" aria-label='Direct Sale to Us'>Direct Sale to Us</h4>
-                <h5 className='text-center' alt="Estimated" aria-label='Estimated'>(Estimated)</h5>
+                <h4 className='text-center light:text-dark dark:text-white' alt="Direct Sale to Us" aria-label='Direct Sale to Us'>Direct Sale to Us</h4>
+                <h5 className='text-center light:text-dark dark:text-white' alt="Estimated" aria-label='Estimated'>(Estimated)</h5>
                 <div className="grid-item" alt="Selling Price" aria-description='Selling Price'>
                   <label alt="Selling Price" aria-description='Selling Price'>Selling Price</label>
                   <TextField type="number" value={sellingPrice} alt="Selling Price" aria-label='Selling Price' aria-description='Selling Price' onChange={(e) => setSellingPrice(e.target.value)} onBlur={(e) => setSellingPrice(parseFloat(e.target.value).toFixed(2))} placeholder="Enter Selling Price" fullWidth />
@@ -187,11 +187,11 @@ function SellerNetCalc({ data }) {
           </Card>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Card sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px' }} className='ml-5 mr-5'>
-            <CardContent>
+          <Card sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px' }} className='ml-5 mr-5 light:bg-white dark:bg-theme-dark'>
+            <CardContent className='light:text-dark dark:text-white'>
               <div className="grid-container" alt="Listing on MLS" aria-description='Listing on MLS'>
-                <h4 className='text-center' alt="Listing on MLS" aria-label='Listing on MLS'>Listing on MLS</h4>
-                <h5 className='text-center' alt="Listing on MLS" aria-label='Listing on MLS'>(Estimated)</h5>
+                <h4 className='text-center light:text-dark dark:text-white' alt="Listing on MLS" aria-label='Listing on MLS'>Listing on MLS</h4>
+                <h5 className='text-center light:text-dark dark:text-white' alt="Listing on MLS" aria-label='Listing on MLS'>(Estimated)</h5>
                 <div className="grid-item" alt="Listing on MLS" aria-description='Listing on MLS'>
                   <label htmlFor='mlssellingprice' alt="Selling Price"  aria-description='Selling Price'>Selling Price</label>
                   <TextField id='mlssellingprice' type="number" value={sellingPrice}  alt="Selling Price on MLS" aria-label='Selling Price on MLS' aria-description='Selling Price on MLS' readOnly fullWidth />

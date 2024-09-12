@@ -9,10 +9,10 @@ const About = () => {
           <div className="row text-center">
             <div className="mx-auto lg:col-10">
               <h1 className="font-primary font-bold pb-[30px]" aria-label="About Us">About Us</h1>
-              <p className="mt-4 pb-[30px]">
+              <p className="mt-4 pb-[30px] dark:text-contrast light:text-dark">
                 {markdownify("Welcome to our website. We are dedicated to providing the best services to our customers.")}
               </p>
-              <p className="mt-4 pb-[30px]">
+              <p className="mt-4 pb-[30px] dark:text-contrast light:text-dark">
                 {markdownify("Our mission is to deliver high-quality solutions that meet your needs.")}
               </p>
             </div>

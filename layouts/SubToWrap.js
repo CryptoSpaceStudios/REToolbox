@@ -1,4 +1,3 @@
-// Part 1
 import React, { useEffect, useState, useContext } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -31,7 +30,6 @@ function SubtoCalc({ data }) {
   const [mortgageInterest, setMortgageInterest] = useState('');
   const [acqMortgagePayment, setAcqMortgagePayment] = useState('');
 
-
   useEffect(() => {
     const hash = router.asPath.split('#')[1];
     const hashToIndex = {
@@ -46,25 +44,25 @@ function SubtoCalc({ data }) {
   const handleChange = (event, newValue) => { setValue(newValue); };
 
   return (
-    // Part 2
     <section className="section">
       <div className="container">
-        {markdownify(title, "h1", "text-center font-normal")}<br />
-        {markdownify(heading, "h3", "text-center font-normal")}
+        {markdownify(title, "h1", "text-center font-normal dark:text-white")}<br />
+        {markdownify(heading, "h3", "text-center font-normal dark:text-white")}
         <Grid container justifyContent="center" className='mt-6'>
           <Grid item xs={12} md={9} >
-            <Card >
-              <Box sx={{ width: '100%', height: '100%', minHeight: '1150px' }} className='bg-theme-light dark:bg-theme-dark'>
-                <Box  >
+            <Card className='light:bg-white dark:bg-theme-dark'>
+              <Box sx={{ width: '100%', height: '100%', minHeight: '1150px' }} className='light:bg-white dark:bg-theme-dark'>
+                <Box>
                   <Tabs value={value} onChange={handleChange} centered aria-label="Return on Investment Calculators"
-                    sx={{ '.MuiTab-root': {   color: '#222' },
-                          '.MuiTab-root.Mui-selected': { fontWeight: 'bold', color: '#ff0000' },
-                          '.MuiTabs-indicator': { backgroundColor: '#ff0000' },
-                        }}
-                      >
-                    <Tab label="Entry Fee" />
-                    <Tab label="Acquisition" />
-                    <Tab label="Disposition" />
+                    sx={{ 
+                      '.MuiTab-root': { color: '#222' },
+                      '.MuiTab-root.Mui-selected': { fontWeight: 'bold', color: '#ff0000' },
+                      '.MuiTabs-indicator': { backgroundColor: '#ff0000' },
+                    }}
+                  >
+                    <Tab label="Entry Fee" className='dark:text-white' />
+                    <Tab label="Acquisition" className='dark:text-white' />
+                    <Tab label="Disposition" className='dark:text-white' />
                   </Tabs>
                   <Box sx={{ p: 3 }} />
                 </Box>
@@ -74,18 +72,18 @@ function SubtoCalc({ data }) {
                       <MortgagePiContext.Provider value={{ mortgagePi, setMortgagePi }}>
                         <MortgageInterestContext.Provider value={{ mortgageInterest, setMortgageInterest }}>
                           {value === 0 && (
-                            <>{markdownify(entrytitle, "h3", "text-center font-normal")}<br />
-                            <div><EntryFeeForm /></div>
+                            <>{markdownify(entrytitle, "h3", "text-center font-normal dark:text-white")}<br />
+                            <div className='dark:text-white'><EntryFeeForm /></div>
                             </>                  
                           )}
                           {value === 1 && (
-                            <>{markdownify(acquisitiontitle, "h3", "text-center font-normal")}<br />
-                            <div><AcquisitionForm /></div>
+                            <>{markdownify(acquisitiontitle, "h3", "text-center font-normal dark:text-white")}<br />
+                            <div className='dark:text-white'><AcquisitionForm /></div>
                             </>                  
                           )}
                           {value === 2 && (
-                            <>{markdownify(dispositiontitle, "h3", "text-center font-normal")}<br />
-                            <div><DispositionForm /></div>
+                            <>{markdownify(dispositiontitle, "h3", "text-center font-normal dark:text-white")}<br />
+                            <div className='dark:text-white'><DispositionForm /></div>
                             </>
                           )}
                         </MortgageInterestContext.Provider>
