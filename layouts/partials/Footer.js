@@ -29,14 +29,18 @@ const Footer = () => {
                       <ul className="" aria-label={`Footer section ${col.name}`}>
                         {col?.menu.map((item) => (
                           <li key={item.text} className="mb-5">
-                            <Link 
-                              className={`support-links ${ router.asPath === item.url ? "support-links-active" : "" }`}
-                              href={item.url} 
-                              rel=""
-                              aria-label={`Link to ${item.text}`} 
-                            >
-                              {item.text}
-                            </Link>
+                            {item.url ? (
+                              <Link 
+                                className={`support-links ${ router.asPath === item.url ? "support-links-active" : "" }`}
+                                href={item.url} 
+                                rel=""
+                                aria-label={`Link to ${item.text}`} 
+                              >
+                                {item.text}
+                              </Link>
+                            ) : (
+                              <span>{item.text}</span>
+                            )}
                           </li>
                         ))}
                       </ul>
