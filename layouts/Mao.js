@@ -11,7 +11,7 @@ const rehabLevels = [
 ];
 
 function MaoCalculator({ data }) {
-	const { frontmatter } = data;
+  const { frontmatter } = data;
   const { title, heading, maos } = frontmatter;
   const [address, setAddress] = useState("");
   const [sqft, setSqft] = useState(0);
@@ -41,6 +41,7 @@ function MaoCalculator({ data }) {
       setMao(arv - realtorCommissions - titleCost - closingCosts - inspectionFees - rehabCost - wholesaleFee);
     }
   }, [arv, realtorCommissions, titleCost, closingCosts, inspectionFees, rehabCost, wholesaleFee]);
+
   const validateForm = () => {
     let newErrors = {};
 
@@ -71,13 +72,14 @@ function MaoCalculator({ data }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+      // Handle form submission
     }
   };
 
   return (
     <Grid container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }} mb={5}>
       <Container maxWidth="md" role='region' aria-label='Maximum Allowable Offer Calculator'>
-        <Typography variant="h2" component="h2" gutterBottom style={{ textAlign: 'center' }} className="dark:text-white">{frontmatter.title}</Typography>
+        <Typography variant="h2" component="h2" gutterBottom style={{ textAlign: 'center' }} className="dark:text-white">{title}</Typography>
 
         <Box>
           {mao > 0 ? (
@@ -85,7 +87,7 @@ function MaoCalculator({ data }) {
               The MAO for this property is ${mao.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </Typography>
           ) : (
-            <Typography variant="h5" component="h5" gutterBottom style={{ textAlign: 'center' }} className="dark:text-white">{frontmatter.heading}</Typography>
+            <Typography variant="h5" component="h5" gutterBottom style={{ textAlign: 'center' }} className="dark:text-white">{heading}</Typography>
           )}
         </Box>
 
@@ -93,151 +95,124 @@ function MaoCalculator({ data }) {
           <Card sx={{ width: '100%', maxWidth: '800px', boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px', margin: 'auto' }} role='region' aria-label='MAO Form' className='light:bg-white dark:bg-theme-dark'>
             <CardContent role='region' aria-label='MAO Form Content' className='light:text-dark dark:text-white'>
               <form onSubmit={handleSubmit} role='form' aria-label='MAO Form'>
-                <Grid container spacing={3} mt={5} mb={5}  direction="column" role='grid' aria-label='MAO Form Grid'>
-
-
+                <Grid container spacing={3} mt={5} mb={5} direction="column" role='grid' aria-label='MAO Form Grid'>
                   {/* Top of MAO Form grid */}
-                <Grid item
-                    role='gridcell'
-                    aria-label='Square Footage'>
-                <InputLabel 
-                    htmlFor='sqftage'
-                    id="sqft-label" className="dark:text-white">Square Footage</InputLabel>
-                  <TextField
-                    id='sqftage'
-                    fullWidth
-                    required
-                    error={!!errors.sqft}
-                    helperText={errors.sqft}
-                    value={sqft}
-                    type="number"
-                    onChange={(e) => setSqft(e.target.value)}
-                    aria-label='Square Footage'
-                  />
-                </Grid>
-                <Grid item
-                    role='gridcell'
-                    aria-label='After Repair Value (ARV)'>
-                <InputLabel 
-                    htmlFor='arrrvvv'
-                    id="arv-label" className="dark:text-white">After Repair Value (ARV)</InputLabel>
-                  <TextField
-                    id='arrrvvv'
-                    fullWidth
-                    required
-                    error={!!errors.arv}
-                    helperText={errors.arv}
-                    value={arv}
-                    type="number"
-                    onChange={(e) => setArv(e.target.value)}
-                    aria-label='After Repair Value (ARV)'
-                  />
-                </Grid>
-                <Grid item
-                  role='gridcell'
-                  aria-label='Rehab Level'>
-                <InputLabel 
-                      htmlFor='rehabamount'
-                      id="rehab-label" className="dark:text-white">Rehab Level</InputLabel>
-                  <FormControl fullWidth error={!!errors.rehabLevel}>
-                    <Select
-                      id='rehabamount'
-                      labelId="rehab-level-label"
-                      value={rehabLevel}
-                      aria-label='Rehab Level'
-                      onChange={(e) => setRehabLevel(e.target.value)}
-                    >
-                      {rehabLevels.map((level, index) => (
-                        <MenuItem key={index} value={level.value}>
-                          {level.label} ($ {level.value}/sqft)
-                        </MenuItem>
-                      ))}
-                    </Select>
-                    {errors.rehabLevel && <FormHelperText>{errors.rehabLevel}</FormHelperText>}
-                  </FormControl>
-                </Grid>
-                <Grid item
-                  role='gridcell'
-                  aria-label='Realtor Commission'>
-                <InputLabel htmlFor='realtorcommissions' id="rcomm-label" className="dark:text-white">Realtor Commission (3%)</InputLabel>
-                  <TextField
-                    id='realtorcommissions'
-                    fullWidth
-                    required
-                    disabled
-                    value={realtorCommissions.toFixed(2)}
-                    aria-label='Realtor Commission'
-                  />
-                </Grid>
-                <Grid item
-                    role='gridcell'
-                    aria-label='Title Costs'>
-                <InputLabel htmlFor='titlecosts' id="tcost-label" className="dark:text-white">Title Costs (0.55%)</InputLabel>
-                  <TextField
-                    id='titlecosts'
-                    fullWidth
-                    required
-                    disabled
-                    value={titleCost.toFixed(2)}
-                    aria-label='Title Costs'
-                  />
-                </Grid>
-                <Grid item
-                  role='gridcell'
-                  aria-label='Closing Costs'>
-                <InputLabel htmlFor='closingcosts' id="ccost-label" className="dark:text-white">Closing Costs (8%)</InputLabel>
-                  <TextField
-                    id='closingcosts'
-                    fullWidth
-                    required
-                    disabled
-                    value={closingCosts.toFixed(2)}
-                    aria-label='Closing Costs'
-                  />
-                </Grid>
-                <Grid item
-                  role='gridcell'
-                  aria-label='Rehab Cost'>
-                <InputLabel htmlFor='rehabcost' id="rehabcost-label" className="dark:text-white">Rehab Cost</InputLabel>
-                  <TextField
-                    id='rehabcost'
-                    fullWidth
-                    required
-                    disabled
-                    value={rehabCost.toFixed(2)}
-                    aria-label='Rehab Cost'
-                  />
-                </Grid>
-                <Grid item
-                  role='gridcell'
-                  aria-label='Wholesale Fee'>
-                <InputLabel htmlFor='wholesale' id="wholesale-label" className="dark:text-white">Wholesale Fee (Change if Needed)</InputLabel>
-                  <TextField
-                    id='wholesale'
-                    fullWidth
-                    required
-                    error={!!errors.wholesaleFee}
-                    helperText={errors.wholesaleFee}
-                    value={wholesaleFee.toFixed(2)}
-                    type="number"
-                    onChange={(e) => setWholesaleFee(e.target.value)}
-                    aria-label='Wholesale Fee'
-                  />
-                </Grid>
-                <Grid item
-                  role='gridcell'
-                  aria-label='Maximum Allowable Offer'>
-                <InputLabel htmlFor='maototal' id="mao-label" className="dark:text-white">Maximum Allowable Offer</InputLabel>
-                  <TextField
-                    id='maototal'
-                    fullWidth
-                    required
-                    disabled
-                    value={mao === 0 ? '' : mao.toFixed(2)}
-                    aria-label='Maximum Allowable Offer'
-                  />
-                </Grid>
-
+                  <Grid item role='gridcell' aria-label='Square Footage'>
+                    <InputLabel htmlFor='sqftage' id="sqft-label" className="dark:text-white">Square Footage</InputLabel>
+                    <TextField
+                      id='sqftage'
+                      fullWidth
+                      required
+                      error={!!errors.sqft}
+                      helperText={errors.sqft}
+                      value={sqft}
+                      type="number"
+                      onChange={(e) => setSqft(e.target.value)}
+                      aria-label='Square Footage'
+                    />
+                  </Grid>
+                  <Grid item role='gridcell' aria-label='After Repair Value (ARV)'>
+                    <InputLabel htmlFor='arrrvvv' id="arv-label" className="dark:text-white">After Repair Value (ARV)</InputLabel>
+                    <TextField
+                      id='arrrvvv'
+                      fullWidth
+                      required
+                      error={!!errors.arv}
+                      helperText={errors.arv}
+                      value={arv}
+                      type="number"
+                      onChange={(e) => setArv(e.target.value)}
+                      aria-label='After Repair Value (ARV)'
+                    />
+                  </Grid>
+                  <Grid item role='gridcell' aria-label='Rehab Level'>
+                    <InputLabel htmlFor='rehabamount' id="rehab-label" className="dark:text-white">Rehab Level</InputLabel>
+                    <FormControl fullWidth error={!!errors.rehabLevel}>
+                      <Select
+                        id='rehabamount'
+                        labelId="rehab-level-label"
+                        value={rehabLevel}
+                        aria-label='Rehab Level'
+                        onChange={(e) => setRehabLevel(e.target.value)}
+                      >
+                        {rehabLevels.map((level, index) => (
+                          <MenuItem key={index} value={level.value}>
+                            {level.label} ($ {level.value}/sqft)
+                          </MenuItem>
+                        ))}
+                      </Select>
+                      {errors.rehabLevel && <FormHelperText>{errors.rehabLevel}</FormHelperText>}
+                    </FormControl>
+                  </Grid>
+                  <Grid item role='gridcell' aria-label='Realtor Commission'>
+                    <InputLabel htmlFor='realtorcommissions' id="rcomm-label" className="dark:text-white">Realtor Commission (3%)</InputLabel>
+                    <TextField
+                      id='realtorcommissions'
+                      fullWidth
+                      required
+                      disabled
+                      value={realtorCommissions.toFixed(2)}
+                      aria-label='Realtor Commission'
+                    />
+                  </Grid>
+                  <Grid item role='gridcell' aria-label='Title Costs'>
+                    <InputLabel htmlFor='titlecosts' id="tcost-label" className="dark:text-white">Title Costs (0.55%)</InputLabel>
+                    <TextField
+                      id='titlecosts'
+                      fullWidth
+                      required
+                      disabled
+                      value={titleCost.toFixed(2)}
+                      aria-label='Title Costs'
+                    />
+                  </Grid>
+                  <Grid item role='gridcell' aria-label='Closing Costs'>
+                    <InputLabel htmlFor='closingcosts' id="ccost-label" className="dark:text-white">Closing Costs (8%)</InputLabel>
+                    <TextField
+                      id='closingcosts'
+                      fullWidth
+                      required
+                      disabled
+                      value={closingCosts.toFixed(2)}
+                      aria-label='Closing Costs'
+                    />
+                  </Grid>
+                  <Grid item role='gridcell' aria-label='Rehab Cost'>
+                    <InputLabel htmlFor='rehabcost' id="rehabcost-label" className="dark:text-white">Rehab Cost</InputLabel>
+                    <TextField
+                      id='rehabcost'
+                      fullWidth
+                      required
+                      disabled
+                      value={rehabCost.toFixed(2)}
+                      aria-label='Rehab Cost'
+                    />
+                  </Grid>
+                  <Grid item role='gridcell' aria-label='Wholesale Fee'>
+                    <InputLabel htmlFor='wholesale' id="wholesale-label" className="dark:text-white">Wholesale Fee (Change if Needed)</InputLabel>
+                    <TextField
+                      id='wholesale'
+                      fullWidth
+                      required
+                      error={!!errors.wholesaleFee}
+                      helperText={errors.wholesaleFee}
+                      value={wholesaleFee.toFixed(2)}
+                      type="number"
+                      onChange={(e) => setWholesaleFee(e.target.value)}
+                      aria-label='Wholesale Fee'
+                    />
+                  </Grid>
+                  <Grid item role='gridcell' aria-label='Maximum Allowable Offer'>
+                    <InputLabel htmlFor='maototal' id="mao-label" className="dark:text-white">Maximum Allowable Offer</InputLabel>
+                    <TextField
+                      id='maototal'
+                      fullWidth
+                      required
+                      disabled
+                      value={mao === 0 ? '' : mao.toFixed(2)}
+                      aria-label='Maximum Allowable Offer'
+                    />
+                  </Grid>
                 </Grid>
               </form>
             </CardContent>
