@@ -14,8 +14,6 @@ module.exports = withPlugins([
 ], {
   distDir: 'build',
  
-  basePath: '/my-app',
-  assetPrefix: 'https://cdn.example.com',
   poweredByHeader: false,
   reactStrictMode: true,
   images: {
