@@ -41,7 +41,7 @@ const Home = ({ frontmatter }) => {
                 height={390}
                 alt="banner image"
                 priority
-                style={{ width: 'auto', height: 'auto' }} // Ensure aspect ratio is maintained
+                style={{ width: 'auto', height: '390px' }} // Ensure aspect ratio is maintained
               />
             </div>
           </div>
