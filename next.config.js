@@ -2,9 +2,16 @@
  * @type {import('next').NextConfig}
  */
 
-const nextConfig = {
-  reactStrictMode: true,
-  compiler: { styledComponents: true,},
-};
+const withPlugins = require('next-compose-plugins');
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+});
 
-module.exports = nextConfig;
+module.exports = withPlugins([
+  [withMDX, {
+    pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  }],
+], {
+  distDir: 'build',
+  // Other Next.js configuration options
+});
