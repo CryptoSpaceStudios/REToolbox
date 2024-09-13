@@ -60,22 +60,6 @@ const RegularPage = ({ frontmatter, mdxContent }) => {
     );
   }
 
-  if (regular === 'privacypolicy') {
-    return (
-      <Base title={frontmatter.title} description={frontmatter.description}>
-        <Privacy data={{ frontmatter, mdxContent }} />
-      </Base>
-    );
-  }
-
-  if (regular === 'faq') {
-    return (
-      <Base title={frontmatter.title} description={frontmatter.description}>
-        <Faq data={{ frontmatter, mdxContent }} />
-      </Base>
-    );
-  }
-
   // Handle other dynamic paths
   return (
     <Base title={frontmatter.title} description={frontmatter.description}>
