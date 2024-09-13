@@ -48,7 +48,7 @@ function Roi({ data }) {
   };
 
   return (
-    <section className="section">
+    <section className="section" role="region" aria-label="Return on Investment Calculators">
       <div className="container">
         {markdownify(title, "h1", "text-center font-normal")}<br />
         {markdownify(heading, "h3", "text-center font-normal")}
@@ -56,47 +56,41 @@ function Roi({ data }) {
           <Grid item xs={12} md={9} >
             <Card>
               <Box sx={{ width: '100%', minHeight: '1350px' }} className='bg-theme-light dark:bg-theme-dark'>
-                <Box  >
+                <Box role="tablist" aria-label="ROI Calculator Tabs">
                   <Tabs value={value} onChange={handleChange} centered aria-label="Return on Investment Calculators"
                     sx={{ '.MuiTab-root': { fontSize: '1rem',  color: '#222' },
                           '.MuiTab-root.Mui-selected': { fontSize: '1rem', fontWeight: 'bold', color: '#ff0000' },
                           '.MuiTabs-indicator': { backgroundColor: '#ff0000' },
                         }}
                       >
-                    <Tab label="Buy N Hold" />
-                    <Tab label="Fix N Flip" />
-                    <Tab label="Rentals" />
-                    <Tab label="Wholesale" />
+                    <Tab label="Buy N Hold" role="tab" aria-selected={value === 0} id="tab-buyAndHold" aria-controls="panel-buyAndHold" />
+                    <Tab label="Fix N Flip" role="tab" aria-selected={value === 1} id="tab-fixAndFlip" aria-controls="panel-fixAndFlip" />
+                    <Tab label="Rentals" role="tab" aria-selected={value === 2} id="tab-rentals" aria-controls="panel-rentals" />
+                    <Tab label="Wholesale" role="tab" aria-selected={value === 3} id="tab-wholesale" aria-controls="panel-wholesale" />
                   </Tabs>
                   <Box sx={{ p: 3 }} />
                 </Box>
 
-                {value === 0 && (
-                  <>{markdownify(bnhtitle, "h3", "text-center text-black dark:text-white font-normal")}<br />
+                <div role="tabpanel" id="panel-buyAndHold" aria-labelledby="tab-buyAndHold" hidden={value !== 0}>
+                  {markdownify(bnhtitle, "h3", "text-center text-black dark:text-white font-normal")}<br />
                   {markdownify(bnhsubtitle, "h5", "text-center text-black dark:text-white font-normal")}<br />
                   <div><BnHForm /></div>
-                  </>
-                  
-                )}
-                {value === 1 && (
-                  <>{markdownify(fnftitle, "h3", "text-center text-black dark:text-white font-normal")}<br />
+                </div>
+                <div role="tabpanel" id="panel-fixAndFlip" aria-labelledby="tab-fixAndFlip" hidden={value !== 1}>
+                  {markdownify(fnftitle, "h3", "text-center text-black dark:text-white font-normal")}<br />
                   {markdownify(fnfsubtitle, "h5", "text-center text-black dark:text-white font-normal")}<br />
                   <div><FnFForm /></div>
-                  </>
-                  
-                )}
-                {value === 2 && (
-                  <>{markdownify(strmtrtitle, "h3", "text-center text-black dark:text-white font-normal")}<br />
+                </div>
+                <div role="tabpanel" id="panel-rentals" aria-labelledby="tab-rentals" hidden={value !== 2}>
+                  {markdownify(strmtrtitle, "h3", "text-center text-black dark:text-white font-normal")}<br />
                   {markdownify(strmtrsubtitle, "h5", "text-center text-black dark:text-white font-normal")}<br />
                   <div><StrMtrForm/></div>
-                  </>
-                )}
-                {value === 3 && (
-                  <>{markdownify(wholesaletitle, "h3", "text-center text-black dark:text-white font-normal")}<br />
+                </div>
+                <div role="tabpanel" id="panel-wholesale" aria-labelledby="tab-wholesale" hidden={value !== 3}>
+                  {markdownify(wholesaletitle, "h3", "text-center text-black dark:text-white font-normal")}<br />
                   {markdownify(wholesalesubtitle, "h5", "text-center text-black dark:text-white font-normal")}<br />
                   <div><WholesaleForm /></div>
-                  </>
-                )}
+                </div>
 
               </Box>
             </Card>
@@ -105,7 +99,6 @@ function Roi({ data }) {
       </div>
     </section>
   );
-  
 }
 
 export default Roi;

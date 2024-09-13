@@ -17,7 +17,7 @@ const Home = ({ frontmatter }) => {
   return (
     <Base title={title} description={description} keywords={keywords} author={author} url={url} twitterHandle={twitterHandle}>
       {/* Banner */}
-      <section className="section pb-[50px]" aria-label="Main Page">
+      <section className="section pb-[50px]" aria-label="Main Page Banner">
         <div className="container">
           <div className="row text-center">
             <div className="mx-auto lg:col-10">
@@ -29,6 +29,7 @@ const Home = ({ frontmatter }) => {
                   className="btn btn-primary mt-4"
                   href={banner.button.link}
                   rel={banner.button.rel}
+                  aria-label={banner.button.label}
                 >
                   {banner.button.label}
                 </Link>
@@ -40,6 +41,7 @@ const Home = ({ frontmatter }) => {
                 height={390}
                 alt="banner image"
                 priority
+                style={{ width: 'auto', height: 'auto' }} // Ensure aspect ratio is maintained
               />
             </div>
           </div>
@@ -47,7 +49,7 @@ const Home = ({ frontmatter }) => {
       </section>
 
       {/* Features */}
-      <section className="section light:bg-theme-light dark:bg-theme-dark" aria-label='Featured Tools'>
+      <section className="section light:bg-theme-light dark:bg-theme-dark" aria-label="Featured Tools">
         <div className="container">
           <div className="text-center">
             <h2 className="mb-4 dark:text-white" aria-label={feature.title}>{markdownify(feature.title)}</h2>
@@ -70,6 +72,7 @@ const Home = ({ frontmatter }) => {
                     height={30}
                     alt={item.name}
                     title={item.name}
+                    style={{ width: '150px', height: 'auto' }} // Ensure aspect ratio is maintained
                   />
                 )}
                 <div className="mt-4 text-dark">
@@ -82,13 +85,14 @@ const Home = ({ frontmatter }) => {
         </div>
       </section>
 
-      {/* services */}
+      {/* Services */}
       {services.map((service, index) => {
         const isOdd = index % 2 > 0;
         return (
           <section
             key={`service-${index}`}
             className={`section ${isOdd && "light:bg-theme-light dark:bg-theme-dark"}`}
+            aria-label={`Service ${index + 1}`}
           >
             <div className="container">
               <div className="items-center gap-8 md:grid md:grid-cols-2">
@@ -108,7 +112,7 @@ const Home = ({ frontmatter }) => {
                     {/* Slides */}
                     {service?.images.map((slide, index) => (
                       <SwiperSlide key={index}>
-                        <Image className="clickityclack" src={slide} alt="RE Toolbox" width={600} height={500} />
+                        <Image className="clickityclack" src={slide} alt="RE Toolbox" width={600} height={500} style={{ width: 'auto', height: 'auto' }} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -121,11 +125,12 @@ const Home = ({ frontmatter }) => {
                   } `}
                 >
                   <h2 className="font-bold leading-[40px] dark:text-contrast light:text-dark">{service?.title}</h2>
-                  <p className="mt-4 mb-2 dark:text-contrast light:text-dark">If you have a great idea for a tool that would be useful for Real Estate Investors, Let us know via the Contact page! ~~~ Examples are useful, so please include any examples or links to examples of the tool in question if you have any</p>
+                  <p className="mt-4 mb-2 dark:text-contrast light:text-dark">{service?.content}</p>
                   {service.button.enable && (
                     <Link
                       href={service?.button.link}
                       className="cta-link inline-flex items-center dark:text-contrast light:text-dark"
+                      aria-label={service?.button.label}
                     >
                       {service?.button.label}
                       <Image
@@ -134,6 +139,7 @@ const Home = ({ frontmatter }) => {
                         width={18}
                         height={14}
                         alt="arrow"
+                        style={{ width: '50px', height: 'auto' }} // Ensure aspect ratio is maintained
                       />
                     </Link>
                   )}

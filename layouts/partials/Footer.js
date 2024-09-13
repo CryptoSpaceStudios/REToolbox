@@ -66,6 +66,7 @@ const Footer = () => {
                     height={config.site.logo_height}
                     alt={config.site.logo_text}
                     aria-label={config.site.logo_text}
+                    style={{ width: 'auto', height: 'auto' }} // Ensure aspect ratio is maintained
                   />
                 </Link>
               </div>
@@ -78,7 +79,7 @@ const Footer = () => {
         <Grid container justifyContent="center" alignItems="center" style={{marginTop: '1em'}}>
             <Grid item xs={12}>
                 <div className="border-t border-border py-6 text-sm text-center dark:text-white" aria-label="Copyright information">
-                  ©{new Date().getFullYear()}{" "} {markdownify(config.site.logo_text)}
+                  ©{new Date().getFullYear()} &nbsp;{config.site.title} &nbsp;{config.site.title1}
                 </div>
             </Grid>
         </Grid>

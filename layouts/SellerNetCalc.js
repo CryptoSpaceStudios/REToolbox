@@ -92,6 +92,7 @@ function SellerNetCalc({ data }) {
           alignItems: 'center', 
           justifyContent: 'center' 
         }}
+        aria-live="polite"
       >
         <Typography variant="h4">
           You save roughly 
@@ -107,7 +108,7 @@ function SellerNetCalc({ data }) {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }} mb={8} ref={contentRef}>
+    <Box sx={{ flexGrow: 1 }} mb={8} ref={contentRef} role="region" aria-label="Seller Net Calculator">
       <Grid container direction="row" justifyContent="center" alignItems="center">
         <Grid item xs={10} sm={7} md={5} lg={9}>
           <Box

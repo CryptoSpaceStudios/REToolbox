@@ -76,12 +76,12 @@ function MaoCalculator({ data }) {
 
   return (
     <Grid container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }} mb={5}>
-      <Container maxWidth="md" role='region' aria-label='MAO'>
+      <Container maxWidth="md" role='region' aria-label='Maximum Allowable Offer Calculator'>
         <Typography variant="h2" component="h2" gutterBottom style={{ textAlign: 'center' }} className="dark:text-white">{frontmatter.title}</Typography>
 
         <Box>
           {mao > 0 ? (
-            <Typography variant="h4" component="h2" gutterBottom style={{ textAlign: 'center', color: 'blue', fontWeight: 'bold' }}>
+            <Typography variant="h4" component="h2" gutterBottom style={{ textAlign: 'center', color: 'blue', fontWeight: 'bold' }} aria-live="polite" aria-atomic="true">
               The MAO for this property is ${mao.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </Typography>
           ) : (
@@ -90,10 +90,10 @@ function MaoCalculator({ data }) {
         </Box>
 
         <Box sx={{ display: 'flex', justifyContent: 'center' }} >
-          <Card sx={{ width: '100%', maxWidth: '800px', boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px', margin: 'auto' }} role='region' aria-label='MAO' className='light:bg-white dark:bg-theme-dark'>
-            <CardContent role='region' aria-label='MAO' className='light:text-dark dark:text-white'>
-              <form onSubmit={handleSubmit} role='form' aria-label='MAO'>
-                <Grid container spacing={3} mt={5} mb={5}  direction="column" role='grid' aria-label='MAO'>
+          <Card sx={{ width: '100%', maxWidth: '800px', boxShadow: '0 0 10px rgba(0, 0, 0, 1)', borderRadius: '16px', margin: 'auto' }} role='region' aria-label='MAO Form' className='light:bg-white dark:bg-theme-dark'>
+            <CardContent role='region' aria-label='MAO Form Content' className='light:text-dark dark:text-white'>
+              <form onSubmit={handleSubmit} role='form' aria-label='MAO Form'>
+                <Grid container spacing={3} mt={5} mb={5}  direction="column" role='grid' aria-label='MAO Form Grid'>
 
 
                   {/* Top of MAO Form grid */}
