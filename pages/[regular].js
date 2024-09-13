@@ -28,6 +28,38 @@ const RegularPage = ({ frontmatter, mdxContent }) => {
     );
   }
 
+  if (regular === 'roi') {
+    return (
+      <Base title={frontmatter.title} description={frontmatter.description}>
+        <Roi data={{ frontmatter, mdxContent }} />
+      </Base>
+    );
+  }
+
+  if (regular === 'sellernetcalc') {
+    return (
+      <Base title={frontmatter.title} description={frontmatter.description}>
+        <SellerNetCalc data={{ frontmatter, mdxContent }} />
+      </Base>
+    );
+  }
+
+  if (regular === 'subtocalc') {
+    return (
+      <Base title={frontmatter.title} description={frontmatter.description}>
+        <SubtoCalc data={{ frontmatter, mdxContent }} />
+      </Base>
+    );
+  }
+
+  if (regular === 'contact') {
+    return (
+      <Base title={frontmatter.title} description={frontmatter.description}>
+        <Contact data={{ frontmatter, mdxContent }} />
+      </Base>
+    );
+  }
+
   // Handle other dynamic paths
   return (
     <Base title={frontmatter.title} description={frontmatter.description}>
