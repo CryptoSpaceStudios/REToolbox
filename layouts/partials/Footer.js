@@ -66,6 +66,7 @@ const Footer = () => {
                     height={config.site.logo_height}
                     alt={config.site.logo_text}
                     aria-label={config.site.logo_text}
+                    style={{ width: 'auto', height: 'auto' }} // Ensure aspect ratio is maintained
                   />
                 </Link>
               </div>

@@ -2,7 +2,7 @@
 banner:
   title: The Real Estate Investor's Toolbox
   heading: Turning Properties into Profits
-  content: Experience the future of real estate investing with the Real Estate Investors Toolbox. Designed to make deal writing a breeze, this toolbox offers an array of useful tools, including the seller net calculator and MAO calculator. Say goodbye to manual calculations and hello to streamlined efficiency. Invest with confidence and unlock your full potential with this must-have resource.
+  content: Experience the future of real estate investing with the Real Estate Investors Toolbox. </br></br>Designed to make deal writing a breeze, this toolbox offers an array of useful tools, including the seller net calculator, MAO calculator, ROI Calculator, Subject-To Calculator and more.</br></br> Say goodbye to manual calculations and hello to streamlined efficiency. Invest with confidence and unlock your full potential with this must-have resource.
   image: /images/banner-top.svg
   button:
     label: "Contact Us"
