@@ -3,8 +3,7 @@ User-agent: *
 Disallow: /api/*
 
 # Host
-Host: https://retoolbox-git-dev-cssweb.vercel.app/
+Host: https://retoolbox.netlify.app
 
 # Sitemaps
-Sitemap: https://retoolbox-git-dev-cssweb.vercel.app/sitemap.xml
-Sitemap: https://SITEGOESHERE/sitemap.xml
+Sitemap: https://retoolbox.netlify.app/sitemap.xml
