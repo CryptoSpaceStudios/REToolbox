@@ -19,6 +19,15 @@ const RegularPage = ({ frontmatter, mdxContent }) => {
   const router = useRouter();
   const { regular } = router.query;
 
+  // Handle specific pages
+  if (regular === 'mao') {
+    return (
+      <Base title={frontmatter.title} description={frontmatter.description}>
+        <Mao data={{ frontmatter, mdxContent }} />
+      </Base>
+    );
+  }
+
   // Handle other dynamic paths
   return (
     <Base title={frontmatter.title} description={frontmatter.description}>
