@@ -34,6 +34,7 @@
     "@wagmi/connectors": "^5.1.9",
     "axios": "^1.4.0",
     "ethers": "^6.13.2",
+    "fs": "^0.0.1-security",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "html2canvas": "^1.4.1",

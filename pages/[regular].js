@@ -5,72 +5,45 @@ import Default from "@layouts/Default";
 import Faq from "@layouts/Faq";
 import Mao from "@layouts/Mao";
 import Pricing from "@layouts/Pricing";
-import SellerNetCalc from "@layouts/SellerNetCalc"
+import SellerNetCalc from "@layouts/SellerNetCalc";
 import Zillowfsbo from "@layouts/ZillowFsbo";
-import Tos from "@layouts/Tos";
 import Privacy from "@layouts/PrivacyPolicy";
 import Roi from "@layouts/Roi";
 import SubtoCalc from "@layouts/SubToWrap";
 import CensusData from "@layouts/CensusData";
-
 import { getRegularPage, getSinglePage } from "@lib/contentParser";
+import { useRouter } from 'next/router';
+import { MDXRemote } from 'next-mdx-remote';
 
-// for all regular pages
-const RegularPages = ({ data }) => {
-  if (!data || !data.frontmatter) {
-    return <NotFound />;
-  }
+const RegularPage = ({ frontmatter, mdxContent }) => {
+  const router = useRouter();
+  const { regular } = router.query;
 
-  const { title, meta_title, description, image, noindex, canonical, layout } = data.frontmatter;
-  const { content } = data;
-
+  // Handle other dynamic paths
   return (
-    <Base
-      title={title}
-      description={description ? description : content.slice(0, 120)}
-      meta_title={meta_title}
-      image={image}
-      noindex={noindex}
-      canonical={canonical}
-    >
-      {layout === "404" ? (
-        <NotFound data={data} />
-      ) : layout === "contact" ? (
-        <Contact data={data} />
-      ) : layout === "pricing" ? (
-        <Pricing data={data} />
-      ) : layout === "faq" ? (
-        <Faq data={data} />
-      ) : layout === "sellernetcalc" ? (
-        <SellerNetCalc data={data} />
-      ) : layout === "mao" ? (
-        <Mao data={data} />
-      ) : layout === "privacypolicy" ? (
-        <Privacy data={data} />
-      ) : layout === "tos" ? (
-        <Tos data={data} />
-      ) : layout === "zillowfsbo" ? (
-        <Zillowfsbo data={data} />
-      ) : layout === "roi" ? (
-        <Roi data={data} />
-      ) : layout === "subtocalc" ? (
-        <SubtoCalc data={data} />
-      ) : layout === "censusdata" ? (
-        <CensusData data={data} />
-      ) : (
-        <Default data={data} />
-      )}
+    <Base title={frontmatter.title} description={frontmatter.description}>
+      <MDXRemote {...mdxContent} />
     </Base>
   );
 };
 
-export const getStaticPaths = async () => {
-  const allslugs = getSinglePage("content");
-  const slugs = allslugs.map((item) => item.slug);
-  const paths = slugs.map((slug) => ({
-    params: {
-      regular: slug,
+export const getStaticProps = async ({ params }) => {
+  const { regular } = params;
+  const page = await getRegularPage(regular);
+  const { frontmatter, mdxContent } = page;
+
+  return {
+    props: {
+      frontmatter,
+      mdxContent,
     },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const pages = await getSinglePage('content');
+  const paths = pages.map((page) => ({
+    params: { regular: page.slug },
   }));
 
   return {
@@ -79,15 +52,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
-  const { regular } = params;
-  const regularPage = await getRegularPage(regular);
-
-  return {
-    props: {
-      data: regularPage,
-    },
-  };
-};
-
-export default RegularPages;
+export default RegularPage;
