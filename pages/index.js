@@ -24,7 +24,7 @@ const Home = ({ frontmatter }) => {
               <h1 className="font-primary font-bold pb-[30px] dark:text-white" aria-label={banner.title}>{banner.title}</h1>
               <h2 className="font-primary font-bold pb-[30px] dark:text-white" aria-label={banner.heading}>{markdownify(banner.heading)}</h2>
               <h4 className="mt-4 pb-[30px] dark:text-white">{markdownify(banner.content)}</h4>
-              {banner.button.enable && (
+              {banner.button.enable && banner.button.link && (
                 <Link
                   className="btn btn-primary mt-4"
                   href={banner.button.link}
@@ -58,7 +58,7 @@ const Home = ({ frontmatter }) => {
           <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {feature.features.map((item, i) => (
               <div
-                onClick={() => { location.href = item.link; }}
+                onClick={() => { if (item.link) location.href = item.link; }}
                 className="feature-card rounded-xl bg-white p-5 pb-8 text-center text-dark"
                 key={`feature-${i}`}
                 aria-label={item.name}
@@ -126,7 +126,7 @@ const Home = ({ frontmatter }) => {
                 >
                   <h2 className="font-bold leading-[40px] dark:text-contrast light:text-dark">{service?.title}</h2>
                   <p className="mt-4 mb-2 dark:text-contrast light:text-dark">{service?.content}</p>
-                  {service.button.enable && (
+                  {service.button.enable && service.button.link && (
                     <Link
                       href={service?.button.link}
                       className="cta-link inline-flex items-center dark:text-contrast light:text-dark"
